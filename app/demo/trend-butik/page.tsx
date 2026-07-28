@@ -80,10 +80,21 @@ export default function TrendButik() {
                     key={p.id}
                     className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60"
                   >
-                    <div className={`relative aspect-square bg-gradient-to-br ${p.color}`}>
-                      <div
-                        className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
-                        aria-hidden
+                    <div className="relative aspect-square bg-zinc-800">
+                      <ImageWithFallback
+                        basePath={`/products/${p.id}`}
+                        alt={p.name}
+                        className="object-contain"
+                        fallback={
+                          <div
+                            className={`relative h-full bg-gradient-to-br ${p.color}`}
+                          >
+                            <div
+                              className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
+                              aria-hidden
+                            />
+                          </div>
+                        }
                       />
                     </div>
                     <div className="p-4">
