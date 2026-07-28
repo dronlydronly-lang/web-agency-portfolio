@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
+import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import { CheckIcon, DocIcon } from "@/app/_lib/icons";
 
 const posts = [
   {
+    id: "design-trends",
     title: "2026-cı ildə veb dizaynda əsas trendlər",
     excerpt: "Minimalizmdən tutmuş hərəkətli interfeyslərə qədər bu il nələr aparıcıdır.",
     more: "Xüsusilə mobil-birinci yanaşma və sürətli yüklənmə artıq seçim deyil, standartdır. Brendlər sadə, aydın mesajlı saytlara üstünlük verir.",
@@ -13,6 +15,7 @@ const posts = [
     date: "12 İyul 2026",
   },
   {
+    id: "why-website",
     title: "Kiçik biznes üçün niyə sayt vacibdir?",
     excerpt: "Sosial media kifayət etmir — öz domenində olmağın üstünlükləri.",
     more: "Öz saytınız olduqda alqoritm dəyişikliklərindən asılı olmursunuz və müştəri sizə birbaşa etibar edir. Həm də WhatsApp, İnstagram kimi kanalları bir yerdə toplaya bilirsiniz.",
@@ -20,6 +23,7 @@ const posts = [
     date: "3 İyul 2026",
   },
   {
+    id: "seo-basics",
     title: "SEO-ya başlanğıc: ilk 5 addım",
     excerpt: "Google-da görünmək üçün saytınızda etməli olduğunuz sadə addımlar.",
     more: "Düzgün başlıqlar, sürətli yüklənmə, mobil uyğunluq, keyfiyyətli məzmun və düzgün açar sözlər — bunlar heç bir xərc olmadan başlaya biləcəyiniz addımlardır.",
@@ -27,6 +31,7 @@ const posts = [
     date: "28 İyun 2026",
   },
   {
+    id: "site-speed",
     title: "Sürətli sayt niyə satışa təsir edir?",
     excerpt: "Yüklənmə sürəti ilə istifadəçi davranışı arasındakı bağlantı.",
     more: "Araşdırmalar göstərir ki, 3 saniyədən çox yüklənən saytları ziyarətçilərin böyük hissəsi tərk edir. Sürət birbaşa satışa çevrilmə faizinə təsir edir.",
