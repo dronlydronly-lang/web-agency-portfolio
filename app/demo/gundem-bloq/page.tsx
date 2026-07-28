@@ -88,7 +88,16 @@ export default function GundemBloq() {
                   key={p.title}
                   className="flex gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5"
                 >
-                  <div className="h-16 w-16 shrink-0 rounded-xl bg-gradient-to-br from-emerald-700 to-teal-500" />
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-zinc-800">
+                    <ImageWithFallback
+                      basePath={`/blog/${p.id}`}
+                      alt={p.title}
+                      className="object-cover"
+                      fallback={
+                        <div className="h-full w-full bg-gradient-to-br from-emerald-700 to-teal-500" />
+                      }
+                    />
+                  </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 text-xs text-zinc-500">
                       <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-emerald-400">
