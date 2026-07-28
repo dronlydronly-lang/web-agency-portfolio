@@ -130,6 +130,40 @@ function ExampleCard({ example }: { example: Example }) {
   );
 }
 
+function ExampleCoverCard({ example }: { example: Example }) {
+  return (
+    <Link
+      href={`/demo/${example.slug}`}
+      className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 transition-all hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10"
+    >
+      <div
+        className={`relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br ${example.color}`}
+      >
+        {/* glossy highlight for a pseudo-3D sheen */}
+        <div
+          className="pointer-events-none absolute -left-10 -top-16 h-40 w-40 rounded-full bg-white/25 blur-2xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,0,0,0.35),transparent_60%)]"
+          aria-hidden
+        />
+        <example.icon className="h-16 w-16 text-white drop-shadow-[0_8px_16px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110" />
+        <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-zinc-950/70 text-amber-400 backdrop-blur">
+          <example.badge className="h-4 w-4" />
+        </div>
+      </div>
+      <div className="p-4">
+        <p className="font-semibold text-white">{example.name}</p>
+        <p className="mt-1 text-sm text-zinc-400">{example.desc}</p>
+        <span className="mt-3 inline-block text-xs font-medium text-amber-400">
+          Demoya bax →
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 function Services() {
   return (
     <section id="xidmetler" className="mx-auto w-full max-w-6xl px-6 py-20">
@@ -140,9 +174,9 @@ function Services() {
         Kartlara klikləyin, hər nümunənin canlı demosuna baxın.
       </p>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {examples.map((ex) => (
-          <ExampleCard key={ex.slug} example={ex} />
+          <ExampleCoverCard key={ex.slug} example={ex} />
         ))}
       </div>
     </section>

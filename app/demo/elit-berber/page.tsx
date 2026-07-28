@@ -1,20 +1,43 @@
-import type { Metadata } from "next";
-import { DemoCTA } from "@/app/_lib/DemoCTA";
-import { DemoShell } from "@/app/_lib/DemoShell";
-import { ClockIcon, MapPinIcon, ScissorsIcon } from "@/app/_lib/icons";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Elit Berber Studio — Nümunə Sayt | WebUsta",
-};
+import { useMemo, useState } from "react";
+import { DemoShell } from "@/app/_lib/DemoShell";
+import { whatsappUrl } from "@/app/_lib/constants";
+import { CalendarIcon, CheckIcon, ClockIcon, MapPinIcon, ScissorsIcon, WhatsAppIcon } from "@/app/_lib/icons";
 
 const services = [
-  { name: "Saç Kəsimi", duration: "30 dəq", price: "15 AZN" },
-  { name: "Saqqal Düzəltmə", duration: "20 dəq", price: "10 AZN" },
-  { name: "Saç + Saqqal", duration: "45 dəq", price: "22 AZN" },
-  { name: "Uşaq Kəsimi", duration: "25 dəq", price: "12 AZN" },
+  { id: "hair", name: "Saç Kəsimi", duration: 30, price: 15 },
+  { id: "beard", name: "Saqqal Düzəltmə", duration: 20, price: 10 },
+  { id: "combo", name: "Saç + Saqqal", duration: 45, price: 22 },
+  { id: "kids", name: "Uşaq Kəsimi", duration: 25, price: 12 },
 ];
 
+const timeSlots = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+
 export default function ElitBerber() {
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
+  const toggle = (id: string) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const chosen = useMemo(() => services.filter((s) => selected.has(s.id)), [selected]);
+  const totalPrice = chosen.reduce((sum, s) => sum + s.price, 0);
+  const totalDuration = chosen.reduce((sum, s) => sum + s.duration, 0);
+  const canBook = chosen.length > 0 && date && time;
+
+  const bookingMessage = () => {
+    const serviceLines = chosen.map((s) => `• ${s.name} — ${s.price} AZN`).join("\n");
+    return `Salam, Elit Berber Studio-da növbə götürmək istəyirəm:\n\n${serviceLines}\n\nTarix: ${date}\nSaat: ${time}\nÜmumi müddət: ${totalDuration} dəq\nÜmumi qiymət: ${totalPrice} AZN`;
+  };
+
   return (
     <DemoShell>
       <div className="bg-zinc-950 text-zinc-100">
@@ -30,43 +53,124 @@ export default function ElitBerber() {
             Elit Berber Studio
           </h1>
           <p className="mx-auto mt-4 max-w-md text-zinc-400">
-            Klassik üslub, peşəkar toxunuş. Növbənizi onlayn təyin edin.
+            Klassik üslub, peşəkar toxunuş. Növbənizi aşağıdan onlayn təyin edin.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-500">
             <span className="flex items-center gap-1.5">
               <MapPinIcon className="h-4 w-4" /> 28 May küç. 12, Bakı
             </span>
             <span className="flex items-center gap-1.5">
-              <ClockIcon className="h-4 w-4" /> 10:00 – 22:00
+              <ClockIcon className="h-4 w-4" /> 10:00 – 19:00
             </span>
           </div>
-          <button
-            type="button"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-7 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
-          >
-            Növbə Götür
-          </button>
         </section>
 
-        <section className="mx-auto max-w-3xl px-6 py-20">
-          <h2 className="text-center text-3xl font-bold text-white">Xidmətlər</h2>
-          <div className="mt-10 flex flex-col gap-3">
-            {services.map((s) => (
-              <div
-                key={s.name}
-                className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/60 px-5 py-4"
-              >
-                <div>
-                  <p className="font-semibold text-white">{s.name}</p>
-                  <p className="text-sm text-zinc-500">{s.duration}</p>
-                </div>
-                <span className="font-semibold text-amber-400">{s.price}</span>
+        <section className="mx-auto max-w-4xl px-6 py-20">
+          <h2 className="text-center text-3xl font-bold text-white">Növbə Götür</h2>
+
+          <div className="mt-10 grid grid-cols-1 gap-4">
+            <p className="text-sm font-medium text-zinc-400">1. Xidmət(ləri) seçin</p>
+            {services.map((s) => {
+              const active = selected.has(s.id);
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => toggle(s.id)}
+                  className={`flex items-center justify-between rounded-xl border px-5 py-4 text-left transition-colors ${
+                    active
+                      ? "border-amber-500 bg-amber-500/10"
+                      : "border-zinc-800 bg-zinc-900/60 hover:border-zinc-700"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-6 w-6 items-center justify-center rounded-full border ${
+                        active ? "border-amber-400 bg-amber-400 text-zinc-950" : "border-zinc-600 text-transparent"
+                      }`}
+                    >
+                      <CheckIcon className="h-3.5 w-3.5" />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-white">{s.name}</p>
+                      <p className="text-sm text-zinc-500">{s.duration} dəq</p>
+                    </div>
+                  </div>
+                  <span className="font-semibold text-amber-400">{s.price} AZN</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <p className="mb-2 text-sm font-medium text-zinc-400">2. Tarix seçin</p>
+              <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
+                <CalendarIcon className="h-4 w-4 text-zinc-500" />
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
+                />
               </div>
-            ))}
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-medium text-zinc-400">3. Saat seçin</p>
+              <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
+                <ClockIcon className="h-4 w-4 shrink-0 text-zinc-500" />
+                <select
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
+                >
+                  <option value="" className="bg-zinc-900">
+                    Saat seçin
+                  </option>
+                  {timeSlots.map((t) => (
+                    <option key={t} value={t} className="bg-zinc-900">
+                      {t}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+            <div className="flex items-center justify-between text-sm text-zinc-400">
+              <span>Ümumi müddət</span>
+              <span>{totalDuration} dəq</span>
+            </div>
+            <div className="mt-1.5 flex items-center justify-between font-semibold text-white">
+              <span>Ümumi qiymət</span>
+              <span>{totalPrice} AZN</span>
+            </div>
+
+            <a
+              href={canBook ? whatsappUrl(bookingMessage()) : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-disabled={!canBook}
+              onClick={(e) => {
+                if (!canBook) e.preventDefault();
+              }}
+              className={`mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+                canBook
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                  : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+              }`}
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              Növbəni Təsdiqlə
+            </a>
+            {!canBook && (
+              <p className="mt-2 text-center text-xs text-zinc-500">
+                Davam etmək üçün xidmət, tarix və saat seçin.
+              </p>
+            )}
           </div>
         </section>
-
-        <DemoCTA />
       </div>
     </DemoShell>
   );

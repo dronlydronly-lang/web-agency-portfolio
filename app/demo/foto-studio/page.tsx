@@ -1,11 +1,9 @@
-import type { Metadata } from "next";
-import { DemoCTA } from "@/app/_lib/DemoCTA";
-import { DemoShell } from "@/app/_lib/DemoShell";
-import { CameraIcon } from "@/app/_lib/icons";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Foto Studio — Nümunə Sayt | WebUsta",
-};
+import { useState } from "react";
+import { DemoShell } from "@/app/_lib/DemoShell";
+import { whatsappUrl } from "@/app/_lib/constants";
+import { CalendarIcon, CameraIcon, CheckIcon, WhatsAppIcon } from "@/app/_lib/icons";
 
 const gallery = [
   { color: "from-violet-700 to-fuchsia-500", h: "h-56" },
@@ -16,9 +14,22 @@ const gallery = [
   { color: "from-violet-800 to-purple-500", h: "h-40" },
 ];
 
-const services = ["Toy Fotoqrafiyası", "Portret Çəkilişi", "Məhsul Fotoqrafiyası"];
+const packages = [
+  { id: "portrait", name: "Portret Paketi", detail: "1 saat çəkiliş, 15 redaktə edilmiş foto", price: 150 },
+  { id: "wedding", name: "Toy Paketi", detail: "Tam gün çəkiliş, 200+ foto, video xülasə", price: 800 },
+  { id: "product", name: "Məhsul Paketi", detail: "10 məhsul, ağ fon, e-ticarət üçün hazır", price: 200 },
+];
 
 export default function FotoStudio() {
+  const [packageId, setPackageId] = useState<string | null>(null);
+  const [date, setDate] = useState("");
+
+  const pkg = packages.find((p) => p.id === packageId);
+  const canSubmit = Boolean(pkg && date);
+
+  const bookingMessage = () =>
+    `Salam, Foto Studio-dan çəkiliş sifariş etmək istəyirəm:\n\nPaket: ${pkg?.name}\nDetallar: ${pkg?.detail}\nTarix: ${date}\nQiymət: ${pkg?.price} AZN`;
+
   return (
     <DemoShell>
       <div className="bg-zinc-950 text-zinc-100">
@@ -36,16 +47,6 @@ export default function FotoStudio() {
           <p className="mx-auto mt-4 max-w-md text-zinc-400">
             Anları əbədiləşdiririk. Yaradıcı baxış, peşəkar nəticə.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-zinc-400">
-            {services.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-zinc-800 bg-zinc-900/60 px-4 py-1.5"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
         </section>
 
         <section className="mx-auto max-w-5xl px-6 py-20">
@@ -60,7 +61,79 @@ export default function FotoStudio() {
           </div>
         </section>
 
-        <DemoCTA />
+        <section className="mx-auto max-w-3xl px-6 pb-20">
+          <h2 className="text-center text-3xl font-bold text-white">Paket Seçin</h2>
+
+          <div className="mt-10 flex flex-col gap-3">
+            {packages.map((p) => {
+              const active = packageId === p.id;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => setPackageId(p.id)}
+                  className={`flex items-center justify-between rounded-xl border px-5 py-4 text-left transition-colors ${
+                    active
+                      ? "border-violet-500 bg-violet-500/10"
+                      : "border-zinc-800 bg-zinc-900/60 hover:border-zinc-700"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${
+                        active
+                          ? "border-violet-400 bg-violet-400 text-zinc-950"
+                          : "border-zinc-600 text-transparent"
+                      }`}
+                    >
+                      <CheckIcon className="h-3.5 w-3.5" />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-white">{p.name}</p>
+                      <p className="text-sm text-zinc-500">{p.detail}</p>
+                    </div>
+                  </div>
+                  <span className="shrink-0 font-semibold text-violet-400">{p.price} AZN</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-6">
+            <p className="mb-2 text-sm font-medium text-zinc-400">Tarix seçin</p>
+            <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
+              <CalendarIcon className="h-4 w-4 text-zinc-500" />
+              <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
+              />
+            </div>
+          </div>
+
+          <a
+            href={canSubmit ? whatsappUrl(bookingMessage()) : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (!canSubmit) e.preventDefault();
+            }}
+            className={`mt-6 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+              canSubmit
+                ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+            }`}
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            Sifariş Et
+          </a>
+          {!canSubmit && (
+            <p className="mt-2 text-center text-xs text-zinc-500">
+              Davam etmək üçün paket və tarix seçin.
+            </p>
+          )}
+        </section>
       </div>
     </DemoShell>
   );

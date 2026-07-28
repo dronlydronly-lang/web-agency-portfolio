@@ -1,11 +1,15 @@
-import type { Metadata } from "next";
-import { DemoCTA } from "@/app/_lib/DemoCTA";
-import { DemoShell } from "@/app/_lib/DemoShell";
-import { BuildingIcon, CheckIcon } from "@/app/_lib/icons";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Arxitekt MMC — Nümunə Sayt | WebUsta",
-};
+import { useMemo, useState } from "react";
+import { DemoShell } from "@/app/_lib/DemoShell";
+import { whatsappUrl } from "@/app/_lib/constants";
+import { BuildingIcon, CheckIcon, WhatsAppIcon } from "@/app/_lib/icons";
+
+const projectTypes = [
+  { id: "residential", name: "Yaşayış Tikintisi", ratePerM2: 450 },
+  { id: "commercial", name: "Kommersiya Obyekti", ratePerM2: 600 },
+  { id: "renovation", name: "Renovasiya", ratePerM2: 250 },
+];
 
 const services = [
   "Layihələndirmə və Dizayn",
@@ -21,6 +25,22 @@ const stats = [
 ];
 
 export default function ArxitektMMC() {
+  const [typeId, setTypeId] = useState(projectTypes[0].id);
+  const [area, setArea] = useState("");
+
+  const type = projectTypes.find((t) => t.id === typeId)!;
+  const areaNum = Number(area) || 0;
+
+  const { min, max } = useMemo(() => {
+    const base = areaNum * type.ratePerM2;
+    return { min: Math.round(base * 0.9), max: Math.round(base * 1.15) };
+  }, [areaNum, type]);
+
+  const canSubmit = areaNum > 0;
+
+  const requestMessage = () =>
+    `Salam, Arxitekt MMC üçün sorğu göndərirəm:\n\nLayihə növü: ${type.name}\nSahə: ${areaNum} m²\nTəxmini büdcə: ${min.toLocaleString()} – ${max.toLocaleString()} AZN\n\nZəhmət olmasa mənimlə əlaqə saxlayın.`;
+
   return (
     <DemoShell>
       <div className="bg-zinc-950 text-zinc-100">
@@ -54,20 +74,81 @@ export default function ArxitektMMC() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-10 grid grid-cols-3 gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+                {stats.map((s) => (
+                  <div key={s.label} className="text-center">
+                    <p className="text-2xl font-bold text-sky-400">{s.value}</p>
+                    <p className="mt-1 text-xs text-zinc-500">{s.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 self-start rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 sm:col-span-1">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-2xl font-bold text-sky-400">{s.value}</p>
-                  <p className="mt-1 text-xs text-zinc-500">{s.label}</p>
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+              <h2 className="text-lg font-bold text-white">Təxmini Qiymət Hesablayıcı</h2>
+              <p className="mt-1 text-sm text-zinc-500">
+                Layihə növünü və sahəni daxil edin, təxmini büdcəni görün.
+              </p>
+
+              <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Layihə növü</p>
+              <div className="flex flex-col gap-2">
+                {projectTypes.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => setTypeId(t.id)}
+                    className={`flex items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
+                      typeId === t.id
+                        ? "border-sky-500 bg-sky-500/10 text-white"
+                        : "border-zinc-800 text-zinc-400 hover:border-zinc-700"
+                    }`}
+                  >
+                    {t.name}
+                    <span className="text-xs text-zinc-500">{t.ratePerM2} AZN/m²</span>
+                  </button>
+                ))}
+              </div>
+
+              <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Sahə (m²)</p>
+              <input
+                type="number"
+                min={0}
+                inputMode="numeric"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+                placeholder="Məsələn: 120"
+                className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-white outline-none focus:border-sky-500"
+              />
+
+              {areaNum > 0 && (
+                <div className="mt-5 rounded-xl border border-sky-500/30 bg-sky-500/10 p-4 text-center">
+                  <p className="text-xs text-zinc-400">Təxmini büdcə</p>
+                  <p className="mt-1 text-xl font-bold text-white">
+                    {min.toLocaleString()} – {max.toLocaleString()} AZN
+                  </p>
                 </div>
-              ))}
+              )}
+
+              <a
+                href={canSubmit ? whatsappUrl(requestMessage()) : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  if (!canSubmit) e.preventDefault();
+                }}
+                className={`mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+                  canSubmit
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                    : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+                }`}
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                Sorğu Göndər
+              </a>
             </div>
           </div>
         </section>
-
-        <DemoCTA />
       </div>
     </DemoShell>
   );
