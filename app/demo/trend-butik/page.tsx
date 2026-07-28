@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { whatsappUrl } from "@/app/_lib/constants";
+import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import { BagIcon, MinusIcon, PlusIcon, WhatsAppIcon } from "@/app/_lib/icons";
 
 const DELIVERY_FEE = 5;
