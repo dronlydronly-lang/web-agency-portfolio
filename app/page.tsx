@@ -109,7 +109,7 @@ function TopBar() {
           <InstagramIcon className="h-4 w-4" />
         </span>
       </div>
-    </div>
+    </header>
   );
 }
 
