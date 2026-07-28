@@ -179,30 +179,6 @@ function Services() {
   );
 }
 
-function Portfolio() {
-  return (
-    <section id="portfolio" className="bg-zinc-900/40 py-20">
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Hazırladığım Saytlar
-        </h2>
-
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-zinc-800 text-zinc-600"
-            >
-              <FolderIcon className="h-8 w-8" />
-              <span className="text-sm font-medium">Tezliklə əlavə olunacaq</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function WhyUs() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-20">
