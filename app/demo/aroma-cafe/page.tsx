@@ -27,35 +27,23 @@ const menu = [
 ];
 
 function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
-  const [extIndex, setExtIndex] = useState(0);
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div
-        className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${item.color}`}
-      >
-        <div
-          className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
-          aria-hidden
-        />
-        <item.icon className="h-10 w-10 text-white drop-shadow" />
-      </div>
-    );
-  }
-
   return (
     <div className="relative h-48 w-full bg-zinc-800">
-      <Image
-        src={`/menu/${item.image}.${IMAGE_EXTENSIONS[extIndex]}`}
+      <ImageWithFallback
+        basePath={`/menu/${item.image}`}
         alt={item.name}
-        fill
-        sizes="(max-width: 640px) 100vw, 320px"
         className="object-contain"
-        onError={() => {
-          if (extIndex < IMAGE_EXTENSIONS.length - 1) setExtIndex((i) => i + 1);
-          else setFailed(true);
-        }}
+        fallback={
+          <div
+            className={`flex h-full items-center justify-center bg-gradient-to-br ${item.color}`}
+          >
+            <div
+              className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
+              aria-hidden
+            />
+            <item.icon className="h-10 w-10 text-white drop-shadow" />
+          </div>
+        }
       />
     </div>
   );
