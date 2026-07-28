@@ -40,9 +40,6 @@ function Header() {
           <a href="#xidmetler" className="hover:text-white">
             Nümunələr
           </a>
-          <a href="#portfolio" className="hover:text-white">
-            Portfolio
-          </a>
           <a href="#elaqe" className="hover:text-white">
             Əlaqə
           </a>
