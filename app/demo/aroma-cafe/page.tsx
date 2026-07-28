@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { whatsappUrl } from "@/app/_lib/constants";
@@ -17,13 +18,44 @@ import {
 const SERVICE_FEE = 2;
 
 const menu = [
-  { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600" },
-  { id: "cappuccino", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon, color: "from-amber-700 to-orange-500" },
-  { id: "latte", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon, color: "from-orange-600 to-amber-400" },
-  { id: "flatwhite", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon, color: "from-amber-600 to-yellow-500" },
-  { id: "cheesecake", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon, color: "from-orange-700 to-rose-400" },
-  { id: "kruassan", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon, color: "from-yellow-700 to-amber-500" },
+  { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600", image: "/menu/espresso.jpg" },
+  { id: "cappuccino", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon, color: "from-amber-700 to-orange-500", image: "/menu/cappuccino.jpg" },
+  { id: "latte", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon, color: "from-orange-600 to-amber-400", image: "/menu/latte.jpg" },
+  { id: "flatwhite", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon, color: "from-amber-600 to-yellow-500", image: "/menu/flat-white.jpg" },
+  { id: "cheesecake", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon, color: "from-orange-700 to-rose-400", image: "/menu/cheesecake.jpg" },
+  { id: "kruassan", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon, color: "from-yellow-700 to-amber-500", image: "/menu/kruassan.jpg" },
 ];
+
+function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <div
+        className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${item.color}`}
+      >
+        <div
+          className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
+          aria-hidden
+        />
+        <item.icon className="h-10 w-10 text-white drop-shadow" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative h-40 w-full bg-zinc-800">
+      <Image
+        src={item.image}
+        alt={item.name}
+        fill
+        sizes="(max-width: 640px) 100vw, 320px"
+        className="object-cover"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function AromaCafe() {
   const [cart, setCart] = useState<Record<string, number>>({});
@@ -97,15 +129,7 @@ export default function AromaCafe() {
                     key={item.id}
                     className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60"
                   >
-                    <div
-                      className={`relative flex h-28 items-center justify-center bg-gradient-to-br ${item.color}`}
-                    >
-                      <div
-                        className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
-                        aria-hidden
-                      />
-                      <item.icon className="h-10 w-10 text-white drop-shadow" />
-                    </div>
+                    <MenuItemPhoto item={item} />
                     <div className="p-4">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-semibold text-white">{item.name}</h3>
