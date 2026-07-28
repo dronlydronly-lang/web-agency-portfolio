@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { whatsappUrl } from "@/app/_lib/constants";
+import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import {
   CakeSliceIcon,
   ClockIcon,
@@ -16,7 +16,6 @@ import {
 } from "@/app/_lib/icons";
 
 const SERVICE_FEE = 2;
-const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
 
 const menu = [
   { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600", image: "espresso" },
