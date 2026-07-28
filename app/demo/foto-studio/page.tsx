@@ -53,11 +53,18 @@ export default function FotoStudio() {
         <section className="mx-auto max-w-5xl px-6 py-20">
           <h2 className="text-center text-3xl font-bold text-white">Qalereya</h2>
           <div className="mt-10 columns-2 gap-4 sm:columns-3 [&>*]:mb-4">
-            {gallery.map((g, i) => (
+            {gallery.map((g) => (
               <div
-                key={i}
-                className={`break-inside-avoid rounded-2xl bg-gradient-to-br ${g.color} ${g.h}`}
-              />
+                key={g.id}
+                className={`relative break-inside-avoid overflow-hidden rounded-2xl bg-zinc-800 ${g.h}`}
+              >
+                <ImageWithFallback
+                  basePath={`/gallery/${g.id}`}
+                  alt="Foto Studio işi"
+                  className="object-cover"
+                  fallback={<div className={`h-full w-full bg-gradient-to-br ${g.color}`} />}
+                />
+              </div>
             ))}
           </div>
         </section>
