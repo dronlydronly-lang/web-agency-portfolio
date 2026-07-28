@@ -16,17 +16,19 @@ import {
 } from "@/app/_lib/icons";
 
 const SERVICE_FEE = 2;
+const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
 
 const menu = [
-  { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600", image: "/menu/espresso.jpg" },
-  { id: "cappuccino", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon, color: "from-amber-700 to-orange-500", image: "/menu/cappuccino.jpg" },
-  { id: "latte", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon, color: "from-orange-600 to-amber-400", image: "/menu/latte.jpg" },
-  { id: "flatwhite", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon, color: "from-amber-600 to-yellow-500", image: "/menu/flat-white.jpg" },
-  { id: "cheesecake", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon, color: "from-orange-700 to-rose-400", image: "/menu/cheesecake.jpg" },
-  { id: "kruassan", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon, color: "from-yellow-700 to-amber-500", image: "/menu/kruassan.jpg" },
+  { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600", image: "espresso" },
+  { id: "cappuccino", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon, color: "from-amber-700 to-orange-500", image: "cappuccino" },
+  { id: "latte", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon, color: "from-orange-600 to-amber-400", image: "latte" },
+  { id: "flatwhite", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon, color: "from-amber-600 to-yellow-500", image: "flat-white" },
+  { id: "cheesecake", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon, color: "from-orange-700 to-rose-400", image: "cheesecake" },
+  { id: "kruassan", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon, color: "from-yellow-700 to-amber-500", image: "kruassan" },
 ];
 
 function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
+  const [extIndex, setExtIndex] = useState(0);
   const [failed, setFailed] = useState(false);
 
   if (failed) {
@@ -46,12 +48,15 @@ function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
   return (
     <div className="relative h-40 w-full bg-zinc-800">
       <Image
-        src={item.image}
+        src={`/menu/${item.image}.${IMAGE_EXTENSIONS[extIndex]}`}
         alt={item.name}
         fill
         sizes="(max-width: 640px) 100vw, 320px"
         className="object-cover"
-        onError={() => setFailed(true)}
+        onError={() => {
+          if (extIndex < IMAGE_EXTENSIONS.length - 1) setExtIndex((i) => i + 1);
+          else setFailed(true);
+        }}
       />
     </div>
   );
