@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { AGENCY_NAME, WHATSAPP_URL } from "./_lib/constants";
 import { examples, type Example } from "./_lib/examples";
-import { FolderIcon, InstagramIcon, WhatsAppIcon } from "./_lib/icons";
+import { InstagramIcon, WhatsAppIcon } from "./_lib/icons";
 
 const whyUs = [
   { title: "Sürətli Təhvil", desc: "Layihələr qısa müddətdə hazır olur." },
