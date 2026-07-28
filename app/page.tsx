@@ -78,7 +78,7 @@ function Spotlight() {
 
 function TopBar() {
   return (
-    <div className="sticky top-0 z-40 flex items-center justify-between px-5 py-6 sm:px-10">
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-[#030712]/80 px-5 py-4 backdrop-blur-md sm:px-10">
       <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide backdrop-blur-2xl">
         {AGENCY_NAME}
       </span>
