@@ -46,13 +46,13 @@ function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
   }
 
   return (
-    <div className="relative h-40 w-full bg-zinc-800">
+    <div className="relative h-48 w-full bg-zinc-800">
       <Image
         src={`/menu/${item.image}.${IMAGE_EXTENSIONS[extIndex]}`}
         alt={item.name}
         fill
         sizes="(max-width: 640px) 100vw, 320px"
-        className="object-cover"
+        className="object-contain"
         onError={() => {
           if (extIndex < IMAGE_EXTENSIONS.length - 1) setExtIndex((i) => i + 1);
           else setFailed(true);
