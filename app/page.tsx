@@ -29,6 +29,7 @@ export default function Home() {
       <div className="relative z-10">
         <Services />
         <WhyUs />
+        <Creator />
         <Contact />
       </div>
 
