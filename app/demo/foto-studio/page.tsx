@@ -61,7 +61,7 @@ export default function FotoStudio() {
                 <ImageWithFallback
                   basePath={`/gallery/${g.id}`}
                   alt="Foto Studio işi"
-                  className="object-cover"
+                  className="object-contain"
                   fallback={<div className={`h-full w-full bg-gradient-to-br ${g.color}`} />}
                 />
               </div>
