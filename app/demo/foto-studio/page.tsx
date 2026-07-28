@@ -3,15 +3,16 @@
 import { useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { whatsappUrl } from "@/app/_lib/constants";
+import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import { CalendarIcon, CameraIcon, CheckIcon, WhatsAppIcon } from "@/app/_lib/icons";
 
 const gallery = [
-  { color: "from-violet-700 to-fuchsia-500", h: "h-56" },
-  { color: "from-fuchsia-700 to-pink-500", h: "h-40" },
-  { color: "from-violet-600 to-indigo-500", h: "h-64" },
-  { color: "from-indigo-700 to-violet-500", h: "h-40" },
-  { color: "from-pink-700 to-fuchsia-500", h: "h-56" },
-  { color: "from-violet-800 to-purple-500", h: "h-40" },
+  { id: "gallery-1", color: "from-violet-700 to-fuchsia-500", h: "h-56" },
+  { id: "gallery-2", color: "from-fuchsia-700 to-pink-500", h: "h-40" },
+  { id: "gallery-3", color: "from-violet-600 to-indigo-500", h: "h-64" },
+  { id: "gallery-4", color: "from-indigo-700 to-violet-500", h: "h-40" },
+  { id: "gallery-5", color: "from-pink-700 to-fuchsia-500", h: "h-56" },
+  { id: "gallery-6", color: "from-violet-800 to-purple-500", h: "h-40" },
 ];
 
 const packages = [
