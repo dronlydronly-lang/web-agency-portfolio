@@ -19,9 +19,14 @@ export type Example = {
   name: string;
   desc: string;
   color: string;
+  image: string;
   icon: ComponentType<{ className?: string }>;
   badge: ComponentType<{ className?: string }>;
 };
+
+function unsplash(id: string) {
+  return `https://images.unsplash.com/photo-${id}?w=800&q=75&auto=format&fit=crop`;
+}
 
 export const examples: Example[] = [
   {
@@ -29,6 +34,7 @@ export const examples: Example[] = [
     name: "Aroma Cafe",
     desc: "Restoran üçün rəqəmsal QR menyu sistemi.",
     color: "from-amber-700 to-orange-500",
+    image: unsplash("1517694712202-14dd9538aa97"),
     icon: CupIcon,
     badge: QrIcon,
   },
@@ -37,6 +43,7 @@ export const examples: Example[] = [
     name: "Elit Berber Studio",
     desc: "Onlayn növbə götürmə və rezervasiya saytı.",
     color: "from-zinc-600 to-zinc-400",
+    image: unsplash("1550439062-609e1531270e"),
     icon: ScissorsIcon,
     badge: CalendarIcon,
   },
@@ -45,6 +52,7 @@ export const examples: Example[] = [
     name: "Trend Butik",
     desc: "Tam funksional geyim onlayn mağazası.",
     color: "from-rose-700 to-pink-500",
+    image: unsplash("1531297484001-80022131f5a1"),
     icon: BagIcon,
     badge: CartIcon,
   },
@@ -53,6 +61,7 @@ export const examples: Example[] = [
     name: "Arxitekt MMC",
     desc: "Etibarlı və peşəkar korporativ imic saytı.",
     color: "from-sky-700 to-blue-500",
+    image: unsplash("1498050108023-c5249f4df085"),
     icon: BuildingIcon,
     badge: CheckIcon,
   },
@@ -61,6 +70,7 @@ export const examples: Example[] = [
     name: "Foto Studio",
     desc: "Yaradıcı işlərin vizual portfolio saytı.",
     color: "from-violet-700 to-fuchsia-500",
+    image: unsplash("1542831371-29b0f74f9713"),
     icon: CameraIcon,
     badge: FolderIcon,
   },
@@ -69,7 +79,10 @@ export const examples: Example[] = [
     name: "Gündəm Bloq",
     desc: "Sürətli və rahat idarə olunan bloq sayt.",
     color: "from-emerald-700 to-teal-500",
+    image: unsplash("1518432031352-d6fc5c10da5a"),
     icon: DocIcon,
     badge: PenIcon,
   },
 ];
+
+export const CREATOR_AVATAR = unsplash("1555066931-4365d14bab8c");
