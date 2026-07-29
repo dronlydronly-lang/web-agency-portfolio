@@ -70,7 +70,7 @@ export const examples: Example[] = [
     name: "Foto Studio",
     desc: "Yaradıcı işlərin vizual portfolio saytı.",
     color: "from-violet-700 to-fuchsia-500",
-    image: unsplash("1542831371-29b0f74f9713"),
+    image: unsplash("1516035069371-29a1b244cc32"),
     icon: CameraIcon,
     badge: FolderIcon,
   },
