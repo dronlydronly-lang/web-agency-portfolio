@@ -339,9 +339,13 @@ function ExampleCoverCard({ example }: { example: Example }) {
       <div className="relative flex aspect-video items-center justify-center overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={example.image}
+          src={thumb(example.image, 500)}
+          srcSet={`${thumb(example.image, 400)} 400w, ${thumb(example.image, 800)} 800w`}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           alt=""
           aria-hidden
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         <div
