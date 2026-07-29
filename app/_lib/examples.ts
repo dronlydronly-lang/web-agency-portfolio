@@ -79,7 +79,7 @@ export const examples: Example[] = [
     name: "Gündəm Bloq",
     desc: "Sürətli və rahat idarə olunan bloq sayt.",
     color: "from-emerald-700 to-teal-500",
-    image: unsplash("1518432031352-d6fc5c10da5a"),
+    image: unsplash("1499750310107-5fef28a66643"),
     icon: DocIcon,
     badge: PenIcon,
   },
