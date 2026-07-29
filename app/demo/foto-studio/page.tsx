@@ -73,76 +73,96 @@ export default function FotoStudio() {
         </section>
 
         <section className="mx-auto max-w-3xl px-6 pb-20">
-          <h2 className="text-center text-3xl font-bold text-white">Paket Seçin</h2>
+          {booked ? (
+            <div className="flex flex-col items-center rounded-2xl border border-zinc-800 bg-zinc-900/60 py-10 text-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+                <CheckIcon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-4 text-xl font-semibold text-white">Sifarişiniz qəbul edildi!</h3>
+              <p className="mx-auto mt-1 max-w-sm text-sm text-zinc-400">
+                {pkg?.name} — {date} tarixi üçün rezerv olundu. Tezliklə sizinlə əlaqə
+                saxlanılacaq.
+              </p>
+              <button
+                type="button"
+                onClick={newBooking}
+                className="mt-5 rounded-full border border-zinc-700 px-5 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800"
+              >
+                Yeni sifariş ver
+              </button>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-center text-3xl font-bold text-white">Paket Seçin</h2>
 
-          <div className="mt-10 flex flex-col gap-3">
-            {packages.map((p) => {
-              const active = packageId === p.id;
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setPackageId(p.id)}
-                  className={`flex items-center justify-between rounded-xl border px-5 py-4 text-left transition-colors ${
-                    active
-                      ? "border-violet-500 bg-violet-500/10"
-                      : "border-zinc-800 bg-zinc-900/60 hover:border-zinc-700"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${
+              <div className="mt-10 flex flex-col gap-3">
+                {packages.map((p) => {
+                  const active = packageId === p.id;
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => setPackageId(p.id)}
+                      className={`flex items-center justify-between rounded-xl border px-5 py-4 text-left transition-colors ${
                         active
-                          ? "border-violet-400 bg-violet-400 text-zinc-950"
-                          : "border-zinc-600 text-transparent"
+                          ? "border-violet-500 bg-violet-500/10"
+                          : "border-zinc-800 bg-zinc-900/60 hover:border-zinc-700"
                       }`}
                     >
-                      <CheckIcon className="h-3.5 w-3.5" />
-                    </span>
-                    <div>
-                      <p className="font-semibold text-white">{p.name}</p>
-                      <p className="text-sm text-zinc-500">{p.detail}</p>
-                    </div>
-                  </div>
-                  <span className="shrink-0 font-semibold text-violet-400">{p.price} AZN</span>
-                </button>
-              );
-            })}
-          </div>
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${
+                            active
+                              ? "border-violet-400 bg-violet-400 text-zinc-950"
+                              : "border-zinc-600 text-transparent"
+                          }`}
+                        >
+                          <CheckIcon className="h-3.5 w-3.5" />
+                        </span>
+                        <div>
+                          <p className="font-semibold text-white">{p.name}</p>
+                          <p className="text-sm text-zinc-500">{p.detail}</p>
+                        </div>
+                      </div>
+                      <span className="shrink-0 font-semibold text-violet-400">
+                        {p.price} AZN
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
 
-          <div className="mt-6">
-            <p className="mb-2 text-sm font-medium text-zinc-400">Tarix seçin</p>
-            <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
-              <CalendarIcon className="h-4 w-4 text-zinc-500" />
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
-              />
-            </div>
-          </div>
+              <div className="mt-6">
+                <p className="mb-2 text-sm font-medium text-zinc-400">Tarix seçin</p>
+                <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
+                  <CalendarIcon className="h-4 w-4 text-zinc-500" />
+                  <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
+                  />
+                </div>
+              </div>
 
-          <a
-            href={canSubmit ? whatsappUrl(bookingMessage()) : undefined}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              if (!canSubmit) e.preventDefault();
-            }}
-            className={`mt-6 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
-              canSubmit
-                ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
-                : "cursor-not-allowed bg-zinc-800 text-zinc-500"
-            }`}
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            Sifariş Et
-          </a>
-          {!canSubmit && (
-            <p className="mt-2 text-center text-xs text-zinc-500">
-              Davam etmək üçün paket və tarix seçin.
-            </p>
+              <button
+                type="button"
+                disabled={!canSubmit}
+                onClick={() => setBooked(true)}
+                className={`mt-6 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+                  canSubmit
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                    : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+                }`}
+              >
+                Sifariş Et
+              </button>
+              {!canSubmit && (
+                <p className="mt-2 text-center text-xs text-zinc-500">
+                  Davam etmək üçün paket və tarix seçin.
+                </p>
+              )}
+            </>
           )}
         </section>
       </div>
