@@ -18,6 +18,12 @@ const HEADER_WHATSAPP_URL = whatsappUrl(
   "Salam, veb-sayt hazırlanması haqqında məlumat almaq istərdim"
 );
 
+// Unsplash's imgix backend accepts &w= — request only the pixel size the
+// container actually renders instead of shipping the full 800px master.
+function thumb(url: string, width: number) {
+  return url.replace(/w=\d+/, `w=${width}`);
+}
+
 export default function Home() {
   return (
     <div className="relative flex min-h-screen w-full flex-col bg-[#030712] text-white">
