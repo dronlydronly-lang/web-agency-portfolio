@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AGENCY_NAME, WHATSAPP_URL, whatsappUrl } from "./_lib/constants";
 import { CREATOR_AVATAR, examples, type Example } from "./_lib/examples";
+import { useLanguage, type Lang } from "./_lib/i18n";
 import { InstagramIcon, WhatsAppIcon } from "./_lib/icons";
+import { translations } from "./_lib/translations";
+
+const INSTAGRAM_URL = "https://instagram.com/webmaster.deniz";
 
 const showcase = examples.filter((e) =>
   ["aroma-cafe", "elit-berber", "trend-butik"].includes(e.slug)
@@ -13,13 +17,6 @@ const showcase = examples.filter((e) =>
 const HEADER_WHATSAPP_URL = whatsappUrl(
   "Salam, veb-sayt hazırlanması haqqında məlumat almaq istərdim"
 );
-
-const whyUs = [
-  { title: "Sürətli Təhvil", desc: "Layihələr qısa müddətdə hazır olur." },
-  { title: "Müasir Texnologiya", desc: "Next.js əsasında sürətli, etibarlı saytlar." },
-  { title: "Mobil Uyğunluq", desc: "Bütün cihazlarda mükəmməl görünüş." },
-  { title: "Münasib Qiymət", desc: "Keyfiyyət və büdcə arasında ən yaxşı balans." },
-];
 
 export default function Home() {
   return (
@@ -80,7 +77,33 @@ function Spotlight() {
   );
 }
 
+function LanguageSwitcher() {
+  const { lang, setLang } = useLanguage();
+
+  const option = (value: Lang, label: string) => (
+    <button
+      type="button"
+      onClick={() => setLang(value)}
+      className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+        lang === value ? "bg-amber-400 text-zinc-950" : "text-zinc-400 hover:text-white"
+      }`}
+    >
+      {label}
+    </button>
+  );
+
+  return (
+    <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-2xl">
+      {option("az", "AZ")}
+      {option("en", "EN")}
+    </div>
+  );
+}
+
 function TopBar() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-[#030712]/80 px-5 py-4 backdrop-blur-md sm:px-10">
       <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide backdrop-blur-2xl">
@@ -89,14 +112,15 @@ function TopBar() {
 
       <nav className="hidden items-center gap-6 text-sm font-medium text-zinc-400 md:flex">
         <a href="#xidmetler" className="hover:text-white">
-          Nümunələr
+          {t.nav.examples}
         </a>
         <a href="#elaqe" className="hover:text-white">
-          Əlaqə
+          {t.nav.contact}
         </a>
       </nav>
 
       <div className="flex items-center gap-2">
+        <LanguageSwitcher />
         <a
           href={HEADER_WHATSAPP_URL}
           target="_blank"
@@ -104,14 +128,17 @@ function TopBar() {
           className="flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/20 transition-transform hover:scale-105"
         >
           <WhatsAppIcon className="h-4 w-4" />
-          <span>WhatsApp</span>
+          <span>{t.header.whatsapp}</span>
         </a>
-        <span
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-500 backdrop-blur-2xl"
-          title="Instagram profili tezliklə əlavə olunacaq"
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 backdrop-blur-2xl transition-colors hover:text-white"
         >
           <InstagramIcon className="h-4 w-4" />
-        </span>
+        </a>
       </div>
     </header>
   );
@@ -137,28 +164,43 @@ function Badge({ children }: { children: React.ReactNode }) {
 }
 
 function HeroPanel() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl sm:p-12 lg:p-14">
       <div className="flex flex-wrap items-center gap-3">
-        <Badge>⚡ 99+ PageSpeed</Badge>
-        <Badge>🔒 Enterprise Secure</Badge>
+        <Badge>{t.hero.badge1}</Badge>
+        <Badge>{t.hero.badge2}</Badge>
       </div>
 
       <h1
-        className="mt-8 bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-4xl font-bold leading-[1.05] tracking-tight text-transparent sm:text-5xl lg:text-6xl"
-        style={{ textShadow: "0 0 60px rgba(212,175,55,0.25)" }}
+        className="mt-8 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
       >
-        Biznesinizi Onlayn Dünyaya Daşıyın!
+        <span
+          className="bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
+          style={{ textShadow: "0 0 60px rgba(212,175,55,0.25)" }}
+        >
+          {t.hero.titleStart}{" "}
+        </span>
+        <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+          {t.hero.titleHighlight}
+        </span>
+        <span
+          className="bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
+          style={{ textShadow: "0 0 60px rgba(212,175,55,0.25)" }}
+        >
+          {" "}
+          {t.hero.titleEnd}
+        </span>
       </h1>
 
-      <p className="mt-6 max-w-md text-base text-zinc-400 sm:text-lg">
-        Sürətli təhvil. Peşəkar addımlar, tam güvən.
-      </p>
+      <p className="mt-6 max-w-md text-base text-zinc-400 sm:text-lg">{t.hero.subtitle}</p>
 
       <div className="mt-10">
         <MagneticButton href={WHATSAPP_URL}>
           <WhatsAppIcon className="h-5 w-5" />
-          WhatsApp ilə Əlaqə
+          {t.hero.cta}
         </MagneticButton>
       </div>
     </div>
@@ -203,11 +245,14 @@ function MagneticButton({
 }
 
 function ShowcasePanel() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <div className="flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-2xl sm:p-8">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">
-          Canlı Nümunələr
+          {t.showcase.title}
         </h2>
         <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
       </div>
@@ -221,17 +266,11 @@ function ShowcasePanel() {
       <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-amber-400/40">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={CREATOR_AVATAR}
-            alt="Dəniz"
-            className="h-full w-full object-cover"
-          />
+          <img src={CREATOR_AVATAR} alt={t.creator.name} className="h-full w-full object-cover" />
         </div>
         <div className="min-w-0">
-          <p className="font-semibold text-white">Dəniz</p>
-          <p className="mt-0.5 text-sm text-zinc-400">
-            İstəyə uyğun hər növ veb-saytlar peşəkarlıqla hazırlanır.
-          </p>
+          <p className="font-semibold text-white">{t.creator.name}</p>
+          <p className="mt-0.5 text-sm text-zinc-400">{t.creator.tagline}</p>
         </div>
       </div>
     </div>
@@ -239,6 +278,9 @@ function ShowcasePanel() {
 }
 
 function ShowcaseCard({ example }: { example: Example }) {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <Link
       href={`/demo/${example.slug}`}
@@ -260,7 +302,7 @@ function ShowcaseCard({ example }: { example: Example }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold text-white">{example.name}</p>
-        <p className="truncate text-xs text-zinc-400">{example.desc}</p>
+        <p className="truncate text-xs text-zinc-400">{t.examples[example.slug]}</p>
       </div>
       <span className="text-zinc-600 transition-colors group-hover:text-amber-400">→</span>
     </Link>
@@ -268,6 +310,9 @@ function ShowcaseCard({ example }: { example: Example }) {
 }
 
 function ExampleCoverCard({ example }: { example: Example }) {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <Link
       href={`/demo/${example.slug}`}
@@ -296,9 +341,9 @@ function ExampleCoverCard({ example }: { example: Example }) {
       </div>
       <div className="p-4">
         <p className="font-semibold text-white">{example.name}</p>
-        <p className="mt-1 text-sm text-zinc-400">{example.desc}</p>
+        <p className="mt-1 text-sm text-zinc-400">{t.examples[example.slug]}</p>
         <span className="mt-3 inline-block text-xs font-medium text-amber-400">
-          Demoya bax →
+          {t.services.cta}
         </span>
       </div>
     </Link>
@@ -306,13 +351,16 @@ function ExampleCoverCard({ example }: { example: Example }) {
 }
 
 function Services() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <section id="xidmetler" className="mx-auto w-full max-w-6xl px-6 py-20">
       <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-        Nümunə Saytlar
+        {t.services.title}
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-center text-sm text-zinc-500">
-        Kartlara klikləyin, hər nümunənin canlı demosuna baxın.
+        {t.services.subtitle}
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -325,10 +373,13 @@ function Services() {
 }
 
 function WhyUs() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-20">
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        {whyUs.map((w) => (
+        {t.whyUs.map((w) => (
           <div key={w.title} className="text-center sm:text-left">
             <h3 className="font-semibold text-white">{w.title}</h3>
             <p className="mt-2 text-sm text-zinc-400">{w.desc}</p>
@@ -340,6 +391,9 @@ function WhyUs() {
 }
 
 function Contact() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <section id="elaqe" className="mx-auto w-full max-w-6xl px-6 pb-20">
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 text-center backdrop-blur-2xl sm:px-16">
@@ -348,11 +402,9 @@ function Contact() {
           aria-hidden
         />
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Layihənizi müzakirə edək
+          {t.contact.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-          WhatsApp üzərindən yazın, ən qısa zamanda cavab verəcəm.
-        </p>
+        <p className="mx-auto mt-4 max-w-xl text-zinc-400">{t.contact.subtitle}</p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
@@ -362,17 +414,18 @@ function Contact() {
             className="flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-7 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
           >
             <WhatsAppIcon className="h-5 w-5" />
-            WhatsApp ilə yazın
+            {t.contact.whatsapp}
           </a>
 
-          <span
-            className="flex cursor-not-allowed items-center gap-2 rounded-full border border-white/10 px-7 py-3 font-semibold text-zinc-500"
-            title="Instagram profili tezliklə əlavə olunacaq"
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-full border border-white/10 px-7 py-3 font-semibold text-zinc-300 transition-colors hover:text-white"
           >
             <InstagramIcon className="h-5 w-5" />
-            Instagram
-            <span className="rounded-full bg-white/5 px-2 py-0.5 text-xs">tezliklə</span>
-          </span>
+            {t.contact.instagram}
+          </a>
         </div>
       </div>
     </section>
@@ -380,11 +433,14 @@ function Contact() {
 }
 
 function Footer() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
   return (
     <footer className="relative z-10 border-t border-white/10 py-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 sm:flex-row">
         <span>
-          © {new Date().getFullYear()} {AGENCY_NAME}. Bütün hüquqlar qorunur.
+          © {new Date().getFullYear()} {AGENCY_NAME}. {t.footer.rights}
         </span>
         <div className="flex items-center gap-4">
           <a
@@ -396,13 +452,15 @@ function Footer() {
           >
             <WhatsAppIcon className="h-5 w-5" />
           </a>
-          <span
-            className="cursor-not-allowed text-zinc-700"
-            aria-label="Instagram (tezliklə)"
-            title="Instagram profili tezliklə əlavə olunacaq"
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white"
+            aria-label="Instagram"
           >
             <InstagramIcon className="h-5 w-5" />
-          </span>
+          </a>
         </div>
       </div>
     </footer>
