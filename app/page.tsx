@@ -148,7 +148,7 @@ function HeroPanel() {
       </h1>
 
       <p className="mt-6 max-w-md text-base text-zinc-400 sm:text-lg">
-        Sürətli təhvil. Səssiz peşəkarlıq. Peşəkar addımlar, tam güvən.
+        Sürətli təhvil. Peşəkar addımlar, tam güvən.
       </p>
 
       <div className="mt-10">
