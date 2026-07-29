@@ -48,8 +48,14 @@ function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
   );
 }
 
+function OrderNumber() {
+  const [num] = useState(() => Math.floor(1000 + Math.random() * 9000));
+  return <>#AC-{num}</>;
+}
+
 export default function AromaCafe() {
   const [cart, setCart] = useState<Record<string, number>>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const setQty = (id: string, qty: number) => {
     setCart((prev) => {
@@ -71,11 +77,13 @@ export default function AromaCafe() {
   const subtotal = lines.reduce((sum, l) => sum + l.price * l.qty, 0);
   const total = subtotal > 0 ? subtotal + SERVICE_FEE : 0;
 
-  const orderMessage = () => {
-    const itemLines = lines
-      .map((l) => `• ${l.name} x${l.qty} — ${(l.price * l.qty).toFixed(2)} AZN`)
-      .join("\n");
-    return `Salam, Aroma Cafe-dən sifariş vermək istəyirəm:\n\n${itemLines}\n\nAra cəm: ${subtotal.toFixed(2)} AZN\nXidmət haqqı: ${SERVICE_FEE.toFixed(2)} AZN\nÜmumi: ${total.toFixed(2)} AZN`;
+  const placeOrder = () => {
+    setSubmitted(true);
+  };
+
+  const newOrder = () => {
+    setCart({});
+    setSubmitted(false);
   };
 
   return (
