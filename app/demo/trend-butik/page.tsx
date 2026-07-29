@@ -142,46 +142,65 @@ export default function TrendButik() {
             </div>
 
             <div className="h-fit rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 lg:sticky lg:top-20">
-              <h3 className="font-semibold text-white">Səbətiniz</h3>
-
-              {lines.length === 0 ? (
-                <p className="mt-4 text-sm text-zinc-500">Səbətiniz boşdur.</p>
-              ) : (
-                <div className="mt-4 flex flex-col gap-3">
-                  {lines.map((l) => (
-                    <div key={l.id} className="flex items-center justify-between text-sm">
-                      <span className="text-zinc-300">
-                        {l.name} <span className="text-zinc-500">x{l.qty}</span>
-                      </span>
-                      <span className="text-zinc-300">{l.price * l.qty} AZN</span>
-                    </div>
-                  ))}
-
-                  <div className="mt-2 flex flex-col gap-1.5 border-t border-zinc-800 pt-3 text-sm">
-                    <div className="flex items-center justify-between text-zinc-400">
-                      <span>Məhsullar</span>
-                      <span>{subtotal} AZN</span>
-                    </div>
-                    <div className="flex items-center justify-between text-zinc-400">
-                      <span>Çatdırılma</span>
-                      <span>{delivery === 0 ? "Pulsuz" : `${delivery} AZN`}</span>
-                    </div>
-                    <div className="flex items-center justify-between border-t border-zinc-800 pt-1.5 font-semibold text-white">
-                      <span>Ümumi</span>
-                      <span>{total} AZN</span>
-                    </div>
-                  </div>
-
-                  <a
-                    href={whatsappUrl(orderMessage())}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-5 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
+              {submitted ? (
+                <div className="flex flex-col items-center py-4 text-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+                    <CheckIcon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 font-semibold text-white">Sifarişiniz qəbul edildi!</h3>
+                  <p className="mt-1 text-sm text-zinc-400">
+                    Sifariş <OrderNumber /> 2-3 iş günü ərzində çatdırılacaq.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={newOrder}
+                    className="mt-5 rounded-full border border-zinc-700 px-5 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800"
                   >
-                    <WhatsAppIcon className="h-5 w-5" />
-                    Sifarişi Tamamla
-                  </a>
+                    Yeni sifariş ver
+                  </button>
                 </div>
+              ) : (
+                <>
+                  <h3 className="font-semibold text-white">Səbətiniz</h3>
+
+                  {lines.length === 0 ? (
+                    <p className="mt-4 text-sm text-zinc-500">Səbətiniz boşdur.</p>
+                  ) : (
+                    <div className="mt-4 flex flex-col gap-3">
+                      {lines.map((l) => (
+                        <div key={l.id} className="flex items-center justify-between text-sm">
+                          <span className="text-zinc-300">
+                            {l.name} <span className="text-zinc-500">x{l.qty}</span>
+                          </span>
+                          <span className="text-zinc-300">{l.price * l.qty} AZN</span>
+                        </div>
+                      ))}
+
+                      <div className="mt-2 flex flex-col gap-1.5 border-t border-zinc-800 pt-3 text-sm">
+                        <div className="flex items-center justify-between text-zinc-400">
+                          <span>Məhsullar</span>
+                          <span>{subtotal} AZN</span>
+                        </div>
+                        <div className="flex items-center justify-between text-zinc-400">
+                          <span>Çatdırılma</span>
+                          <span>{delivery === 0 ? "Pulsuz" : `${delivery} AZN`}</span>
+                        </div>
+                        <div className="flex items-center justify-between border-t border-zinc-800 pt-1.5 font-semibold text-white">
+                          <span>Ümumi</span>
+                          <span>{total} AZN</span>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setSubmitted(true)}
+                        className="mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-5 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
+                      >
+                        Sifarişi Tamamla
+                      </button>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
