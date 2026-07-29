@@ -43,7 +43,7 @@ export const examples: Example[] = [
     name: "Elit Berber Studio",
     desc: "Onlayn növbə götürmə və rezervasiya saytı.",
     color: "from-zinc-600 to-zinc-400",
-    image: unsplash("1550439062-609e1531270e"),
+    image: unsplash("1585747860715-2ba37e788b70"),
     icon: ScissorsIcon,
     badge: CalendarIcon,
   },
