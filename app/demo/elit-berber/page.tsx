@@ -2,8 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
-import { whatsappUrl } from "@/app/_lib/constants";
-import { CalendarIcon, CheckIcon, ClockIcon, MapPinIcon, ScissorsIcon, WhatsAppIcon } from "@/app/_lib/icons";
+import { CalendarIcon, CheckIcon, ClockIcon, MapPinIcon, ScissorsIcon } from "@/app/_lib/icons";
 
 const services = [
   { id: "hair", name: "Saç Kəsimi", duration: 30, price: 15 },
