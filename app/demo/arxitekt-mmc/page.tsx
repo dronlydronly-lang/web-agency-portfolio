@@ -88,66 +88,83 @@ export default function ArxitektMMC() {
             </div>
 
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-              <h2 className="text-lg font-bold text-white">Təxmini Qiymət Hesablayıcı</h2>
-              <p className="mt-1 text-sm text-zinc-500">
-                Layihə növünü və sahəni daxil edin, təxmini büdcəni görün.
-              </p>
-
-              <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Layihə növü</p>
-              <div className="flex flex-col gap-2">
-                {projectTypes.map((t) => (
+              {sent ? (
+                <div className="flex flex-col items-center py-6 text-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+                    <CheckIcon className="h-6 w-6" />
+                  </span>
+                  <h3 className="mt-4 font-semibold text-white">Sorğunuz qəbul edildi!</h3>
+                  <p className="mt-1 text-sm text-zinc-400">
+                    Mütəxəssislərimiz 24 saat ərzində sizinlə əlaqə saxlayacaq.
+                  </p>
                   <button
-                    key={t.id}
                     type="button"
-                    onClick={() => setTypeId(t.id)}
-                    className={`flex items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
-                      typeId === t.id
-                        ? "border-sky-500 bg-sky-500/10 text-white"
-                        : "border-zinc-800 text-zinc-400 hover:border-zinc-700"
+                    onClick={newRequest}
+                    className="mt-5 rounded-full border border-zinc-700 px-5 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800"
+                  >
+                    Yeni sorğu göndər
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-lg font-bold text-white">Təxmini Qiymət Hesablayıcı</h2>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    Layihə növünü və sahəni daxil edin, təxmini büdcəni görün.
+                  </p>
+
+                  <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Layihə növü</p>
+                  <div className="flex flex-col gap-2">
+                    {projectTypes.map((t) => (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() => setTypeId(t.id)}
+                        className={`flex items-center justify-between rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
+                          typeId === t.id
+                            ? "border-sky-500 bg-sky-500/10 text-white"
+                            : "border-zinc-800 text-zinc-400 hover:border-zinc-700"
+                        }`}
+                      >
+                        {t.name}
+                        <span className="text-xs text-zinc-500">{t.ratePerM2} AZN/m²</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Sahə (m²)</p>
+                  <input
+                    type="number"
+                    min={0}
+                    inputMode="numeric"
+                    value={area}
+                    onChange={(e) => setArea(e.target.value)}
+                    placeholder="Məsələn: 120"
+                    className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-white outline-none focus:border-sky-500"
+                  />
+
+                  {areaNum > 0 && (
+                    <div className="mt-5 rounded-xl border border-sky-500/30 bg-sky-500/10 p-4 text-center">
+                      <p className="text-xs text-zinc-400">Təxmini büdcə</p>
+                      <p className="mt-1 text-xl font-bold text-white">
+                        {min.toLocaleString()} – {max.toLocaleString()} AZN
+                      </p>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    disabled={!canSubmit}
+                    onClick={() => setSent(true)}
+                    className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+                      canSubmit
+                        ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                        : "cursor-not-allowed bg-zinc-800 text-zinc-500"
                     }`}
                   >
-                    {t.name}
-                    <span className="text-xs text-zinc-500">{t.ratePerM2} AZN/m²</span>
+                    Sorğu Göndər
                   </button>
-                ))}
-              </div>
-
-              <p className="mt-5 mb-2 text-sm font-medium text-zinc-400">Sahə (m²)</p>
-              <input
-                type="number"
-                min={0}
-                inputMode="numeric"
-                value={area}
-                onChange={(e) => setArea(e.target.value)}
-                placeholder="Məsələn: 120"
-                className="w-full rounded-xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-white outline-none focus:border-sky-500"
-              />
-
-              {areaNum > 0 && (
-                <div className="mt-5 rounded-xl border border-sky-500/30 bg-sky-500/10 p-4 text-center">
-                  <p className="text-xs text-zinc-400">Təxmini büdcə</p>
-                  <p className="mt-1 text-xl font-bold text-white">
-                    {min.toLocaleString()} – {max.toLocaleString()} AZN
-                  </p>
-                </div>
+                </>
               )}
-
-              <a
-                href={canSubmit ? whatsappUrl(requestMessage()) : undefined}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (!canSubmit) e.preventDefault();
-                }}
-                className={`mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
-                  canSubmit
-                    ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
-                    : "cursor-not-allowed bg-zinc-800 text-zinc-500"
-                }`}
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                Sorğu Göndər
-              </a>
             </div>
           </div>
         </section>
