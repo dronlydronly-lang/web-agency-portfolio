@@ -34,7 +34,7 @@ export const examples: Example[] = [
     name: "Aroma Cafe",
     desc: "Restoran üçün rəqəmsal QR menyu sistemi.",
     color: "from-amber-700 to-orange-500",
-    image: unsplash("1517694712202-14dd9538aa97"),
+    image: unsplash("1521017432531-fbd92d768814"),
     icon: CupIcon,
     badge: QrIcon,
   },
