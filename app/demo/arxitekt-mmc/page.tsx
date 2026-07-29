@@ -26,6 +26,7 @@ const stats = [
 export default function ArxitektMMC() {
   const [typeId, setTypeId] = useState(projectTypes[0].id);
   const [area, setArea] = useState("");
+  const [sent, setSent] = useState(false);
 
   const type = projectTypes.find((t) => t.id === typeId)!;
   const areaNum = Number(area) || 0;
@@ -37,8 +38,10 @@ export default function ArxitektMMC() {
 
   const canSubmit = areaNum > 0;
 
-  const requestMessage = () =>
-    `Salam, Arxitekt MMC üçün sorğu göndərirəm:\n\nLayihə növü: ${type.name}\nSahə: ${areaNum} m²\nTəxmini büdcə: ${min.toLocaleString()} – ${max.toLocaleString()} AZN\n\nZəhmət olmasa mənimlə əlaqə saxlayın.`;
+  const newRequest = () => {
+    setArea("");
+    setSent(false);
+  };
 
   return (
     <DemoShell>
