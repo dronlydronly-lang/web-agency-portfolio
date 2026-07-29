@@ -316,24 +316,6 @@ function WhyUs() {
   );
 }
 
-function Creator() {
-  return (
-    <section className="mx-auto w-full max-w-3xl px-6 pb-20">
-      <div className="flex flex-col items-center gap-5 rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur-2xl sm:flex-row sm:text-left">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-yellow-300 text-xl font-bold text-zinc-950">
-          D
-        </div>
-        <div>
-          <h2 className="text-xl font-bold text-white">Dəniz</h2>
-          <p className="mt-1 text-zinc-400">
-            İstəyə uyğun hər növ veb-saytlar peşəkarlıqla hazırlanır.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
   return (
     <section id="elaqe" className="mx-auto w-full max-w-6xl px-6 pb-20">
