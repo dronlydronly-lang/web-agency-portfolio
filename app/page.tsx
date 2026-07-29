@@ -304,9 +304,12 @@ function ShowcaseCard({ example }: { example: Example }) {
       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl shadow-lg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={example.image}
+          src={thumb(example.image, 96)}
           alt=""
           aria-hidden
+          width={96}
+          height={96}
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
