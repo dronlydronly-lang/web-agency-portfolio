@@ -102,7 +102,7 @@ function LanguageSwitcher() {
   );
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-2xl">
+    <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-md sm:backdrop-blur-2xl">
       {option("az", "AZ")}
       {option("en", "EN")}
     </div>
@@ -115,7 +115,7 @@ function TopBar() {
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-[#030712]/80 px-5 py-4 backdrop-blur-md sm:px-10">
-      <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide backdrop-blur-2xl">
+      <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide backdrop-blur-md sm:backdrop-blur-2xl">
         {AGENCY_NAME}
       </span>
 
@@ -144,7 +144,7 @@ function TopBar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 backdrop-blur-2xl transition-colors hover:text-white"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 backdrop-blur-md sm:backdrop-blur-2xl transition-colors hover:text-white"
         >
           <InstagramIcon className="h-4 w-4" />
         </a>
@@ -166,7 +166,7 @@ function HeroSection() {
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 backdrop-blur-2xl">
+    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 backdrop-blur-md sm:backdrop-blur-2xl">
       {children}
     </span>
   );
@@ -177,7 +177,7 @@ function HeroPanel() {
   const t = translations[lang];
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-2xl sm:p-12 lg:p-14">
+    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-md sm:backdrop-blur-2xl sm:p-12 lg:p-14">
       <div className="flex flex-wrap items-center gap-3">
         <Badge>{t.hero.badge1}</Badge>
         <Badge>{t.hero.badge2}</Badge>
@@ -257,7 +257,7 @@ function ShowcasePanel() {
   const t = translations[lang];
 
   return (
-    <div className="flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-2xl sm:p-8">
+    <div className="flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md sm:backdrop-blur-2xl sm:p-8">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">
           {t.showcase.title}
@@ -299,7 +299,7 @@ function ShowcaseCard({ example }: { example: Example }) {
   return (
     <Link
       href={`/demo/${example.slug}`}
-      className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-2xl transition-transform duration-300 ease-out hover:scale-[1.02] hover:border-amber-400/30"
+      className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-md sm:backdrop-blur-2xl transition-transform duration-300 ease-out hover:scale-[1.02] hover:border-amber-400/30"
     >
       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl shadow-lg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -334,7 +334,7 @@ function ExampleCoverCard({ example }: { example: Example }) {
   return (
     <Link
       href={`/demo/${example.slug}`}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-2xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-xl hover:shadow-amber-500/10"
+      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md sm:backdrop-blur-2xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-xl hover:shadow-amber-500/10"
     >
       <div className="relative flex aspect-video items-center justify-center overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -418,7 +418,7 @@ function Contact() {
 
   return (
     <section id="elaqe" className="mx-auto w-full max-w-6xl px-6 pb-20">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 text-center backdrop-blur-2xl sm:px-16">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 text-center backdrop-blur-md sm:backdrop-blur-2xl sm:px-16">
         <div
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.15),transparent_60%)]"
           aria-hidden
