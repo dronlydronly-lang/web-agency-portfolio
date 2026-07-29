@@ -164,6 +164,14 @@ export function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
+export function CodeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden>
+      <path d="m8 6-6 6 6 6M16 6l6 6-6 6M13 4l-2 16" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function PlusIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className={className} aria-hidden>
