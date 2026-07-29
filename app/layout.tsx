@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WebUsta — Rəqəmsal Agentlik | Peşəkar Veb Sayt Hazırlanması",
+  title: "Webmaster — Rəqəmsal Agentlik | Peşəkar Veb Sayt Hazırlanması",
   description:
     "Biznesiniz üçün sürətli, müasir və mobil uyğun veb saytlar hazırlayırıq. Korporativ sayt, landing page, e-ticarət və portfolio saytlar.",
 };
