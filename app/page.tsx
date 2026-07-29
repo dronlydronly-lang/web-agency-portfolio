@@ -269,18 +269,23 @@ function ExampleCoverCard({ example }: { example: Example }) {
       href={`/demo/${example.slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-2xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-xl hover:shadow-amber-500/10"
     >
-      <div
-        className={`relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br ${example.color}`}
-      >
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={example.image}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+        />
         <div
-          className="pointer-events-none absolute -left-10 -top-16 h-40 w-40 rounded-full bg-white/25 blur-2xl"
+          className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${example.color} opacity-60 mix-blend-multiply`}
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,0,0,0.35),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,0,0,0.45),transparent_60%)]"
           aria-hidden
         />
-        <example.icon className="h-16 w-16 text-white drop-shadow-[0_8px_16px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-110" />
+        <example.icon className="relative h-16 w-16 text-white drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-110" />
         <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-zinc-950/70 text-amber-400 backdrop-blur">
           <example.badge className="h-4 w-4" />
         </div>
