@@ -62,6 +62,9 @@ function Spotlight() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Touch devices never fire mousemove usefully — skip the listener and
+    // the fixed repaint layer entirely to save mobile CPU/battery.
+    if (!window.matchMedia("(hover: hover)").matches) return;
     const move = (e: MouseEvent) => {
       el.style.setProperty("--x", `${e.clientX}px`);
       el.style.setProperty("--y", `${e.clientY}px`);
