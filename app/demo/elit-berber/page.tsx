@@ -140,36 +140,52 @@ export default function ElitBerber() {
           </div>
 
           <div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
-            <div className="flex items-center justify-between text-sm text-zinc-400">
-              <span>Ümumi müddət</span>
-              <span>{totalDuration} dəq</span>
-            </div>
-            <div className="mt-1.5 flex items-center justify-between font-semibold text-white">
-              <span>Ümumi qiymət</span>
-              <span>{totalPrice} AZN</span>
-            </div>
+            {booked ? (
+              <div className="flex flex-col items-center py-4 text-center">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+                  <CheckIcon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-4 font-semibold text-white">Növbəniz təsdiqləndi!</h3>
+                <p className="mt-1 text-sm text-zinc-400">
+                  {date} tarixi, saat {time} üçün gözləyirik.
+                </p>
+                <button
+                  type="button"
+                  onClick={newBooking}
+                  className="mt-5 rounded-full border border-zinc-700 px-5 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800"
+                >
+                  Yeni növbə götür
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center justify-between text-sm text-zinc-400">
+                  <span>Ümumi müddət</span>
+                  <span>{totalDuration} dəq</span>
+                </div>
+                <div className="mt-1.5 flex items-center justify-between font-semibold text-white">
+                  <span>Ümumi qiymət</span>
+                  <span>{totalPrice} AZN</span>
+                </div>
 
-            <a
-              href={canBook ? whatsappUrl(bookingMessage()) : undefined}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-disabled={!canBook}
-              onClick={(e) => {
-                if (!canBook) e.preventDefault();
-              }}
-              className={`mt-5 flex items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
-                canBook
-                  ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
-                  : "cursor-not-allowed bg-zinc-800 text-zinc-500"
-              }`}
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              Növbəni Təsdiqlə
-            </a>
-            {!canBook && (
-              <p className="mt-2 text-center text-xs text-zinc-500">
-                Davam etmək üçün xidmət, tarix və saat seçin.
-              </p>
+                <button
+                  type="button"
+                  disabled={!canBook}
+                  onClick={() => setBooked(true)}
+                  className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold transition-transform ${
+                    canBook
+                      ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-zinc-950 hover:scale-105"
+                      : "cursor-not-allowed bg-zinc-800 text-zinc-500"
+                  }`}
+                >
+                  Növbəni Təsdiqlə
+                </button>
+                {!canBook && (
+                  <p className="mt-2 text-center text-xs text-zinc-500">
+                    Davam etmək üçün xidmət, tarix və saat seçin.
+                  </p>
+                )}
+              </>
             )}
           </div>
         </section>
