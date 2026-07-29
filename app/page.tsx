@@ -94,13 +94,13 @@ function TopBar() {
 
       <div className="flex items-center gap-2">
         <a
-          href={WHATSAPP_URL}
+          href={HEADER_WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 backdrop-blur-2xl transition-colors hover:text-white"
+          className="flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/20 transition-transform hover:scale-105"
         >
-          <PhoneIcon className="h-4 w-4" />
-          <span className="hidden sm:inline">+994 77 625 33 36</span>
+          <WhatsAppIcon className="h-4 w-4" />
+          <span>WhatsApp</span>
         </a>
         <span
           className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-500 backdrop-blur-2xl"
