@@ -52,7 +52,7 @@ export const examples: Example[] = [
     name: "Trend Butik",
     desc: "Tam funksional geyim onlayn mağazası.",
     color: "from-rose-700 to-pink-500",
-    image: unsplash("1531297484001-80022131f5a1"),
+    image: unsplash("1441984904996-e0b6ba687e04"),
     icon: BagIcon,
     badge: CartIcon,
   },
