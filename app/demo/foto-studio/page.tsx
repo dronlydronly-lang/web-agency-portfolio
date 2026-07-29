@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
-import { whatsappUrl } from "@/app/_lib/constants";
 import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
-import { CalendarIcon, CameraIcon, CheckIcon, WhatsAppIcon } from "@/app/_lib/icons";
+import { CalendarIcon, CameraIcon, CheckIcon } from "@/app/_lib/icons";
 
 const gallery = [
   { id: "toy1", color: "from-violet-700 to-fuchsia-500", h: "h-56" },
