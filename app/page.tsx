@@ -302,7 +302,7 @@ function ShowcaseCard({ example }: { example: Example }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold text-white">{example.name}</p>
-        <p className="truncate text-xs text-zinc-400">{t.examples[example.slug]}</p>
+        <p className="truncate text-xs text-zinc-400">{(t.examples as Record<string, string>)[example.slug]}</p>
       </div>
       <span className="text-zinc-600 transition-colors group-hover:text-amber-400">→</span>
     </Link>
@@ -341,7 +341,7 @@ function ExampleCoverCard({ example }: { example: Example }) {
       </div>
       <div className="p-4">
         <p className="font-semibold text-white">{example.name}</p>
-        <p className="mt-1 text-sm text-zinc-400">{t.examples[example.slug]}</p>
+        <p className="mt-1 text-sm text-zinc-400">{(t.examples as Record<string, string>)[example.slug]}</p>
         <span className="mt-3 inline-block text-xs font-medium text-amber-400">
           {t.services.cta}
         </span>
