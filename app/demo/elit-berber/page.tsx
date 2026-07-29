@@ -193,7 +193,7 @@ export default function ElitBerber() {
                 >
                   Növbəni Təsdiqlə
                 </button>
-                {!canBook && (
+                {!canBook && !isPastDate && (
                   <p className="mt-2 text-center text-xs text-zinc-500">
                     Davam etmək üçün xidmət, tarix və saat seçin.
                   </p>
