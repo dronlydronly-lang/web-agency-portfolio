@@ -2,17 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
-import { whatsappUrl } from "@/app/_lib/constants";
 import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import {
   CakeSliceIcon,
+  CheckIcon,
   ClockIcon,
   CroissantIcon,
   CupIcon,
   MapPinIcon,
   MinusIcon,
   PlusIcon,
-  WhatsAppIcon,
 } from "@/app/_lib/icons";
 
 const SERVICE_FEE = 2;
