@@ -1,4 +1,4 @@
-export const AGENCY_NAME = "WebUsta";
+export const AGENCY_NAME = "Webmaster";
 export const WHATSAPP_NUMBER = "994776253336";
 
 export function whatsappUrl(message: string) {
