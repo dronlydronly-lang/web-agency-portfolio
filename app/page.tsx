@@ -215,8 +215,13 @@ function ShowcasePanel() {
       </div>
 
       <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-yellow-300 text-zinc-950 shadow-lg shadow-amber-500/20">
-          <CodeIcon className="h-6 w-6" />
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-amber-400/40">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={CREATOR_AVATAR}
+            alt="Dəniz"
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="min-w-0">
           <p className="font-semibold text-white">Dəniz</p>
