@@ -23,12 +23,16 @@ const packages = [
 export default function FotoStudio() {
   const [packageId, setPackageId] = useState<string | null>(null);
   const [date, setDate] = useState("");
+  const [booked, setBooked] = useState(false);
 
   const pkg = packages.find((p) => p.id === packageId);
   const canSubmit = Boolean(pkg && date);
 
-  const bookingMessage = () =>
-    `Salam, Foto Studio-dan çəkiliş sifariş etmək istəyirəm:\n\nPaket: ${pkg?.name}\nDetallar: ${pkg?.detail}\nTarix: ${date}\nQiymət: ${pkg?.price} AZN`;
+  const newBooking = () => {
+    setPackageId(null);
+    setDate("");
+    setBooked(false);
+  };
 
   return (
     <DemoShell>
