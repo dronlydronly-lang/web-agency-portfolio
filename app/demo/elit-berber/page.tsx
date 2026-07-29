@@ -17,6 +17,7 @@ export default function ElitBerber() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [booked, setBooked] = useState(false);
 
   const toggle = (id: string) => {
     setSelected((prev) => {
@@ -32,9 +33,11 @@ export default function ElitBerber() {
   const totalDuration = chosen.reduce((sum, s) => sum + s.duration, 0);
   const canBook = chosen.length > 0 && date && time;
 
-  const bookingMessage = () => {
-    const serviceLines = chosen.map((s) => `• ${s.name} — ${s.price} AZN`).join("\n");
-    return `Salam, Elit Berber Studio-da növbə götürmək istəyirəm:\n\n${serviceLines}\n\nTarix: ${date}\nSaat: ${time}\nÜmumi müddət: ${totalDuration} dəq\nÜmumi qiymət: ${totalPrice} AZN`;
+  const newBooking = () => {
+    setSelected(new Set());
+    setDate("");
+    setTime("");
+    setBooked(false);
   };
 
   return (
