@@ -61,7 +61,7 @@ export const examples: Example[] = [
     name: "Arxitekt MMC",
     desc: "Etibarlı və peşəkar korporativ imic saytı.",
     color: "from-sky-700 to-blue-500",
-    image: unsplash("1498050108023-c5249f4df085"),
+    image: unsplash("1487958449943-2429e8be8625"),
     icon: BuildingIcon,
     badge: CheckIcon,
   },
