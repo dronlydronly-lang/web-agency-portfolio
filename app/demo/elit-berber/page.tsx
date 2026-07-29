@@ -13,6 +13,8 @@ const services = [
 
 const timeSlots = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
+const today = new Date().toISOString().split("T")[0];
+
 export default function ElitBerber() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [date, setDate] = useState("");
@@ -31,7 +33,8 @@ export default function ElitBerber() {
   const chosen = useMemo(() => services.filter((s) => selected.has(s.id)), [selected]);
   const totalPrice = chosen.reduce((sum, s) => sum + s.price, 0);
   const totalDuration = chosen.reduce((sum, s) => sum + s.duration, 0);
-  const canBook = chosen.length > 0 && date && time;
+  const isPastDate = date !== "" && date < today;
+  const canBook = chosen.length > 0 && date !== "" && !isPastDate && time !== "";
 
   const newBooking = () => {
     setSelected(new Set());
