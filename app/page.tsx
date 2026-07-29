@@ -190,7 +190,6 @@ function HeroPanel() {
           className="bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent"
           style={{ textShadow: "0 0 60px rgba(212,175,55,0.25)" }}
         >
-          {" "}
           {t.hero.titleEnd}
         </span>
       </h1>
