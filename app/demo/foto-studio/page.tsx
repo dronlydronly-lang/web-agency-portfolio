@@ -20,13 +20,16 @@ const packages = [
   { id: "product", name: "Məhsul Paketi", detail: "10 məhsul, ağ fon, e-ticarət üçün hazır", price: 200 },
 ];
 
+const today = new Date().toISOString().split("T")[0];
+
 export default function FotoStudio() {
   const [packageId, setPackageId] = useState<string | null>(null);
   const [date, setDate] = useState("");
   const [booked, setBooked] = useState(false);
 
   const pkg = packages.find((p) => p.id === packageId);
-  const canSubmit = Boolean(pkg && date);
+  const isPastDate = date !== "" && date < today;
+  const canSubmit = Boolean(pkg && date && !isPastDate);
 
   const newBooking = () => {
     setPackageId(null);
