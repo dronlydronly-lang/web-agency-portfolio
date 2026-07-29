@@ -137,15 +137,26 @@ export default function FotoStudio() {
 
               <div className="mt-6">
                 <p className="mb-2 text-sm font-medium text-zinc-400">Tarix seçin</p>
-                <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-3">
+                <div
+                  className={`flex items-center gap-2 rounded-xl border bg-zinc-900/60 px-4 py-3 ${
+                    isPastDate ? "border-red-500" : "border-zinc-800"
+                  }`}
+                >
                   <CalendarIcon className="h-4 w-4 text-zinc-500" />
                   <input
                     type="date"
+                    min={today}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     className="w-full bg-transparent text-white outline-none [color-scheme:dark]"
                   />
                 </div>
+                {isPastDate && (
+                  <p className="mt-1.5 text-xs text-red-400">
+                    Keçmiş tarix seçə bilməzsiniz. Zəhmət olmasa bugün və ya sonrakı bir tarix
+                    seçin.
+                  </p>
+                )}
               </div>
 
               <button
@@ -160,7 +171,7 @@ export default function FotoStudio() {
               >
                 Sifariş Et
               </button>
-              {!canSubmit && (
+              {!canSubmit && !isPastDate && (
                 <p className="mt-2 text-center text-xs text-zinc-500">
                   Davam etmək üçün paket və tarix seçin.
                 </p>
