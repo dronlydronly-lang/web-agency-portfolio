@@ -17,8 +17,14 @@ const products = [
   { id: "shoes", name: "İdman Ayaqqabı", price: 75, color: "from-pink-700 to-rose-500" },
 ];
 
+function OrderNumber() {
+  const [num] = useState(() => Math.floor(1000 + Math.random() * 9000));
+  return <>#TB-{num}</>;
+}
+
 export default function TrendButik() {
   const [cart, setCart] = useState<Record<string, number>>({});
+  const [submitted, setSubmitted] = useState(false);
 
   const setQty = (id: string, qty: number) => {
     setCart((prev) => {
@@ -38,11 +44,9 @@ export default function TrendButik() {
   const delivery = subtotal === 0 || subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
   const total = subtotal + delivery;
 
-  const orderMessage = () => {
-    const itemLines = lines
-      .map((l) => `• ${l.name} x${l.qty} — ${l.price * l.qty} AZN`)
-      .join("\n");
-    return `Salam, Trend Butik-dən sifariş vermək istəyirəm:\n\n${itemLines}\n\nMəhsullar: ${subtotal} AZN\nÇatdırılma: ${delivery === 0 ? "Pulsuz" : delivery + " AZN"}\nÜmumi: ${total} AZN`;
+  const newOrder = () => {
+    setCart({});
+    setSubmitted(false);
   };
 
   return (
