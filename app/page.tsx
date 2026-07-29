@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AGENCY_NAME, WHATSAPP_URL } from "./_lib/constants";
-import { examples, type Example } from "./_lib/examples";
-import { CodeIcon, InstagramIcon, PhoneIcon, WhatsAppIcon } from "./_lib/icons";
+import { CREATOR_AVATAR, examples, type Example } from "./_lib/examples";
+import { InstagramIcon, PhoneIcon, WhatsAppIcon } from "./_lib/icons";
 
 const showcase = examples.filter((e) =>
   ["aroma-cafe", "elit-berber", "trend-butik"].includes(e.slug)
