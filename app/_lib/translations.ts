@@ -7,7 +7,7 @@ export const translations = {
       badge2: "🔒 Enterprise Secure",
       titleStart: "Biznesinizi",
       titleHighlight: "onlayn dünyaya",
-      titleEnd: "daşıyın!",
+      titleEnd: " daşıyın!",
       subtitle: "Sürətli təhvil. Peşəkar addımlar, tam güvən.",
       cta: "WhatsApp ilə Əlaqə",
     },
