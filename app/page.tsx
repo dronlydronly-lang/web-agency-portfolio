@@ -240,10 +240,19 @@ function ShowcaseCard({ example }: { example: Example }) {
       href={`/demo/${example.slug}`}
       className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur-2xl transition-transform duration-300 ease-out hover:scale-[1.02] hover:border-amber-400/30"
     >
-      <div
-        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${example.color} text-white shadow-lg`}
-      >
-        <example.icon className="h-6 w-6" />
+      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl shadow-lg">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={example.image}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${example.color} opacity-70`}
+        >
+          <example.icon className="h-6 w-6 text-white" />
+        </div>
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-semibold text-white">{example.name}</p>
