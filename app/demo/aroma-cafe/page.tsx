@@ -27,11 +27,11 @@ const menu = [
 
 function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
   return (
-    <div className="relative h-48 w-full bg-zinc-800">
+    <div className="relative aspect-[4/3] w-full bg-zinc-800">
       <ImageWithFallback
         basePath={`/menu/${item.image}`}
         alt={item.name}
-        className="object-contain"
+        className="object-cover"
         fallback={
           <div
             className={`flex h-full items-center justify-center bg-gradient-to-br ${item.color}`}
