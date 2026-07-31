@@ -112,7 +112,7 @@ function TopBar() {
             }
           />
         </span>
-        {AGENCY_NAME}
+        <span className="truncate">{AGENCY_NAME}</span>
       </span>
 
       <nav className="hidden items-center gap-6 text-sm font-medium text-zinc-400 md:flex">
