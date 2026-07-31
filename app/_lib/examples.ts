@@ -24,17 +24,13 @@ export type Example = {
   badge: ComponentType<{ className?: string }>;
 };
 
-function unsplash(id: string) {
-  return `https://images.unsplash.com/photo-${id}?w=800&q=75&auto=format&fit=crop`;
-}
-
 export const examples: Example[] = [
   {
     slug: "aroma-cafe",
     name: "Aroma Cafe",
     desc: "Restoran üçün rəqəmsal QR menyu sistemi.",
     color: "from-amber-700 to-orange-500",
-    image: unsplash("1521017432531-fbd92d768814"),
+    image: "/agency/aroma-cafe.jpg",
     icon: CupIcon,
     badge: QrIcon,
   },
@@ -43,7 +39,7 @@ export const examples: Example[] = [
     name: "Elit Berber Studio",
     desc: "Onlayn növbə götürmə və rezervasiya saytı.",
     color: "from-zinc-600 to-zinc-400",
-    image: unsplash("1585747860715-2ba37e788b70"),
+    image: "/agency/elit-berber.jpg",
     icon: ScissorsIcon,
     badge: CalendarIcon,
   },
@@ -52,7 +48,7 @@ export const examples: Example[] = [
     name: "Trend Butik",
     desc: "Tam funksional geyim onlayn mağazası.",
     color: "from-rose-700 to-pink-500",
-    image: unsplash("1441984904996-e0b6ba687e04"),
+    image: "/agency/trend-butik.jpg",
     icon: BagIcon,
     badge: CartIcon,
   },
@@ -61,7 +57,7 @@ export const examples: Example[] = [
     name: "Arxitekt MMC",
     desc: "Etibarlı və peşəkar korporativ imic saytı.",
     color: "from-sky-700 to-blue-500",
-    image: unsplash("1487958449943-2429e8be8625"),
+    image: "/agency/arxitekt-mmc.jpg",
     icon: BuildingIcon,
     badge: CheckIcon,
   },
@@ -70,7 +66,7 @@ export const examples: Example[] = [
     name: "Foto Studio",
     desc: "Yaradıcı işlərin vizual portfolio saytı.",
     color: "from-violet-700 to-fuchsia-500",
-    image: unsplash("1516035069371-29a1b244cc32"),
+    image: "/agency/foto-studio.jpg",
     icon: CameraIcon,
     badge: FolderIcon,
   },
@@ -79,10 +75,10 @@ export const examples: Example[] = [
     name: "Gündəm Bloq",
     desc: "Sürətli və rahat idarə olunan bloq sayt.",
     color: "from-emerald-700 to-teal-500",
-    image: unsplash("1499750310107-5fef28a66643"),
+    image: "/agency/gundem-bloq.jpg",
     icon: DocIcon,
     badge: PenIcon,
   },
 ];
 
-export const CREATOR_AVATAR = unsplash("1555066931-4365d14bab8c");
+export const CREATOR_AVATAR = "/agency/deniz-avatar.jpg";
