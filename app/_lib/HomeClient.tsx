@@ -318,17 +318,16 @@ function ExampleCoverCard({ example }: { example: Example }) {
       href={`/demo/${example.slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md sm:backdrop-blur-2xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-xl hover:shadow-amber-500/10"
     >
-      <div className="relative flex aspect-video items-center justify-center overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={thumb(example.image, 500)}
-          srcSet={`${thumb(example.image, 400)} 400w, ${thumb(example.image, 800)} 800w`}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-zinc-800">
+        <Image
+          src={example.image}
           alt=""
           aria-hidden
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          quality={70}
           loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+          className="object-cover transition-transform duration-300 group-hover:scale-110"
         />
         <div
           className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${example.color} opacity-60 mix-blend-multiply`}
