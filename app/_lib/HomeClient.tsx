@@ -252,15 +252,15 @@ function ShowcasePanel() {
       </div>
 
       <div className="mt-auto flex items-center gap-4 border-t border-white/10 pt-6">
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-amber-400/40">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={thumb(CREATOR_AVATAR, 120)}
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-zinc-800 ring-2 ring-amber-400/40">
+          <Image
+            src={CREATOR_AVATAR}
             alt={t.creator.name}
-            width={120}
-            height={120}
-            decoding="async"
-            className="h-full w-full object-cover"
+            fill
+            sizes="56px"
+            quality={60}
+            priority
+            className="object-cover"
           />
         </div>
         <div className="min-w-0">
