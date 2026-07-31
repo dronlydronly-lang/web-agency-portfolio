@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AGENCY_NAME, WHATSAPP_URL, whatsappUrl } from "./constants";
@@ -17,12 +18,6 @@ const showcase = examples.filter((e) =>
 const HEADER_WHATSAPP_URL = whatsappUrl(
   "Salam, veb-sayt hazırlanması haqqında məlumat almaq istərdim"
 );
-
-// Unsplash's imgix backend accepts &w= — request only the pixel size the
-// container actually renders instead of shipping the full 800px master.
-function thumb(url: string, width: number) {
-  return url.replace(/w=\d+/, `w=${width}`);
-}
 
 export function HomeClient() {
   return (
