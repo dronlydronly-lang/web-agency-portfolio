@@ -104,7 +104,7 @@ function TopBar() {
             basePath="/logo"
             alt={AGENCY_NAME}
             sizes="28px"
-            className="scale-[2.3] origin-[48%_40%] object-cover"
+            className="scale-[2.7] origin-[48%_38%] object-cover"
             fallback={
               <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-amber-400 to-yellow-300 text-xs font-bold text-zinc-950">
                 W
