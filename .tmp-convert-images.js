@@ -73,14 +73,20 @@ async function run() {
     const outPath = path.join(PUB, `${base}.webp`);
     const meta = await sharp(found.path).metadata();
     const targetW = Math.min(meta.width || 800, 800);
+    const beforeSize = fs.statSync(found.path).size;
     const buf = await sharp(found.path)
       .resize({ width: targetW, withoutEnlargement: true })
       .webp({ quality: 80 })
       .toBuffer();
-    fs.writeFileSync(outPath, buf);
-    const beforeSize = fs.statSync(found.path).size;
+    if (found.path === outPath) {
+      const tmpPath = outPath + ".tmp";
+      fs.writeFileSync(tmpPath, buf);
+      fs.renameSync(tmpPath, outPath);
+    } else {
+      fs.writeFileSync(outPath, buf);
+      fs.unlinkSync(found.path);
+    }
     console.log(`${base}: ${found.ext} ${beforeSize}b -> webp ${buf.length}b (natural ratio, w<=${targetW})`);
-    if (found.ext !== "webp") fs.unlinkSync(found.path);
   }
 
   const logoPath = path.join(PUB, "logo.png");
