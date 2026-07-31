@@ -124,23 +124,24 @@ function TopBar() {
         </a>
       </nav>
 
-      <div className="flex items-center gap-2">
+      <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
         <LanguageSwitcher />
         <a
           href={HEADER_WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/20 transition-transform hover:scale-105"
+          aria-label={t.header.whatsapp}
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] text-zinc-950 shadow-lg shadow-emerald-500/20 transition-transform hover:scale-105 sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2"
         >
           <WhatsAppIcon className="h-4 w-4" />
-          <span>{t.header.whatsapp}</span>
+          <span className="hidden text-sm font-semibold sm:inline">{t.header.whatsapp}</span>
         </a>
         <a
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 backdrop-blur-md sm:backdrop-blur-2xl transition-colors hover:text-white"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 backdrop-blur-md sm:backdrop-blur-2xl transition-colors hover:text-white"
         >
           <InstagramIcon className="h-4 w-4" />
         </a>
