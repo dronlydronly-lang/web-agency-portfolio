@@ -2,12 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
+    // Photos are self-hosted in /public/agency — no external remote
+    // domain needed anymore, which also removes a cross-origin round
+    // trip on every cold image request.
     qualities: [60, 70, 75],
   },
 };
