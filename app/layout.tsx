@@ -14,9 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Webmaster — Rəqəmsal Agentlik | Peşəkar Veb Sayt Hazırlanması",
+  title: "WebmasterDeniz — Rəqəmsal Agentlik | Peşəkar Veb Sayt Hazırlanması",
   description:
     "Biznesiniz üçün sürətli, müasir və mobil uyğun veb saytlar hazırlayırıq. Korporativ sayt, landing page, e-ticarət və portfolio saytlar.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
