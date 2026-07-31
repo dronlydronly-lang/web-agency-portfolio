@@ -97,8 +97,8 @@ function TopBar() {
   const t = translations[lang];
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-[#030712]/80 px-5 py-4 backdrop-blur-md sm:px-10">
-      <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1.5 pl-1.5 pr-4 text-sm font-semibold tracking-wide backdrop-blur-md sm:backdrop-blur-2xl">
+    <header className="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-white/10 bg-[#030712]/80 px-3 py-3 backdrop-blur-md sm:gap-4 sm:px-10 sm:py-4">
+      <span className="flex min-w-0 shrink items-center gap-1.5 rounded-full border border-white/10 bg-white/5 py-1.5 pl-1.5 pr-3 text-xs font-semibold tracking-wide backdrop-blur-md sm:gap-2 sm:pr-4 sm:text-sm sm:backdrop-blur-2xl">
         <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full bg-zinc-800">
           <ImageWithFallback
             basePath="/logo"
