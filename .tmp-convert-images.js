@@ -53,14 +53,10 @@ async function run() {
       .resize({ width: w, height: h, fit: "cover", position: sharp.strategy.attention })
       .webp({ quality: q })
       .toBuffer();
-    if (found.path === outPath) {
-      const tmpPath = outPath + ".tmp";
-      fs.writeFileSync(tmpPath, buf);
-      fs.renameSync(tmpPath, outPath);
-    } else {
-      fs.writeFileSync(outPath, buf);
+    try {
       fs.unlinkSync(found.path);
-    }
+    } catch (e) {}
+    fs.writeFileSync(outPath, buf);
     console.log(`${base}: ${found.ext} ${beforeSize}b -> webp ${buf.length}b (${w}x${h}, q${q})`);
   }
 
@@ -78,14 +74,10 @@ async function run() {
       .resize({ width: targetW, withoutEnlargement: true })
       .webp({ quality: 80 })
       .toBuffer();
-    if (found.path === outPath) {
-      const tmpPath = outPath + ".tmp";
-      fs.writeFileSync(tmpPath, buf);
-      fs.renameSync(tmpPath, outPath);
-    } else {
-      fs.writeFileSync(outPath, buf);
+    try {
       fs.unlinkSync(found.path);
-    }
+    } catch (e) {}
+    fs.writeFileSync(outPath, buf);
     console.log(`${base}: ${found.ext} ${beforeSize}b -> webp ${buf.length}b (natural ratio, w<=${targetW})`);
   }
 
