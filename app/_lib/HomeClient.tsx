@@ -59,7 +59,7 @@ function Spotlight() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-0 transition-[background] duration-75"
+      className="hover-fx pointer-events-none fixed inset-0 z-0 transition-[background] duration-75"
       style={{
         background:
           "radial-gradient(650px circle at var(--x, 50%) var(--y, 20%), rgba(212,175,55,0.16), transparent 42%)",
