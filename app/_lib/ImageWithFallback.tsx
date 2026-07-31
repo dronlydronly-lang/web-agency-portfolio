@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp"];
+const IMAGE_EXTENSIONS = ["webp", "jpg", "jpeg", "png"];
 
 export function ImageWithFallback({
   basePath,
