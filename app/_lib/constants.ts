@@ -8,3 +8,5 @@ export function whatsappUrl(message: string) {
 export const WHATSAPP_URL = whatsappUrl(
   "Salam, sayt hazirlanmasi haqqinda melumat almaq isteyirem."
 );
+
+export const INSTAGRAM_URL = "https://instagram.com/webmaster.deniz";
