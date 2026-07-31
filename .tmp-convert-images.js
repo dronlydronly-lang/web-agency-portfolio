@@ -48,14 +48,20 @@ async function run() {
       continue;
     }
     const outPath = path.join(PUB, `${base}.webp`);
+    const beforeSize = fs.statSync(found.path).size;
     const buf = await sharp(found.path)
       .resize({ width: w, height: h, fit: "cover", position: sharp.strategy.attention })
       .webp({ quality: q })
       .toBuffer();
-    fs.writeFileSync(outPath, buf);
-    const beforeSize = fs.statSync(found.path).size;
+    if (found.path === outPath) {
+      const tmpPath = outPath + ".tmp";
+      fs.writeFileSync(tmpPath, buf);
+      fs.renameSync(tmpPath, outPath);
+    } else {
+      fs.writeFileSync(outPath, buf);
+      fs.unlinkSync(found.path);
+    }
     console.log(`${base}: ${found.ext} ${beforeSize}b -> webp ${buf.length}b (${w}x${h}, q${q})`);
-    if (found.ext !== "webp") fs.unlinkSync(found.path);
   }
 
   for (const base of galleryJobs) {
