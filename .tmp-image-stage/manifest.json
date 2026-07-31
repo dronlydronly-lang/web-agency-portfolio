@@ -1,0 +1,155 @@
+{
+  "results": [
+    {
+      "base": "menu/espresso",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\espresso.webp",
+      "oldExt": "webp",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__espresso.webp"
+    },
+    {
+      "base": "menu/cappuccino",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\cappuccino.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__cappuccino.webp"
+    },
+    {
+      "base": "menu/latte",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\latte.webp",
+      "oldExt": "webp",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__latte.webp"
+    },
+    {
+      "base": "menu/flat-white",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\flat-white.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__flat-white.webp"
+    },
+    {
+      "base": "menu/cheesecake",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\cheesecake.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__cheesecake.webp"
+    },
+    {
+      "base": "menu/kruassan",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\menu\\kruassan.webp",
+      "oldExt": "webp",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\menu__kruassan.webp"
+    },
+    {
+      "base": "products/coat",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\coat.webp",
+      "oldExt": "webp",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__coat.webp"
+    },
+    {
+      "base": "products/sweater",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\sweater.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__sweater.webp"
+    },
+    {
+      "base": "products/jeans",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\jeans.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__jeans.webp"
+    },
+    {
+      "base": "products/shirt",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\shirt.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__shirt.webp"
+    },
+    {
+      "base": "products/bag",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\bag.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__bag.webp"
+    },
+    {
+      "base": "products/shoes",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\products\\shoes.webp",
+      "oldExt": "webp",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\products__shoes.webp"
+    },
+    {
+      "base": "agency/aroma-cafe",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\aroma-cafe.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__aroma-cafe.webp"
+    },
+    {
+      "base": "agency/elit-berber",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\elit-berber.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__elit-berber.webp"
+    },
+    {
+      "base": "agency/trend-butik",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\trend-butik.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__trend-butik.webp"
+    },
+    {
+      "base": "agency/arxitekt-mmc",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\arxitekt-mmc.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__arxitekt-mmc.webp"
+    },
+    {
+      "base": "agency/foto-studio",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\foto-studio.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__foto-studio.webp"
+    },
+    {
+      "base": "agency/gundem-bloq",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\gundem-bloq.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__gundem-bloq.webp"
+    },
+    {
+      "base": "agency/deniz-avatar",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\agency\\deniz-avatar.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\agency__deniz-avatar.webp"
+    },
+    {
+      "base": "gallery/toy1",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy1.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy1.webp"
+    },
+    {
+      "base": "gallery/toy2",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy2.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy2.webp"
+    },
+    {
+      "base": "gallery/toy3",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy3.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy3.webp"
+    },
+    {
+      "base": "gallery/toy4",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy4.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy4.webp"
+    },
+    {
+      "base": "gallery/toy5",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy5.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy5.webp"
+    },
+    {
+      "base": "gallery/toy6",
+      "oldPath": "C:\\Users\\Asus\\web-agency\\public\\gallery\\toy6.jpg",
+      "oldExt": "jpg",
+      "stagePath": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\gallery__toy6.webp"
+    }
+  ],
+  "logoStage": "C:\\Users\\Asus\\web-agency\\.tmp-image-stage\\logo.webp"
+}
