@@ -223,6 +223,9 @@ function MagneticButton({
   const handleMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const el = ref.current;
     if (!el) return;
+    // Skip the magnetic pull on touch devices — there's no real cursor
+    // to track, and it avoids pointless re-renders on tap.
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const rect = el.getBoundingClientRect();
     setPos({
       x: (e.clientX - rect.left - rect.width / 2) * 0.3,
