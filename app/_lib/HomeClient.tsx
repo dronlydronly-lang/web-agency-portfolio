@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AGENCY_NAME, WHATSAPP_URL, whatsappUrl } from "./constants";
 import { CREATOR_AVATAR, examples, type Example } from "./examples";
 import { useLanguage, type Lang } from "./i18n";
+import { ImageWithFallback } from "./ImageWithFallback";
 import { InstagramIcon, WhatsAppIcon } from "./icons";
 import { translations } from "./translations";
 
