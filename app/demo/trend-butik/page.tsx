@@ -87,7 +87,7 @@ export default function TrendButik() {
                       <ImageWithFallback
                         basePath={`/products/${p.id}`}
                         alt={p.name}
-                        className="object-contain"
+                        className="object-cover"
                         fallback={
                           <div
                             className={`relative h-full bg-gradient-to-br ${p.color}`}
