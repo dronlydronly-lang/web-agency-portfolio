@@ -115,7 +115,7 @@ function Contact() {
 
   return (
     <section id="elaqe" className="mx-auto w-full max-w-6xl px-6 pb-20">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 text-center backdrop-blur-md sm:backdrop-blur-2xl sm:px-16">
+      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 px-8 py-16 text-center sm:px-16">
         <div
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.15),transparent_60%)]"
           aria-hidden
