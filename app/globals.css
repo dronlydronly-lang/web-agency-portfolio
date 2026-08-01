@@ -23,17 +23,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Mouse-follow glow/spotlight effects: real desktop pointer only.
-   display:none removes the layer from touch devices entirely — no
-   paint, no compositing, no JS work — instead of just hiding it
-   visually, which still costs the browser a render pass. */
-.hover-fx {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hover-fx {
-    display: block;
-  }
-}
