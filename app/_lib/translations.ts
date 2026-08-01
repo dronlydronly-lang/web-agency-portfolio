@@ -3,15 +3,13 @@ export const translations = {
     nav: { examples: "Nümunələr", contact: "Əlaqə" },
     header: { whatsapp: "WhatsApp" },
     hero: {
-      badge1: "⚡ 99+ PageSpeed",
-      badge2: "🔒 Enterprise Secure",
       titleStart: "Biznesinizi",
       titleHighlight: "onlayn dünyaya",
       titleEnd: " daşıyın!",
       subtitle: "Sürətli təhvil. Peşəkar addımlar, tam güvən.",
       cta: "WhatsApp ilə Əlaqə",
     },
-    showcase: { title: "Canlı Nümunələr" },
+    showcase: { title: "Nümunələr" },
     creator: {
       name: "Dəniz",
       tagline: "İstəyə uyğun hər növ veb-saytlar peşəkarlıqla hazırlanır.",
