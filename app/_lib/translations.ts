@@ -51,15 +51,13 @@ export const translations = {
     nav: { examples: "Examples", contact: "Contact" },
     header: { whatsapp: "WhatsApp" },
     hero: {
-      badge1: "⚡ 99+ PageSpeed",
-      badge2: "🔒 Enterprise Secure",
       titleStart: "Take",
       titleHighlight: "your business online",
       titleEnd: "!",
       subtitle: "Fast delivery. Professional steps, complete trust.",
       cta: "Contact via WhatsApp",
     },
-    showcase: { title: "Live Examples" },
+    showcase: { title: "Examples" },
     creator: {
       name: "Dəniz",
       tagline: "Any type of website you need, built professionally.",
