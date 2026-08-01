@@ -30,7 +30,7 @@ function ExampleCoverCard({ example }: { example: Example }) {
   return (
     <Link
       href={`/demo/${example.slug}`}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md sm:backdrop-blur-2xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-xl hover:shadow-amber-500/10"
+      className="group overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 transition-all hover:-translate-y-1 hover:border-amber-400/40"
     >
       <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-zinc-800">
         <Image
