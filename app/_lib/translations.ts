@@ -8,6 +8,7 @@ export const translations = {
       titleEnd: " daşıyın!",
       subtitle: "Sürətli təhvil. Peşəkar addımlar, tam güvən.",
       cta: "WhatsApp ilə Əlaqə",
+      signature: "— Dəniz, WebmasterDeniz qurucusu",
     },
     showcase: { title: "Nümunələr" },
     creator: {
