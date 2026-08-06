@@ -103,6 +103,7 @@ function QuickView({
         >
           Səbətə əlavə et — {product.price} ₼
         </button>
+        </div>
       </div>
     </div>
   );
