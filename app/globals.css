@@ -126,7 +126,8 @@ body {
   .reveal-up,
   .underline-draw,
   .drift-slow,
-  .marquee-track {
+  .marquee-track,
+  .text-shimmer {
     animation: none;
   }
 }
