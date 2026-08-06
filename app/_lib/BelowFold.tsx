@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AGENCY_NAME, INSTAGRAM_URL, WHATSAPP_URL } from "./constants";
 import { examples, type Example } from "./examples";
 import { useLanguage } from "./i18n";
-import { InstagramIcon, WhatsAppIcon } from "./icons";
+import { ArrowRightIcon, InstagramIcon, WhatsAppIcon } from "./icons";
 import { translations } from "./translations";
 
 // Everything below the hero fold. Loaded via next/dynamic from page.tsx so
