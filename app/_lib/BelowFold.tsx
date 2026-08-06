@@ -61,6 +61,40 @@ function Services() {
   );
 }
 
+function Process() {
+  const { lang } = useLanguage();
+  const t = translations[lang];
+
+  return (
+    <section className="border-t border-ink-line bg-ink px-5 py-24 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
+          {t.process.kicker}
+        </p>
+        <h2 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">
+          {t.process.title}
+        </h2>
+
+        <div className="relative mt-14 grid grid-cols-1 gap-10 sm:grid-cols-4 sm:gap-6">
+          <div
+            className="pointer-events-none absolute left-0 right-0 top-5 hidden h-px bg-ink-line sm:block"
+            aria-hidden
+          />
+          {t.process.steps.map((step, i) => (
+            <div key={step.title} className="relative">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-ink-line bg-ink font-mono text-sm text-clay">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-serif text-lg text-paper">{step.title}</h3>
+              <p className="mt-1.5 text-sm text-paper/50">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeaturedWork() {
   const { lang } = useLanguage();
   const t = translations[lang];
