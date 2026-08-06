@@ -241,15 +241,19 @@ function ShowcasePanel() {
   );
 }
 
-function ShowcaseCard({ example }: { example: Example }) {
+function ShowcaseCard({ example, index }: { example: Example; index: number }) {
   const { lang } = useLanguage();
   const t = translations[lang];
 
   return (
     <Link
       href={`/demo/${example.slug}`}
-      className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-zinc-800/60 p-4 transition-colors hover:border-amber-400/30 hover:bg-zinc-800"
+      style={{ ["--accent" as string]: example.accent }}
+      className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 border-l-2 border-l-transparent bg-zinc-800/60 p-4 transition-colors hover:border-l-[color:var(--accent)] hover:bg-zinc-800"
     >
+      <span className="hidden font-mono text-xs text-zinc-600 sm:block">
+        {String(index + 1).padStart(2, "0")}
+      </span>
       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-zinc-800 shadow-lg">
         <Image
           src={example.image}
@@ -273,7 +277,7 @@ function ShowcaseCard({ example }: { example: Example }) {
           {(t.examples as Record<string, string>)[example.slug]}
         </p>
       </div>
-      <span className="text-zinc-600 transition-colors group-hover:text-amber-400">→</span>
+      <ArrowRightIcon className="h-4 w-4 shrink-0 text-zinc-600 transition-all duration-300 group-hover:translate-x-1 group-hover:text-amber-400" />
     </Link>
   );
 }
