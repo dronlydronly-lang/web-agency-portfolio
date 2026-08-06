@@ -10,13 +10,13 @@ const HEADER_WHATSAPP_URL = whatsappUrl(
   "Salam, veb-sayt hazırlanması haqqında məlumat almaq istərdim"
 );
 
-// Above-the-fold: header + hero + service marquee. Everything else lives in
-// BelowFold.tsx, loaded via next/dynamic from page.tsx so its JS doesn't
-// block the hero's time-to-interactive.
-export function HomeClient() {
+// Above-the-fold: hero + service marquee (TopBar is rendered separately by
+// page.tsx, outside <main>, since it's a page-level landmark). Everything
+// below lives in BelowFold.tsx, loaded via next/dynamic from page.tsx so
+// its JS doesn't block the hero's time-to-interactive.
+export function HeroSection() {
   return (
     <>
-      <TopBar />
       <Hero />
       <Marquee />
     </>
