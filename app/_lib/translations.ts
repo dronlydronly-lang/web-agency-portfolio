@@ -1,24 +1,72 @@
 export const translations = {
   az: {
-    nav: { examples: "Nümunələr", contact: "Əlaqə" },
+    nav: { work: "Nümunələr", contact: "Əlaqə" },
     header: { whatsapp: "WhatsApp" },
     hero: {
+      kicker: "Veb Sayt Hazırlanması",
       titleStart: "Biznesinizi",
       titleHighlight: "onlayn dünyaya",
-      titleEnd: " daşıyın!",
+      titleEnd: " daşıyın",
       subtitle: "Sürətli təhvil. Peşəkar addımlar, tam güvən.",
       cta: "WhatsApp ilə Əlaqə",
+      secondaryCta: "İşlərimə baxın",
       signature: "— Dəniz, WebmasterDeniz qurucusu",
+    },
+    marquee: [
+      "Korporativ Saytlar",
+      "E-ticarət",
+      "Rezervasiya Sistemləri",
+      "Bloq & Media",
+      "Landing Səhifələr",
+      "SEO Optimizasiyası",
+    ],
+    services: {
+      kicker: "Nə Edirəm",
+      title: "Hər layihə fərqli işləyir",
+      subtitle:
+        "Şablon deyil — biznesinizin real iş prinsipinə uyğun qurulmuş sistem.",
+      items: [
+        {
+          title: "Korporativ və Landing Səhifələr",
+          desc: "Etibar yaradan, ilk saniyədə sürətli açılan imic saytları.",
+        },
+        {
+          title: "E-ticarət Həlləri",
+          desc: "Kataloqdan sifarişə qədər tam işləyən onlayn mağaza sistemləri.",
+        },
+        {
+          title: "Rezervasiya & Sifariş Sistemləri",
+          desc: "Növbə, masa və ya sifariş axınının onlayn idarə olunması.",
+        },
+        {
+          title: "Bloq & Media Platformaları",
+          desc: "Məzmununuzu özünüz rahat idarə edə biləcəyiniz sürətli struktur.",
+        },
+        {
+          title: "SEO və Sürət Optimizasiyası",
+          desc: "Google-da tapılan, mobil cihazda qüsursuz işləyən texniki əsas.",
+        },
+      ],
+    },
+    featured: {
+      kicker: "Seçilmiş İşlər",
+      title: "Nümunə saytlar",
+      subtitle: "Hər biri fərqli sənaye üçün fərqli məntiqlə qurulub.",
+      cta: "Bütün nümunələrə bax",
     },
     showcase: { title: "Nümunələr" },
     creator: {
       name: "Dəniz",
       tagline: "İstəyə uyğun hər növ veb-saytlar peşəkarlıqla hazırlanır.",
     },
-    services: {
+    portfolio: {
+      kicker: "Portfolio",
       title: "Nümunə Saytlar",
-      subtitle: "Kartlara klikləyin, hər nümunənin canlı demosuna baxın.",
+      subtitle:
+        "Aşağıdakı hər layihə klikə açılan tam funksional demo saytdır — dizaynı deyil, işləmə prinsipini sınayın.",
+      principleLabel: "İşləmə prinsipi",
       cta: "Demoya bax",
+      back: "Ana səhifə",
     },
     examples: {
       "aroma-cafe": "Restoran üçün rəqəmsal QR menyu sistemi.",
@@ -49,6 +97,7 @@ export const translations = {
       },
     ],
     contact: {
+      kicker: "Əlaqə",
       title: "Layihənizi müzakirə edək",
       subtitle: "WhatsApp üzərindən yazın, ən qısa zamanda cavab verəcəm.",
       whatsapp: "WhatsApp ilə yazın",
@@ -57,25 +106,72 @@ export const translations = {
     footer: { rights: "Bütün hüquqlar qorunur." },
   },
   en: {
-    nav: { examples: "Examples", contact: "Contact" },
+    nav: { work: "Work", contact: "Contact" },
     header: { whatsapp: "WhatsApp" },
     hero: {
+      kicker: "Website Development",
       titleStart: "Take",
       titleHighlight: "your business online",
-      titleEnd: "!",
+      titleEnd: "",
       subtitle: "Fast delivery. Professional steps, complete trust.",
       cta: "Contact via WhatsApp",
+      secondaryCta: "See my work",
       signature: "— Dəniz, founder of WebmasterDeniz",
+    },
+    marquee: [
+      "Corporate Sites",
+      "E-commerce",
+      "Booking Systems",
+      "Blog & Media",
+      "Landing Pages",
+      "SEO Optimization",
+    ],
+    services: {
+      kicker: "What I Build",
+      title: "Every project works differently",
+      subtitle: "Not a template — a system built around how your business actually runs.",
+      items: [
+        {
+          title: "Corporate & Landing Pages",
+          desc: "Image sites that build trust and load fast from the first second.",
+        },
+        {
+          title: "E-commerce Solutions",
+          desc: "Fully working online store systems, from catalog to checkout.",
+        },
+        {
+          title: "Booking & Order Systems",
+          desc: "Online management of queues, tables, or order flow.",
+        },
+        {
+          title: "Blog & Media Platforms",
+          desc: "A fast structure you can manage your own content on.",
+        },
+        {
+          title: "SEO & Speed Optimization",
+          desc: "A technical foundation that gets found on Google and runs flawlessly on mobile.",
+        },
+      ],
+    },
+    featured: {
+      kicker: "Selected Work",
+      title: "Example websites",
+      subtitle: "Each one built with different logic for a different industry.",
+      cta: "See all examples",
     },
     showcase: { title: "Examples" },
     creator: {
       name: "Dəniz",
       tagline: "Any type of website you need, built professionally.",
     },
-    services: {
+    portfolio: {
+      kicker: "Portfolio",
       title: "Example Websites",
-      subtitle: "Click a card to see each example's live demo.",
+      subtitle:
+        "Every project below is a fully functional demo you can click into — test how it works, not just how it looks.",
+      principleLabel: "How it works",
       cta: "View demo",
+      back: "Home",
     },
     examples: {
       "aroma-cafe": "Digital QR menu system for restaurants.",
@@ -106,6 +202,7 @@ export const translations = {
       },
     ],
     contact: {
+      kicker: "Contact",
       title: "Let's discuss your project",
       subtitle: "Message me on WhatsApp, I'll reply as soon as possible.",
       whatsapp: "Message on WhatsApp",
