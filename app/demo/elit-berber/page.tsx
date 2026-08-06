@@ -79,8 +79,8 @@ export default function ElitBerber() {
             className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(161,161,170,0.14),transparent_60%)]"
             aria-hidden
           />
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-zinc-600 to-zinc-400 text-white">
-            <ScissorsIcon className="h-8 w-8" />
+          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-stone-700 to-stone-500 text-white shadow-lg">
+            <BarberMark className="h-16 w-16" />
           </div>
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Elit Berber Studio
