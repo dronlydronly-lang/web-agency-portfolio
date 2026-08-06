@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { BagIcon, CheckIcon, MinusIcon, PlusIcon } from "@/app/_lib/icons";
+import { BoutiqueMark } from "@/app/_lib/illustrations";
 
 const DELIVERY_FEE = 5;
 const FREE_DELIVERY_THRESHOLD = 100;
