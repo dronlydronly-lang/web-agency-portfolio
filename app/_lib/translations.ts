@@ -65,6 +65,7 @@ export const translations = {
       titleEnd: "!",
       subtitle: "Fast delivery. Professional steps, complete trust.",
       cta: "Contact via WhatsApp",
+      signature: "— Dəniz, founder of WebmasterDeniz",
     },
     showcase: { title: "Examples" },
     creator: {
