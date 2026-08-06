@@ -135,7 +135,7 @@ export const translations = {
       titleStart: "Take",
       titleHighlight: "your business online",
       titleEnd: "",
-      subtitle: "Fast delivery. Professional steps, complete trust.",
+      tagline: "A jeweler's precision, digital craftsmanship.",
       cta: "Contact via WhatsApp",
       secondaryCta: "See my work",
       signature: "— Dəniz, founder of WebmasterDeniz",
