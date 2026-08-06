@@ -168,8 +168,8 @@ export default function GundemBloq() {
             className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(16,185,129,0.14),transparent_60%)]"
             aria-hidden
           />
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-700 to-teal-500 text-white">
-            <DocIcon className="h-8 w-8" />
+          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-950 to-teal-900 text-white shadow-lg">
+            <DocMark className="h-16 w-16" />
           </div>
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Gündəm Bloq
