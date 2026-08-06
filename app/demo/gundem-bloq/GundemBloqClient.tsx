@@ -129,7 +129,7 @@ function ArticleReader({
   );
 }
 
-export default function GundemBloq() {
+export function GundemBloqClient() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [tagFilter, setTagFilter] = useState<string>("all");
   const [email, setEmail] = useState("");
