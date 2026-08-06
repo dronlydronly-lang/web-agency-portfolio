@@ -19,6 +19,7 @@ export type Example = {
   name: string;
   desc: string;
   color: string;
+  accent: string;
   image: string;
   icon: ComponentType<{ className?: string }>;
   badge: ComponentType<{ className?: string }>;
@@ -30,6 +31,7 @@ export const examples: Example[] = [
     name: "Aroma Cafe",
     desc: "Restoran üçün rəqəmsal QR menyu sistemi.",
     color: "from-amber-700 to-orange-500",
+    accent: "#f59e0b",
     image: "/agency/aroma-cafe.webp",
     icon: CupIcon,
     badge: QrIcon,
@@ -39,6 +41,7 @@ export const examples: Example[] = [
     name: "Elit Berber Studio",
     desc: "Onlayn növbə götürmə və rezervasiya saytı.",
     color: "from-zinc-600 to-zinc-400",
+    accent: "#a1a1aa",
     image: "/agency/elit-berber.webp",
     icon: ScissorsIcon,
     badge: CalendarIcon,
@@ -48,6 +51,7 @@ export const examples: Example[] = [
     name: "Trend Butik",
     desc: "Tam funksional geyim onlayn mağazası.",
     color: "from-rose-700 to-pink-500",
+    accent: "#f43f5e",
     image: "/agency/trend-butik.webp",
     icon: BagIcon,
     badge: CartIcon,
@@ -57,6 +61,7 @@ export const examples: Example[] = [
     name: "Arxitekt MMC",
     desc: "Etibarlı və peşəkar korporativ imic saytı.",
     color: "from-sky-700 to-blue-500",
+    accent: "#3b82f6",
     image: "/agency/arxitekt-mmc.webp",
     icon: BuildingIcon,
     badge: CheckIcon,
@@ -66,6 +71,7 @@ export const examples: Example[] = [
     name: "Foto Studio",
     desc: "Yaradıcı işlərin vizual portfolio saytı.",
     color: "from-violet-700 to-fuchsia-500",
+    accent: "#d946ef",
     image: "/agency/foto-studio.webp",
     icon: CameraIcon,
     badge: FolderIcon,
@@ -75,6 +81,7 @@ export const examples: Example[] = [
     name: "Gündəm Bloq",
     desc: "Sürətli və rahat idarə olunan bloq sayt.",
     color: "from-emerald-700 to-teal-500",
+    accent: "#10b981",
     image: "/agency/gundem-bloq.webp",
     icon: DocIcon,
     badge: PenIcon,
