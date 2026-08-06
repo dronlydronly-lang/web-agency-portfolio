@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
-import { ImageWithFallback } from "@/app/_lib/ImageWithFallback";
 import {
   CakeSliceIcon,
   CheckIcon,
@@ -15,45 +14,79 @@ import {
 } from "@/app/_lib/icons";
 
 const SERVICE_FEE = 2;
+const STATUS_STEPS = ["Qəbul edildi", "Hazırlanır", "Hazırdır"] as const;
+const STATUS_DELAYS = [0, 3200, 7200];
+
+const categories = [
+  { id: "qehve", name: "Qəhvə" },
+  { id: "sirniyyat", name: "Şirniyyat" },
+] as const;
 
 const menu = [
-  { id: "espresso", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon, color: "from-amber-800 to-amber-600", image: "espresso" },
-  { id: "cappuccino", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon, color: "from-amber-700 to-orange-500", image: "cappuccino" },
-  { id: "latte", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon, color: "from-orange-600 to-amber-400", image: "latte" },
-  { id: "flatwhite", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon, color: "from-amber-600 to-yellow-500", image: "flat-white" },
-  { id: "cheesecake", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon, color: "from-orange-700 to-rose-400", image: "cheesecake" },
-  { id: "kruassan", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon, color: "from-yellow-700 to-amber-500", image: "kruassan" },
+  { id: "espresso", category: "qehve", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, icon: CupIcon },
+  { id: "cappuccino", category: "qehve", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, icon: CupIcon },
+  { id: "latte", category: "qehve", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, icon: CupIcon },
+  { id: "flatwhite", category: "qehve", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, icon: CupIcon },
+  { id: "cheesecake", category: "sirniyyat", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, icon: CakeSliceIcon },
+  { id: "kruassan", category: "sirniyyat", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, icon: CroissantIcon },
 ];
-
-function MenuItemPhoto({ item }: { item: (typeof menu)[number] }) {
-  return (
-    <div className="relative aspect-[4/3] w-full bg-zinc-800">
-      <ImageWithFallback
-        basePath={`/menu/${item.image}`}
-        alt={item.name}
-        className="object-cover"
-        fallback={
-          <div
-            className={`flex h-full items-center justify-center bg-gradient-to-br ${item.color}`}
-          >
-            <div
-              className="pointer-events-none absolute -left-6 -top-8 h-24 w-24 rounded-full bg-white/20 blur-xl"
-              aria-hidden
-            />
-            <item.icon className="h-10 w-10 text-white drop-shadow" />
-          </div>
-        }
-      />
-    </div>
-  );
-}
 
 function OrderNumber() {
   const [num] = useState(() => Math.floor(1000 + Math.random() * 9000));
   return <>#AC-{num}</>;
 }
 
+function StatusTracker({ table }: { table: string }) {
+  const [stepIndex, setStepIndex] = useState(0);
+
+  useEffect(() => {
+    const timers = STATUS_DELAYS.map((delay, i) =>
+      setTimeout(() => setStepIndex(i), delay)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center py-4 text-center">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+        <CheckIcon className="h-6 w-6" />
+      </span>
+      <h3 className="mt-4 font-serif text-lg text-paper">Sifariş {table ? `(Masa ${table})` : ""} qəbul edildi</h3>
+      <p className="mt-1 text-sm text-paper/50">
+        Sifariş <OrderNumber /> mətbəxə göndərildi.
+      </p>
+
+      <div className="mt-6 flex w-full flex-col gap-3">
+        {STATUS_STEPS.map((step, i) => {
+          const reached = i <= stepIndex;
+          return (
+            <div key={step} className="flex items-center gap-3 text-left">
+              <span
+                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs transition-colors ${
+                  reached
+                    ? "border-emerald-400 bg-emerald-400 text-ink"
+                    : "border-ink-line text-transparent"
+                }`}
+              >
+                <CheckIcon className="h-3.5 w-3.5" />
+              </span>
+              <span className={`text-sm ${reached ? "text-paper" : "text-paper/35"}`}>
+                {step}
+              </span>
+              {i === stepIndex && i < STATUS_STEPS.length - 1 && (
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" aria-hidden />
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function AromaCafe() {
+  const [table, setTable] = useState("");
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]["id"]>("qehve");
   const [cart, setCart] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -67,19 +100,13 @@ export default function AromaCafe() {
   };
 
   const lines = useMemo(
-    () =>
-      menu
-        .filter((item) => cart[item.id] > 0)
-        .map((item) => ({ ...item, qty: cart[item.id] })),
+    () => menu.filter((item) => cart[item.id] > 0).map((item) => ({ ...item, qty: cart[item.id] })),
     [cart]
   );
 
   const subtotal = lines.reduce((sum, l) => sum + l.price * l.qty, 0);
   const total = subtotal > 0 ? subtotal + SERVICE_FEE : 0;
-
-  const placeOrder = () => {
-    setSubmitted(true);
-  };
+  const visibleMenu = menu.filter((item) => item.category === activeCategory);
 
   const newOrder = () => {
     setCart({});
@@ -88,22 +115,22 @@ export default function AromaCafe() {
 
   return (
     <DemoShell>
-      <div className="bg-zinc-950 text-zinc-100">
-        <section className="relative overflow-hidden border-b border-zinc-800 px-6 py-24 text-center">
+      <div className="bg-ink text-paper">
+        <section className="grain relative overflow-hidden border-b border-ink-line px-6 py-24 text-center">
           <div
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(217,119,6,0.18),transparent_60%)]"
+            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(217,119,6,0.14),transparent_60%)]"
             aria-hidden
           />
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-700 to-orange-500 text-white">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-amber-700 to-orange-500 text-white">
             <CupIcon className="h-8 w-8" />
           </div>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Aroma Cafe
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-zinc-400">
+          <p className="mx-auto mt-4 max-w-md text-paper/50">
             İstiliklə dolu hər fincan. Şəhərin mərkəzində sakit bir kofe künc.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-500">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/40">
             <span className="flex items-center gap-1.5">
               <MapPinIcon className="h-4 w-4" /> Nizami küç. 28, Bakı
             </span>
@@ -114,127 +141,154 @@ export default function AromaCafe() {
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-center text-3xl font-bold text-white">Menyu</h2>
-          <p className="mx-auto mt-2 max-w-md text-center text-sm text-zinc-500">
-            Sifariş vermək üçün istədiyiniz məhsulların sayını seçin.
-          </p>
+          <div className="mx-auto max-w-sm">
+            <label className="block text-sm font-medium text-paper/60">
+              Masa nömrəniz
+              <input
+                type="text"
+                inputMode="numeric"
+                value={table}
+                onChange={(e) => setTable(e.target.value)}
+                placeholder="Məs: 4"
+                className="mt-2 w-full rounded-md border border-ink-line bg-transparent px-4 py-2.5 text-paper outline-none placeholder:text-paper/25 focus:border-gold"
+              />
+            </label>
+          </div>
+
+          <h2 className="mt-14 text-center font-serif text-3xl text-paper">Menyu</h2>
+
+          <div className="mx-auto mt-6 flex w-fit gap-1 rounded-md border border-ink-line p-1">
+            {categories.map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => setActiveCategory(c.id)}
+                className={`rounded px-4 py-1.5 text-sm font-medium transition-colors ${
+                  activeCategory === c.id ? "bg-gold text-ink" : "text-paper/50 hover:text-paper"
+                }`}
+              >
+                {c.name}
+              </button>
+            ))}
+          </div>
 
           <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {menu.map((item) => {
+            <div className="flex flex-col gap-3">
+              {visibleMenu.map((item) => {
                 const qty = cart[item.id] ?? 0;
                 return (
                   <div
                     key={item.id}
-                    className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60"
+                    className="flex items-center gap-4 border-b border-ink-line py-4"
                   >
-                    <MenuItemPhoto item={item} />
-                    <div className="p-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-amber-800 to-orange-600 text-white">
+                      <item.icon className="h-5 w-5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-semibold text-white">{item.name}</h3>
-                        <span className="shrink-0 text-sm font-semibold text-amber-400">
-                          {item.price.toFixed(2)} AZN
+                        <h3 className="font-medium text-paper">{item.name}</h3>
+                        <span className="shrink-0 text-sm font-semibold text-gold">
+                          {item.price.toFixed(2)} ₼
                         </span>
                       </div>
-                      <p className="mt-1 text-sm text-zinc-400">{item.desc}</p>
-
-                      <div className="mt-4">
-                        {qty === 0 ? (
-                          <button
-                            type="button"
-                            onClick={() => setQty(item.id, 1)}
-                            className="w-full rounded-full border border-amber-500/40 py-2 text-sm font-semibold text-amber-400 transition-colors hover:bg-amber-500/10"
-                          >
-                            Səbətə at
-                          </button>
-                        ) : (
-                          <div className="flex items-center justify-between rounded-full border border-zinc-700 bg-zinc-950 p-1">
-                            <button
-                              type="button"
-                              aria-label="Azalt"
-                              onClick={() => setQty(item.id, qty - 1)}
-                              className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-300 hover:bg-zinc-800"
-                            >
-                              <MinusIcon className="h-4 w-4" />
-                            </button>
-                            <span className="font-semibold text-white">{qty}</span>
-                            <button
-                              type="button"
-                              aria-label="Artır"
-                              onClick={() => setQty(item.id, qty + 1)}
-                              className="flex h-8 w-8 items-center justify-center rounded-full text-zinc-300 hover:bg-zinc-800"
-                            >
-                              <PlusIcon className="h-4 w-4" />
-                            </button>
-                          </div>
-                        )}
-                      </div>
+                      <p className="mt-0.5 truncate text-sm text-paper/45">{item.desc}</p>
                     </div>
+
+                    {qty === 0 ? (
+                      <button
+                        type="button"
+                        onClick={() => setQty(item.id, 1)}
+                        className="shrink-0 rounded-md border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                      >
+                        Əlavə et
+                      </button>
+                    ) : (
+                      <div className="flex shrink-0 items-center gap-2 rounded-md border border-ink-line p-0.5">
+                        <button
+                          type="button"
+                          aria-label="Azalt"
+                          onClick={() => setQty(item.id, qty - 1)}
+                          className="flex h-7 w-7 items-center justify-center rounded text-paper/70 hover:bg-ink-soft"
+                        >
+                          <MinusIcon className="h-3.5 w-3.5" />
+                        </button>
+                        <span className="w-4 text-center text-sm font-semibold text-paper">{qty}</span>
+                        <button
+                          type="button"
+                          aria-label="Artır"
+                          onClick={() => setQty(item.id, qty + 1)}
+                          className="flex h-7 w-7 items-center justify-center rounded text-paper/70 hover:bg-ink-soft"
+                        >
+                          <PlusIcon className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 );
               })}
             </div>
 
-            <div className="h-fit rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 lg:sticky lg:top-20">
+            <div className="h-fit rounded-lg border border-ink-line bg-ink-soft p-5 lg:sticky lg:top-20">
               {submitted ? (
-                <div className="flex flex-col items-center py-4 text-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
-                    <CheckIcon className="h-6 w-6" />
-                  </span>
-                  <h3 className="mt-4 font-semibold text-white">Sifarişiniz qəbul edildi!</h3>
-                  <p className="mt-1 text-sm text-zinc-400">
-                    Sifariş <OrderNumber /> hazırlanmağa başladı. Təxminən 15-20 dəqiqəyə hazır
-                    olacaq.
-                  </p>
+                <>
+                  <StatusTracker table={table} />
                   <button
                     type="button"
                     onClick={newOrder}
-                    className="mt-5 rounded-full border border-zinc-700 px-5 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800"
+                    className="mt-2 w-full rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 transition-colors hover:text-paper"
                   >
                     Yeni sifariş ver
                   </button>
-                </div>
+                </>
               ) : (
                 <>
-                  <h3 className="font-semibold text-white">Sifarişiniz</h3>
+                  <h3 className="font-serif text-lg text-paper">Sifarişiniz</h3>
 
                   {lines.length === 0 ? (
-                    <p className="mt-4 text-sm text-zinc-500">Səbətiniz boşdur.</p>
+                    <p className="mt-4 text-sm text-paper/40">Səbətiniz boşdur.</p>
                   ) : (
                     <div className="mt-4 flex flex-col gap-3">
                       {lines.map((l) => (
                         <div key={l.id} className="flex items-center justify-between text-sm">
-                          <span className="text-zinc-300">
-                            {l.name} <span className="text-zinc-500">x{l.qty}</span>
+                          <span className="text-paper/70">
+                            {l.name} <span className="text-paper/35">x{l.qty}</span>
                           </span>
-                          <span className="text-zinc-300">
-                            {(l.price * l.qty).toFixed(2)} AZN
-                          </span>
+                          <span className="text-paper/70">{(l.price * l.qty).toFixed(2)} ₼</span>
                         </div>
                       ))}
 
-                      <div className="mt-2 flex flex-col gap-1.5 border-t border-zinc-800 pt-3 text-sm">
-                        <div className="flex items-center justify-between text-zinc-400">
+                      <div className="mt-2 flex flex-col gap-1.5 border-t border-ink-line pt-3 text-sm">
+                        <div className="flex items-center justify-between text-paper/45">
                           <span>Ara cəm</span>
-                          <span>{subtotal.toFixed(2)} AZN</span>
+                          <span>{subtotal.toFixed(2)} ₼</span>
                         </div>
-                        <div className="flex items-center justify-between text-zinc-400">
+                        <div className="flex items-center justify-between text-paper/45">
                           <span>Xidmət haqqı</span>
-                          <span>{SERVICE_FEE.toFixed(2)} AZN</span>
+                          <span>{SERVICE_FEE.toFixed(2)} ₼</span>
                         </div>
-                        <div className="flex items-center justify-between border-t border-zinc-800 pt-1.5 font-semibold text-white">
+                        <div className="flex items-center justify-between border-t border-ink-line pt-1.5 font-semibold text-paper">
                           <span>Ümumi</span>
-                          <span>{total.toFixed(2)} AZN</span>
+                          <span>{total.toFixed(2)} ₼</span>
                         </div>
                       </div>
 
                       <button
                         type="button"
-                        onClick={placeOrder}
-                        className="mt-2 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-5 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
+                        disabled={!table}
+                        onClick={() => setSubmitted(true)}
+                        className={`mt-2 flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
+                          table
+                            ? "bg-gold text-ink hover:bg-gold-soft"
+                            : "cursor-not-allowed bg-ink-line text-paper/35"
+                        }`}
                       >
-                        Sifarişi Təsdiqlə
+                        Sifarişi Göndər
                       </button>
+                      {!table && (
+                        <p className="text-center text-xs text-paper/35">
+                          Davam etmək üçün masa nömrənizi daxil edin.
+                        </p>
+                      )}
                     </div>
                   )}
                 </>
