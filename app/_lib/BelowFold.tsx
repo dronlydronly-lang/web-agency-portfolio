@@ -23,16 +23,21 @@ export function BelowFold() {
   );
 }
 
-function ExampleCoverCard({ example }: { example: Example }) {
+function ExampleCoverCard({ example, index }: { example: Example; index: number }) {
   const { lang } = useLanguage();
   const t = translations[lang];
+  const detail = (t.previewDetail as Record<string, string>)[example.slug];
 
   return (
     <Link
       href={`/demo/${example.slug}`}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 transition-all hover:-translate-y-1 hover:border-amber-400/40"
+      style={{ ["--accent" as string]: example.accent }}
+      className="group overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)]/50 hover:shadow-[0_20px_50px_-25px_var(--accent)]"
     >
       <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-zinc-800">
+        <span className="absolute left-3 top-3 z-10 font-mono text-xs text-white/60">
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <Image
           src={example.image}
           alt=""
@@ -41,7 +46,7 @@ function ExampleCoverCard({ example }: { example: Example }) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           quality={70}
           loading="lazy"
-          className="object-cover transition-transform duration-300 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div
           className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${example.color} opacity-60 mix-blend-multiply`}
@@ -55,14 +60,26 @@ function ExampleCoverCard({ example }: { example: Example }) {
         <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-zinc-950/70 text-amber-400 backdrop-blur">
           <example.badge className="h-4 w-4" />
         </div>
+
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-zinc-950/90 px-4 py-2.5 backdrop-blur-sm transition-transform duration-300 group-hover:translate-y-0">
+          <p className="flex items-center gap-2 text-xs font-medium text-white">
+            <span
+              className="h-1.5 w-1.5 shrink-0 rounded-full"
+              style={{ background: "var(--accent)" }}
+              aria-hidden
+            />
+            {detail}
+          </p>
+        </div>
       </div>
       <div className="p-4">
         <p className="font-semibold text-white">{example.name}</p>
         <p className="mt-1 text-sm text-zinc-400">
           {(t.examples as Record<string, string>)[example.slug]}
         </p>
-        <span className="mt-3 inline-block text-xs font-medium text-amber-400">
+        <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-amber-400">
           {t.services.cta}
+          <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </div>
     </Link>
