@@ -62,7 +62,7 @@ export function PortfolioClient() {
               <span className="absolute left-5 top-5 font-mono text-xs text-white/70">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <ex.icon className="relative h-20 w-20 text-white/90 transition-transform duration-500 group-hover:scale-110" />
+              <ex.illustration className="relative h-32 w-32 text-white/90 transition-transform duration-500 group-hover:scale-110" />
             </div>
 
             <div className="flex-1">
