@@ -14,12 +14,12 @@ const categories = [
 ] as const;
 
 const gallery = [
-  { id: 1, category: "wedding", label: "Toy — Bakı Bulvarı", color: "from-purple-950 to-fuchsia-900", h: "h-56" },
-  { id: 2, category: "portrait", label: "Portret — Studio", color: "from-fuchsia-950 to-pink-900", h: "h-40" },
-  { id: 3, category: "product", label: "Məhsul — Kosmetika", color: "from-purple-900 to-indigo-950", h: "h-64" },
-  { id: 4, category: "wedding", label: "Toy — Naxçıvanski", color: "from-indigo-950 to-purple-900", h: "h-40" },
-  { id: 5, category: "portrait", label: "Portret — Açıq hava", color: "from-pink-950 to-fuchsia-900", h: "h-56" },
-  { id: 6, category: "product", label: "Məhsul — Aksesuar", color: "from-purple-950 to-violet-900", h: "h-40" },
+  { id: 1, category: "wedding", label: "Toy — Bakı Bulvarı", photo: "1519741196428-6a2175fa2557", h: "h-56" },
+  { id: 2, category: "portrait", label: "Portret — Studio", photo: "1506863530036-1efeddceb993", h: "h-40" },
+  { id: 3, category: "product", label: "Məhsul — Kosmetika", photo: "1586495777744-4413f21062fa", h: "h-64" },
+  { id: 4, category: "wedding", label: "Toy — Naxçıvanski", photo: "1680624629496-0a2c2444153e", h: "h-40" },
+  { id: 5, category: "portrait", label: "Portret — Açıq hava", photo: "1633381521050-26bb467d9d5a", h: "h-56" },
+  { id: 6, category: "product", label: "Məhsul — Aksesuar", photo: "1723150512429-bfa92988d845", h: "h-40" },
 ];
 
 const packages = [
