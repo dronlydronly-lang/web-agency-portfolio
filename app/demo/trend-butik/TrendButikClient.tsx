@@ -97,7 +97,7 @@ function QuickView({
   );
 }
 
-export default function TrendButik() {
+export function TrendButikClient() {
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]["id"]>("all");
   const [quickView, setQuickView] = useState<(typeof products)[number] | null>(null);
   const [cart, setCart] = useState<Record<string, CartLine>>({});
