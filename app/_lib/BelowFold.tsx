@@ -17,6 +17,7 @@ export function BelowFold() {
   return (
     <>
       <Services />
+      <Process />
       <FeaturedWork />
       <WhyUs />
       <Contact />
