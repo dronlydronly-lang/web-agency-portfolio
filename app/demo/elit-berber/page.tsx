@@ -129,7 +129,7 @@ export default function ElitBerber() {
                         <p className="text-sm text-paper/40">{s.duration} dəq</p>
                       </div>
                     </div>
-                    <span className="font-semibold text-gold">{s.price} ₼</span>
+                    <span className="font-semibold text-clay">{s.price} ₼</span>
                   </button>
                 );
               })}
@@ -251,7 +251,7 @@ export default function ElitBerber() {
                   onClick={() => setBooked(true)}
                   className={`mt-5 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                     canBook
-                      ? "bg-gold text-ink hover:bg-gold-soft"
+                      ? "bg-clay text-ink hover:bg-clay-soft"
                       : "cursor-not-allowed bg-ink-line text-paper/35"
                   }`}
                 >

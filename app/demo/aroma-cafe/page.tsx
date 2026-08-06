@@ -150,7 +150,7 @@ export default function AromaCafe() {
                 value={table}
                 onChange={(e) => setTable(e.target.value)}
                 placeholder="Məs: 4"
-                className="mt-2 w-full rounded-md border border-ink-line bg-transparent px-4 py-2.5 text-paper outline-none placeholder:text-paper/25 focus:border-gold"
+                className="mt-2 w-full rounded-md border border-ink-line bg-transparent px-4 py-2.5 text-paper outline-none placeholder:text-paper/25 focus:border-clay"
               />
             </label>
           </div>
@@ -164,7 +164,7 @@ export default function AromaCafe() {
                 type="button"
                 onClick={() => setActiveCategory(c.id)}
                 className={`rounded px-4 py-1.5 text-sm font-medium transition-colors ${
-                  activeCategory === c.id ? "bg-gold text-ink" : "text-paper/50 hover:text-paper"
+                  activeCategory === c.id ? "bg-clay text-ink" : "text-paper/50 hover:text-paper"
                 }`}
               >
                 {c.name}
@@ -187,7 +187,7 @@ export default function AromaCafe() {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-medium text-paper">{item.name}</h3>
-                        <span className="shrink-0 text-sm font-semibold text-gold">
+                        <span className="shrink-0 text-sm font-semibold text-clay">
                           {item.price.toFixed(2)} ₼
                         </span>
                       </div>
@@ -198,7 +198,7 @@ export default function AromaCafe() {
                       <button
                         type="button"
                         onClick={() => setQty(item.id, 1)}
-                        className="shrink-0 rounded-md border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                        className="shrink-0 rounded-md border border-clay/40 px-3 py-1.5 text-xs font-semibold text-clay transition-colors hover:bg-clay/10"
                       >
                         Əlavə et
                       </button>
@@ -278,7 +278,7 @@ export default function AromaCafe() {
                         onClick={() => setSubmitted(true)}
                         className={`mt-2 flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                           table
-                            ? "bg-gold text-ink hover:bg-gold-soft"
+                            ? "bg-clay text-ink hover:bg-clay-soft"
                             : "cursor-not-allowed bg-ink-line text-paper/35"
                         }`}
                       >

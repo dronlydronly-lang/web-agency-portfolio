@@ -287,7 +287,7 @@ export default function FotoStudio() {
                 onClick={() => setBooked(true)}
                 className={`mt-6 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                   canSubmit
-                    ? "bg-gold text-ink hover:bg-gold-soft"
+                    ? "bg-clay text-ink hover:bg-clay-soft"
                     : "cursor-not-allowed bg-ink-line text-paper/35"
                 }`}
               >

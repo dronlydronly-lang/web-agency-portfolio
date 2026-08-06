@@ -228,7 +228,7 @@ export default function ArxitektMMC() {
                     onClick={() => setSent(true)}
                     className={`mt-5 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                       canSubmit
-                        ? "bg-gold text-ink hover:bg-gold-soft"
+                        ? "bg-clay text-ink hover:bg-clay-soft"
                         : "cursor-not-allowed bg-ink-line text-paper/35"
                     }`}
                   >

@@ -30,7 +30,7 @@ function Services() {
   return (
     <section id="xidmetler" className="bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-4xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
           {t.services.kicker}
         </p>
         <h2 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">
@@ -44,7 +44,7 @@ function Services() {
               key={item.title}
               className="group flex flex-col gap-2 border-b border-ink-line py-6 transition-colors sm:flex-row sm:items-baseline sm:gap-8 sm:py-7"
             >
-              <span className="font-mono text-sm text-paper/30 transition-colors group-hover:text-gold sm:w-10 sm:shrink-0">
+              <span className="font-mono text-sm text-paper/30 transition-colors group-hover:text-clay sm:w-10 sm:shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-serif text-xl text-paper sm:w-80 sm:shrink-0">
@@ -161,7 +161,7 @@ function Contact() {
   return (
     <section id="elaqe" className="bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
           {t.contact.kicker}
         </p>
         <h2 className="mt-4 font-serif text-4xl font-medium text-paper sm:text-5xl">
@@ -174,7 +174,7 @@ function Contact() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 rounded-md bg-gold px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-gold-soft"
+            className="group flex items-center gap-2.5 rounded-md bg-clay px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-clay-soft"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {t.contact.whatsapp}

@@ -18,7 +18,7 @@ export function PortfolioClient() {
 
       <header className="grain relative overflow-hidden border-b border-ink-line px-5 py-20 sm:px-8 sm:py-28">
         <div
-          className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-gold/10 blur-[130px]"
+          className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-clay/10 blur-[130px]"
           aria-hidden
         />
         <div className="relative mx-auto max-w-4xl">
@@ -29,7 +29,7 @@ export function PortfolioClient() {
             <ArrowLeftIcon className="h-3.5 w-3.5" />
             {t.portfolio.back}
           </Link>
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-clay">
             {t.portfolio.kicker}
           </p>
           <h1 className="mt-4 font-serif text-5xl font-medium leading-[1.05] text-paper sm:text-6xl">
@@ -96,7 +96,7 @@ export function PortfolioClient() {
                 ))}
               </ul>
 
-              <span className="mt-7 inline-flex items-center gap-2 font-semibold text-gold">
+              <span className="mt-7 inline-flex items-center gap-2 font-semibold text-clay">
                 {t.portfolio.cta}
                 <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>

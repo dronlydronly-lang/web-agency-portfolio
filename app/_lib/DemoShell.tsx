@@ -13,7 +13,7 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
           <ArrowLeftIcon className="h-3.5 w-3.5" />
           {AGENCY_NAME}
         </Link>
-        <span className="rounded-full border border-ink-line px-3 py-1 font-medium text-gold">
+        <span className="rounded-full border border-ink-line px-3 py-1 font-medium text-clay">
           Nümunə / Demo Sayt
         </span>
       </div>
