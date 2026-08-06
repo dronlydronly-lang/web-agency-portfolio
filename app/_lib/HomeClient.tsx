@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { AGENCY_NAME, INSTAGRAM_URL, WHATSAPP_URL, whatsappUrl } from "./constants";
+import { AGENCY_NAME, WHATSAPP_URL, whatsappUrl } from "./constants";
 import { useLanguage, type Lang } from "./i18n";
-import { ArrowRightIcon, InstagramIcon, WhatsAppIcon } from "./icons";
+import { ArrowRightIcon, WhatsAppIcon } from "./icons";
 import { translations } from "./translations";
 
 const HEADER_WHATSAPP_URL = whatsappUrl(
