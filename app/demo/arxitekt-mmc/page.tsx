@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { BuildingIcon, CheckIcon } from "@/app/_lib/icons";
+import { ArchitectureMark } from "@/app/_lib/illustrations";
 
 const projectTypes = [
   { id: "residential", name: "Yaşayış Tikintisi", ratePerM2: 450 },
