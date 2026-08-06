@@ -9,8 +9,10 @@ import { translations } from "./translations";
 
 const featuredSlugs = ["aroma-cafe", "trend-butik", "foto-studio"];
 
-// Everything below the hero fold. Loaded via next/dynamic from page.tsx so
-// its JS is a separate chunk that doesn't block the hero's time-to-interactive.
+// Everything below the hero fold, minus the footer (rendered separately by
+// page.tsx since it's a page-level landmark, not part of <main>). Loaded via
+// next/dynamic from page.tsx so its JS is a separate chunk that doesn't
+// block the hero's time-to-interactive.
 export function BelowFold() {
   return (
     <>
@@ -18,7 +20,6 @@ export function BelowFold() {
       <FeaturedWork />
       <WhyUs />
       <Contact />
-      <Footer />
     </>
   );
 }
