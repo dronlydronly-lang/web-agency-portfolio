@@ -32,7 +32,7 @@ const stats = [
   { value: "98%", label: "Məmnun müştəri" },
 ];
 
-export default function ArxitektMMC() {
+export function ArxitektMmcClient() {
   const [projectFilter, setProjectFilter] = useState<string>("all");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [typeId, setTypeId] = useState(projectTypes[0].id);
