@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { CalendarIcon, CameraIcon, CheckIcon } from "@/app/_lib/icons";
+import { CameraMark } from "@/app/_lib/illustrations";
 
 const categories = [
   { id: "all", name: "Hamısı" },
