@@ -40,10 +40,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   images: {
-    // Photos are self-hosted in /public/agency — no external remote
-    // domain needed anymore, which also removes a cross-origin round
-    // trip on every cold image request (and shrinks the CSP img-src
-    // list to just 'self').
+    // Demo-site product/gallery photography is curated from Unsplash
+    // (no in-house shoots exist for these placeholder businesses).
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
     qualities: [60, 70, 75],
   },
 
