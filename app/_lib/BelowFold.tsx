@@ -101,6 +101,10 @@ function FeaturedWork() {
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.16),transparent_55%)]"
                 aria-hidden
               />
+              <ex.illustration
+                className="pointer-events-none absolute -bottom-6 -right-6 h-48 w-48 text-white/10 transition-transform duration-500 group-hover:scale-105 sm:h-56 sm:w-56"
+                aria-hidden
+              />
               <div className="relative flex h-full flex-col justify-between gap-8">
                 <div className="flex items-center justify-between">
                   <span className="rounded-full border border-white/25 px-3 py-1 text-xs font-medium text-white/90">
