@@ -178,11 +178,16 @@ export function FotoStudioClient() {
                 key={g.id}
                 type="button"
                 onClick={() => setLightboxIndex(gallery.findIndex((i) => i.id === g.id))}
-                className={`group relative block w-full break-inside-avoid overflow-hidden rounded-lg bg-gradient-to-br ${g.color} ${g.h}`}
+                className={`group relative block w-full break-inside-avoid overflow-hidden rounded-lg bg-ink-soft ${g.h}`}
               >
-                <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-colors group-hover:bg-ink/30">
-                  <CameraIcon className="h-8 w-8 text-white/0 transition-colors group-hover:text-white/90" />
-                </div>
+                <Image
+                  src={`https://images.unsplash.com/photo-${g.photo}?w=500&h=700&fit=crop&q=70`}
+                  alt={g.label}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/20" />
               </button>
             ))}
           </div>
