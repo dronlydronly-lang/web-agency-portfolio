@@ -126,7 +126,7 @@ function Hero() {
         >
           <span className="block">{t.hero.titleStart}</span>
           <span className="relative inline-block italic">
-            <span>{t.hero.titleHighlight}</span>
+            <span className="text-shimmer">{t.hero.titleHighlight}</span>
             <svg
               className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full sm:-bottom-3"
               viewBox="0 0 200 12"
@@ -135,8 +135,8 @@ function Hero() {
             >
               <defs>
                 <linearGradient id="hero-underline" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#b75c3b" />
-                  <stop offset="100%" stopColor="#c97552" />
+                  <stop offset="0%" stopColor="#d4af37" />
+                  <stop offset="100%" stopColor="#e6c594" />
                 </linearGradient>
               </defs>
               <path
@@ -153,10 +153,10 @@ function Hero() {
         </h1>
 
         <p
-          className="reveal-up mt-7 max-w-md text-lg text-paper/82"
+          className="reveal-up mt-5 font-serif text-2xl italic text-gold-soft sm:text-3xl"
           style={{ animationDelay: "0.16s" }}
         >
-          {t.hero.subtitle}
+          {t.hero.tagline}
         </p>
 
         <div
