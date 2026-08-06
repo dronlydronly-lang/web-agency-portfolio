@@ -100,8 +100,8 @@ function Services() {
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {examples.map((ex) => (
-          <ExampleCoverCard key={ex.slug} example={ex} />
+        {examples.map((ex, i) => (
+          <ExampleCoverCard key={ex.slug} example={ex} index={i} />
         ))}
       </div>
     </section>
