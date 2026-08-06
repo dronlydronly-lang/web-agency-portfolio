@@ -175,6 +175,28 @@ export const translations = {
         },
       ],
     },
+    process: {
+      kicker: "How I Work",
+      title: "A simple, transparent process",
+      steps: [
+        {
+          title: "Inquiry",
+          desc: "You message me on WhatsApp, we pin down your business and what you actually need.",
+        },
+        {
+          title: "Design",
+          desc: "A unique structure and design proposal is put together for your industry.",
+        },
+        {
+          title: "Build",
+          desc: "The site is built, tested on every device, checked for speed and SEO.",
+        },
+        {
+          title: "Handover",
+          desc: "The site goes live, and you get a full walkthrough on managing it.",
+        },
+      ],
+    },
     featured: {
       kicker: "Selected Work",
       title: "Example websites",
