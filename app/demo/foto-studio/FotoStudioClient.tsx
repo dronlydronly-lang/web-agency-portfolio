@@ -68,10 +68,17 @@ function Lightbox({
       </button>
 
       <div
-        className={`relative flex aspect-[4/3] w-full max-w-2xl items-center justify-center rounded-lg bg-gradient-to-br ${item.color}`}
+        className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-lg bg-ink-soft"
         onClick={(e) => e.stopPropagation()}
       >
-        <CameraIcon className="h-16 w-16 text-white/70" />
+        <Image
+          src={`https://images.unsplash.com/photo-${item.photo}?w=1200&h=900&fit=crop&q=80`}
+          alt={item.label}
+          fill
+          sizes="(max-width: 768px) 100vw, 672px"
+          className="object-cover"
+          priority
+        />
       </div>
       <div className="mt-4 flex items-center gap-6 text-sm text-paper/84">
         <button
