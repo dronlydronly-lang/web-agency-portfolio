@@ -147,17 +147,18 @@ function Contact() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-7 py-3 font-semibold text-zinc-950 transition-transform hover:scale-105"
+            className="group flex items-center gap-2.5 rounded-xl bg-amber-400 px-7 py-3.5 font-semibold text-zinc-950 transition-colors hover:bg-amber-300"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {t.contact.whatsapp}
+            <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
 
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-white/10 px-7 py-3 font-semibold text-zinc-300 transition-colors hover:text-white"
+            className="flex items-center gap-2 rounded-xl border border-white/10 px-7 py-3.5 font-semibold text-zinc-300 transition-colors hover:border-white/20 hover:text-white"
           >
             <InstagramIcon className="h-5 w-5" />
             {t.contact.instagram}
