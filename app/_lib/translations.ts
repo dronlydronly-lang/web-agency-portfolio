@@ -17,7 +17,7 @@ export const translations = {
     services: {
       title: "Nümunə Saytlar",
       subtitle: "Kartlara klikləyin, hər nümunənin canlı demosuna baxın.",
-      cta: "Demoya bax →",
+      cta: "Demoya bax",
     },
     examples: {
       "aroma-cafe": "Restoran üçün rəqəmsal QR menyu sistemi.",
@@ -26,6 +26,14 @@ export const translations = {
       "arxitekt-mmc": "Etibarlı və peşəkar korporativ imic saytı.",
       "foto-studio": "Yaradıcı işlərin vizual portfolio saytı.",
       "gundem-bloq": "Sürətli və rahat idarə olunan bloq sayt.",
+    },
+    previewDetail: {
+      "aroma-cafe": "Masa №4 · QR menyu açıldı",
+      "elit-berber": "Sabah 14:00 · boş yer var",
+      "trend-butik": "49 ₼ · səbətə əlavə edildi",
+      "arxitekt-mmc": "Layihə 3 gündə təhvil verildi",
+      "foto-studio": "24 kadr · portfolio yeniləndi",
+      "gundem-bloq": "3 dəq oxuma · yeni məqalə",
     },
     whyUs: [
       { title: "Sürətli Təhvil", desc: "Layihələr qısa müddətdə hazır olur." },
