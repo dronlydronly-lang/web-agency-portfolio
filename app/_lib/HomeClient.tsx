@@ -47,7 +47,7 @@ function LanguageSwitcher() {
   );
 }
 
-function TopBar() {
+export function TopBar() {
   const { lang } = useLanguage();
   const t = translations[lang];
 
