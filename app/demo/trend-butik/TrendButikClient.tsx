@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { BagIcon, CheckIcon, MinusIcon, PlusIcon } from "@/app/_lib/icons";
