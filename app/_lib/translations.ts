@@ -73,7 +73,7 @@ export const translations = {
     services: {
       title: "Example Websites",
       subtitle: "Click a card to see each example's live demo.",
-      cta: "View demo →",
+      cta: "View demo",
     },
     examples: {
       "aroma-cafe": "Digital QR menu system for restaurants.",
@@ -82,6 +82,14 @@ export const translations = {
       "arxitekt-mmc": "Reliable and professional corporate image website.",
       "foto-studio": "Visual portfolio website for creative work.",
       "gundem-bloq": "Fast and easily managed blog website.",
+    },
+    previewDetail: {
+      "aroma-cafe": "Table No. 4 · QR menu opened",
+      "elit-berber": "Tomorrow 14:00 · slot available",
+      "trend-butik": "$29 · added to cart",
+      "arxitekt-mmc": "Project delivered in 3 days",
+      "foto-studio": "24 shots · portfolio updated",
+      "gundem-bloq": "3 min read · new article",
     },
     whyUs: [
       { title: "Fast Delivery", desc: "Projects are completed in a short time." },
