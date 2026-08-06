@@ -6,7 +6,7 @@ import { AGENCY_NAME, INSTAGRAM_URL, WHATSAPP_URL, whatsappUrl } from "./constan
 import { CREATOR_AVATAR, examples, type Example } from "./examples";
 import { useLanguage, type Lang } from "./i18n";
 import { ImageWithFallback } from "./ImageWithFallback";
-import { InstagramIcon, WhatsAppIcon } from "./icons";
+import { ArrowRightIcon, InstagramIcon, WhatsAppIcon } from "./icons";
 import { translations } from "./translations";
 
 const showcase = examples.filter((e) =>
