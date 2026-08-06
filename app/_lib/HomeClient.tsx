@@ -107,7 +107,7 @@ function Hero() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-rose-500/5 blur-[110px]"
+        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-gold-soft/10 blur-[110px]"
         aria-hidden
       />
 
