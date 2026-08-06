@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #211c16;
-  --foreground: #f6f1e7;
+  --background: #1a120b;
+  --foreground: #f5e9d6;
 }
 
 @theme inline {
@@ -13,19 +13,16 @@
 }
 
 @theme {
-  /* Warm charcoal + bone neutrals, terracotta and pine as the only two
-     accents — an "earthy studio" palette chosen for contrast against
-     generic dark/neon-yellow AI-template defaults. */
-  --color-ink: #211c16;
-  --color-ink-soft: #2a241c;
-  --color-ink-line: rgba(246, 241, 231, 0.12);
-  --color-paper: #f6f1e7;
-  --color-paper-dim: #ece1cb;
-  --color-paper-line: rgba(33, 28, 22, 0.12);
-  --color-clay: #b75c3b;
-  --color-clay-soft: #c97552;
-  --color-pine: #3a4f3f;
-  --color-pine-soft: #4d6753;
+  /* Deep chocolate + shimmering gold — a luxury two-tone palette, high
+     contrast throughout, no muted/pale intermediate tones. */
+  --color-ink: #1a120b;
+  --color-ink-soft: #2b1e11;
+  --color-ink-line: rgba(230, 197, 148, 0.16);
+  --color-paper: #f5e9d6;
+  --color-paper-dim: #ecd9b8;
+  --color-paper-line: rgba(26, 18, 11, 0.15);
+  --color-gold: #d4af37;
+  --color-gold-soft: #e6c594;
 }
 
 body {
