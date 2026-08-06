@@ -19,8 +19,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     // Deliberate: server has no localStorage, so the first render must use
     // the "az" default and sync the saved preference in on mount to avoid
     // a hydration mismatch.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     const saved = window.localStorage.getItem("lang");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (saved === "en" || saved === "az") setLangState(saved);
   }, []);
 
