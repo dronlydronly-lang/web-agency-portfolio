@@ -85,7 +85,7 @@ function StatusTracker({ table }: { table: string }) {
   );
 }
 
-export default function AromaCafe() {
+export function AromaCafeClient() {
   const [table, setTable] = useState("");
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]["id"]>("qehve");
   const [cart, setCart] = useState<Record<string, number>>({});
