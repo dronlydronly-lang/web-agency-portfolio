@@ -65,9 +65,9 @@ export function TopBar() {
           <Link href="/numuneler" className="transition-colors hover:text-paper">
             {t.nav.work}
           </Link>
-          <a href="/#elaqe" className="transition-colors hover:text-paper">
+          <Link href="/#elaqe" className="transition-colors hover:text-paper">
             {t.nav.contact}
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
