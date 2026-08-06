@@ -13,12 +13,12 @@ const categories = [
 ] as const;
 
 const gallery = [
-  { id: 1, category: "wedding", label: "Toy — Bakı Bulvarı", color: "from-violet-700 to-fuchsia-500", h: "h-56" },
-  { id: 2, category: "portrait", label: "Portret — Studio", color: "from-fuchsia-700 to-pink-500", h: "h-40" },
-  { id: 3, category: "product", label: "Məhsul — Kosmetika", color: "from-violet-600 to-indigo-500", h: "h-64" },
-  { id: 4, category: "wedding", label: "Toy — Naxçıvanski", color: "from-indigo-700 to-violet-500", h: "h-40" },
-  { id: 5, category: "portrait", label: "Portret — Açıq hava", color: "from-pink-700 to-fuchsia-500", h: "h-56" },
-  { id: 6, category: "product", label: "Məhsul — Aksesuar", color: "from-violet-800 to-purple-500", h: "h-40" },
+  { id: 1, category: "wedding", label: "Toy — Bakı Bulvarı", color: "from-purple-950 to-fuchsia-900", h: "h-56" },
+  { id: 2, category: "portrait", label: "Portret — Studio", color: "from-fuchsia-950 to-pink-900", h: "h-40" },
+  { id: 3, category: "product", label: "Məhsul — Kosmetika", color: "from-purple-900 to-indigo-950", h: "h-64" },
+  { id: 4, category: "wedding", label: "Toy — Naxçıvanski", color: "from-indigo-950 to-purple-900", h: "h-40" },
+  { id: 5, category: "portrait", label: "Portret — Açıq hava", color: "from-pink-950 to-fuchsia-900", h: "h-56" },
+  { id: 6, category: "product", label: "Məhsul — Aksesuar", color: "from-purple-950 to-violet-900", h: "h-40" },
 ];
 
 const packages = [
