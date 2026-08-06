@@ -104,7 +104,8 @@ export function PortfolioClient() {
             </div>
           </Link>
         ))}
-      </div>
+        </div>
+      </main>
 
       <Footer />
     </div>
