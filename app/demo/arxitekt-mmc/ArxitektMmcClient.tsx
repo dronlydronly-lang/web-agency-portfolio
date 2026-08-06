@@ -69,7 +69,7 @@ export function ArxitektMmcClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Arxitekt MMC
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             Etibarlı tikinti və dizayn həlləri ilə fikirlərinizi reallığa çeviririk.
           </p>
         </section>
@@ -84,7 +84,7 @@ export function ArxitektMmcClient() {
                   type="button"
                   onClick={() => setProjectFilter(t.id)}
                   className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${
-                    projectFilter === t.id ? "bg-sky-500 text-white" : "text-paper/50 hover:text-paper"
+                    projectFilter === t.id ? "bg-sky-500 text-white" : "text-paper/92 hover:text-paper"
                   }`}
                 >
                   {t.name}
@@ -105,12 +105,12 @@ export function ArxitektMmcClient() {
                   >
                     <div>
                       <p className="font-serif text-lg text-paper">{p.name}</p>
-                      <p className="mt-0.5 text-sm text-paper/40">
+                      <p className="mt-0.5 text-sm text-paper/76">
                         {projectTypes.find((t) => t.id === p.type)?.name}
                       </p>
                     </div>
                     <span
-                      className={`text-xl text-paper/40 transition-transform ${open ? "rotate-45" : ""}`}
+                      className={`text-xl text-paper/76 transition-transform ${open ? "rotate-45" : ""}`}
                       aria-hidden
                     >
                       +
@@ -119,11 +119,11 @@ export function ArxitektMmcClient() {
                   {open && (
                     <div className="flex gap-8 pb-6 text-sm">
                       <div>
-                        <p className="text-paper/35">Sahə</p>
+                        <p className="text-paper/74">Sahə</p>
                         <p className="mt-1 font-medium text-paper">{p.area}</p>
                       </div>
                       <div>
-                        <p className="text-paper/35">Müddət</p>
+                        <p className="text-paper/74">Müddət</p>
                         <p className="mt-1 font-medium text-paper">{p.duration}</p>
                       </div>
                     </div>
@@ -140,7 +140,7 @@ export function ArxitektMmcClient() {
               <h2 className="font-serif text-2xl text-paper">Xidmətlərimiz</h2>
               <div className="mt-6 flex flex-col gap-3">
                 {services.map((s) => (
-                  <div key={s} className="flex items-center gap-3 text-paper/70">
+                  <div key={s} className="flex items-center gap-3 text-paper/88">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sky-500/15 text-sky-400">
                       <CheckIcon className="h-3.5 w-3.5" />
                     </span>
@@ -153,7 +153,7 @@ export function ArxitektMmcClient() {
                 {stats.map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="font-serif text-2xl text-sky-400">{s.value}</p>
-                    <p className="mt-1 text-xs text-paper/40">{s.label}</p>
+                    <p className="mt-1 text-xs text-paper/76">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -166,13 +166,13 @@ export function ArxitektMmcClient() {
                     <CheckIcon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-4 font-serif text-lg text-paper">Sorğunuz qəbul edildi!</h3>
-                  <p className="mt-1 text-sm text-paper/50">
+                  <p className="mt-1 text-sm text-paper/92">
                     Mütəxəssislərimiz 24 saat ərzində sizinlə əlaqə saxlayacaq.
                   </p>
                   <button
                     type="button"
                     onClick={newRequest}
-                    className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 hover:text-paper"
+                    className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/88 hover:text-paper"
                   >
                     Yeni sorğu göndər
                   </button>
@@ -180,11 +180,11 @@ export function ArxitektMmcClient() {
               ) : (
                 <>
                   <h2 className="font-serif text-lg text-paper">Təxmini Qiymət Hesablayıcı</h2>
-                  <p className="mt-1 text-sm text-paper/45">
+                  <p className="mt-1 text-sm text-paper/78">
                     Layihə növünü və sahəni daxil edin, təxmini büdcəni görün.
                   </p>
 
-                  <p className="mb-2 mt-5 text-sm font-medium text-paper/50">Layihə növü</p>
+                  <p className="mb-2 mt-5 text-sm font-medium text-paper/92">Layihə növü</p>
                   <div className="flex flex-col gap-2">
                     {projectTypes.map((t) => (
                       <button
@@ -194,16 +194,16 @@ export function ArxitektMmcClient() {
                         className={`flex items-center justify-between rounded-md border px-4 py-3 text-left text-sm transition-colors ${
                           typeId === t.id
                             ? "border-sky-500 bg-sky-500/10 text-paper"
-                            : "border-ink-line text-paper/50 hover:border-paper/20"
+                            : "border-ink-line text-paper/92 hover:border-paper/20"
                         }`}
                       >
                         {t.name}
-                        <span className="text-xs text-paper/35">{t.ratePerM2} ₼/m²</span>
+                        <span className="text-xs text-paper/74">{t.ratePerM2} ₼/m²</span>
                       </button>
                     ))}
                   </div>
 
-                  <p className="mb-2 mt-5 text-sm font-medium text-paper/50">Sahə (m²)</p>
+                  <p className="mb-2 mt-5 text-sm font-medium text-paper/92">Sahə (m²)</p>
                   <input
                     type="number"
                     min={0}
@@ -211,12 +211,12 @@ export function ArxitektMmcClient() {
                     value={area}
                     onChange={(e) => setArea(e.target.value)}
                     placeholder="Məsələn: 120"
-                    className="w-full rounded-md border border-ink-line bg-transparent px-4 py-3 text-paper outline-none placeholder:text-paper/25 focus:border-sky-500"
+                    className="w-full rounded-md border border-ink-line bg-transparent px-4 py-3 text-paper outline-none placeholder:text-paper/72 focus:border-sky-500"
                   />
 
                   {areaNum > 0 && (
                     <div className="mt-5 rounded-md border border-sky-500/30 bg-sky-500/10 p-4 text-center">
-                      <p className="text-xs text-paper/45">Təxmini büdcə</p>
+                      <p className="text-xs text-paper/78">Təxmini büdcə</p>
                       <p className="mt-1 text-xl font-semibold text-paper">
                         {min.toLocaleString()} – {max.toLocaleString()} ₼
                       </p>
@@ -229,8 +229,8 @@ export function ArxitektMmcClient() {
                     onClick={() => setSent(true)}
                     className={`mt-5 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                       canSubmit
-                        ? "bg-clay text-ink hover:bg-clay-soft"
-                        : "cursor-not-allowed bg-ink-line text-paper/35"
+                        ? "bg-gold text-ink hover:bg-gold-soft"
+                        : "cursor-not-allowed bg-ink-line text-paper/74"
                     }`}
                   >
                     Sorğu Göndər

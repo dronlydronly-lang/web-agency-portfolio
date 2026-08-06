@@ -7,7 +7,7 @@ export const translations = {
       titleStart: "Biznesinizi",
       titleHighlight: "onlayn dünyaya",
       titleEnd: " daşıyın",
-      subtitle: "Sürətli təhvil. Peşəkar addımlar, tam güvən.",
+      tagline: "Zərgər dəqiqliyi, rəqəmsal ustalıq.",
       cta: "WhatsApp ilə Əlaqə",
       secondaryCta: "İşlərimə baxın",
       signature: "— Dəniz, WebmasterDeniz qurucusu",

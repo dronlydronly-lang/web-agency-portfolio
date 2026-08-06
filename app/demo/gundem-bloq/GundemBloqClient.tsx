@@ -83,12 +83,12 @@ function ArticleReader({
         <button
           type="button"
           onClick={onBack}
-          className="text-sm font-medium text-paper/50 hover:text-paper"
+          className="text-sm font-medium text-paper/92 hover:text-paper"
         >
           ← Bütün yazılar
         </button>
 
-        <div className="mt-6 flex items-center gap-2 text-xs text-paper/45">
+        <div className="mt-6 flex items-center gap-2 text-xs text-paper/78">
           <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-emerald-400">{post.tag}</span>
           <span>{post.date}</span>
           <span>·</span>
@@ -97,7 +97,7 @@ function ArticleReader({
 
         <h1 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">{post.title}</h1>
 
-        <div className="mt-8 flex flex-col gap-4 text-paper/70">
+        <div className="mt-8 flex flex-col gap-4 text-paper/88">
           {post.body.split("\n\n").map((p, i) => (
             <p key={i} className="leading-relaxed">
               {p}
@@ -107,7 +107,7 @@ function ArticleReader({
 
         {related.length > 0 && (
           <div className="mt-16 border-t border-ink-line pt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-paper/35">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-paper/74">
               Əlaqəli məqalələr
             </p>
             <div className="mt-4 flex flex-col gap-4">
@@ -116,7 +116,7 @@ function ArticleReader({
                   key={r.id}
                   type="button"
                   onClick={() => onOpen(r.id)}
-                  className="text-left text-sm font-medium text-paper/70 hover:text-paper"
+                  className="text-left text-sm font-medium text-paper/88 hover:text-paper"
                 >
                   {r.title} →
                 </button>
@@ -174,7 +174,7 @@ export function GundemBloqClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Gündəm Bloq
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             Dizayn, biznes və texnologiya haqqında qısa və faydalı yazılar.
           </p>
         </section>
@@ -187,7 +187,7 @@ export function GundemBloqClient() {
                 type="button"
                 onClick={() => setTagFilter(tag)}
                 className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${
-                  tagFilter === tag ? "bg-emerald-500 text-white" : "text-paper/50 hover:text-paper"
+                  tagFilter === tag ? "bg-emerald-500 text-white" : "text-paper/92 hover:text-paper"
                 }`}
               >
                 {tag === "all" ? "Hamısı" : tag}
@@ -201,7 +201,7 @@ export function GundemBloqClient() {
               onClick={() => setActiveId(featured.id)}
               className="mt-8 block w-full rounded-lg border border-ink-line bg-ink-soft p-6 text-left transition-colors hover:border-emerald-400/40 sm:p-8"
             >
-              <div className="flex items-center gap-2 text-xs text-paper/45">
+              <div className="flex items-center gap-2 text-xs text-paper/78">
                 <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-emerald-400">
                   {featured.tag}
                 </span>
@@ -210,7 +210,7 @@ export function GundemBloqClient() {
                 <span>{featured.readTime} oxuma</span>
               </div>
               <h2 className="mt-3 font-serif text-2xl text-paper sm:text-3xl">{featured.title}</h2>
-              <p className="mt-2 text-paper/55">{featured.excerpt}</p>
+              <p className="mt-2 text-paper/82">{featured.excerpt}</p>
               <span className="mt-4 inline-block text-sm font-semibold text-emerald-400">
                 Məqaləni oxu →
               </span>
@@ -226,21 +226,21 @@ export function GundemBloqClient() {
                 className="flex w-full items-center justify-between gap-4 border-b border-ink-line py-5 text-left transition-colors hover:bg-ink-soft/50"
               >
                 <div className="min-w-0">
-                  <div className="flex items-center gap-2 text-xs text-paper/40">
+                  <div className="flex items-center gap-2 text-xs text-paper/76">
                     <span>{p.tag}</span>
                     <span>·</span>
                     <span>{p.readTime}</span>
                   </div>
                   <h3 className="mt-1 truncate font-medium text-paper">{p.title}</h3>
                 </div>
-                <span className="shrink-0 text-paper/30">→</span>
+                <span className="shrink-0 text-paper/74">→</span>
               </button>
             ))}
           </div>
 
           <div className="mt-14 rounded-lg border border-ink-line bg-ink-soft p-6 text-center">
             <h2 className="font-serif text-lg text-paper">E-poçt Bülleteni</h2>
-            <p className="mx-auto mt-1 max-w-sm text-sm text-paper/50">
+            <p className="mx-auto mt-1 max-w-sm text-sm text-paper/92">
               Yeni yazılardan xəbərdar olmaq üçün e-poçtunuzu buraxın.
             </p>
 
@@ -262,7 +262,7 @@ export function GundemBloqClient() {
                     if (status === "error") setStatus("idle");
                   }}
                   placeholder="E-poçt ünvanınız"
-                  className="w-full rounded-md border border-ink-line bg-ink px-4 py-2.5 text-sm text-paper outline-none placeholder:text-paper/25 focus:border-emerald-500"
+                  className="w-full rounded-md border border-ink-line bg-ink px-4 py-2.5 text-sm text-paper outline-none placeholder:text-paper/72 focus:border-emerald-500"
                 />
                 <button
                   type="submit"

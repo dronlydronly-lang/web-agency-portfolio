@@ -32,13 +32,13 @@ function Services() {
   return (
     <section id="xidmetler" className="bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-4xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
           {t.services.kicker}
         </p>
         <h2 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">
           {t.services.title}
         </h2>
-        <p className="mt-3 max-w-md text-paper/50">{t.services.subtitle}</p>
+        <p className="mt-3 max-w-md text-paper/92">{t.services.subtitle}</p>
 
         <div className="mt-12 border-t border-ink-line">
           {t.services.items.map((item, i) => (
@@ -46,13 +46,13 @@ function Services() {
               key={item.title}
               className="group flex flex-col gap-2 border-b border-ink-line py-6 transition-colors sm:flex-row sm:items-baseline sm:gap-8 sm:py-7"
             >
-              <span className="font-mono text-sm text-paper/30 transition-colors group-hover:text-clay sm:w-10 sm:shrink-0">
+              <span className="font-mono text-sm text-paper/74 transition-colors group-hover:text-gold sm:w-10 sm:shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="font-serif text-xl text-paper sm:w-80 sm:shrink-0">
                 {item.title}
               </h3>
-              <p className="text-sm text-paper/50 sm:flex-1">{item.desc}</p>
+              <p className="text-sm text-paper/92 sm:flex-1">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -68,7 +68,7 @@ function Process() {
   return (
     <section className="border-t border-ink-line bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
           {t.process.kicker}
         </p>
         <h2 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">
@@ -82,11 +82,11 @@ function Process() {
           />
           {t.process.steps.map((step, i) => (
             <div key={step.title} className="relative">
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-ink-line bg-ink font-mono text-sm text-clay">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-ink-line bg-ink font-mono text-sm text-gold">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-4 font-serif text-lg text-paper">{step.title}</h3>
-              <p className="mt-1.5 text-sm text-paper/50">{step.desc}</p>
+              <p className="mt-1.5 text-sm text-paper/92">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -107,17 +107,17 @@ function FeaturedWork() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ink/40">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ink/76">
               {t.featured.kicker}
             </p>
             <h2 className="mt-4 font-serif text-3xl font-medium text-ink sm:text-4xl">
               {t.featured.title}
             </h2>
-            <p className="mt-3 max-w-md text-ink/55">{t.featured.subtitle}</p>
+            <p className="mt-3 max-w-md text-ink/82">{t.featured.subtitle}</p>
           </div>
           <Link
             href="/numuneler"
-            className="group hidden shrink-0 items-center gap-2 text-sm font-semibold text-ink/70 transition-colors hover:text-ink sm:inline-flex"
+            className="group hidden shrink-0 items-center gap-2 text-sm font-semibold text-ink/88 transition-colors hover:text-ink sm:inline-flex"
           >
             {t.featured.cta}
             <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -163,7 +163,7 @@ function FeaturedWork() {
 
         <Link
           href="/numuneler"
-          className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink/70 transition-colors hover:text-ink sm:hidden"
+          className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink/88 transition-colors hover:text-ink sm:hidden"
         >
           {t.featured.cta}
           <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -186,7 +186,7 @@ function WhyUs() {
             className={`${i > 0 ? "border-ink/10 sm:border-l sm:pl-6" : ""}`}
           >
             <h3 className="font-serif text-lg text-ink">{w.title}</h3>
-            <p className="mt-1.5 text-sm text-ink/50">{w.desc}</p>
+            <p className="mt-1.5 text-sm text-ink/80">{w.desc}</p>
           </div>
         ))}
       </div>
@@ -201,20 +201,20 @@ function Contact() {
   return (
     <section id="elaqe" className="bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-clay">
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
           {t.contact.kicker}
         </p>
         <h2 className="mt-4 font-serif text-4xl font-medium text-paper sm:text-5xl">
           {t.contact.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-paper/55">{t.contact.subtitle}</p>
+        <p className="mx-auto mt-4 max-w-md text-paper/82">{t.contact.subtitle}</p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2.5 rounded-md bg-clay px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-clay-soft"
+            className="group flex items-center gap-2.5 rounded-md bg-gold px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-gold-soft"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {t.contact.whatsapp}
@@ -225,7 +225,7 @@ function Contact() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-md border border-ink-line px-7 py-3.5 font-semibold text-paper/70 transition-colors hover:border-paper/30 hover:text-paper"
+            className="flex items-center gap-2 rounded-md border border-ink-line px-7 py-3.5 font-semibold text-paper/88 transition-colors hover:border-paper/30 hover:text-paper"
           >
             <InstagramIcon className="h-5 w-5" />
             {t.contact.instagram}
@@ -242,7 +242,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-ink-line bg-ink py-8">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-paper/40 sm:flex-row sm:px-8">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm text-paper/76 sm:flex-row sm:px-8">
         <span>
           © {new Date().getFullYear()} {AGENCY_NAME}. {t.footer.rights}
         </span>

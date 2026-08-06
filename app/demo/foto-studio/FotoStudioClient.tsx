@@ -61,7 +61,7 @@ function Lightbox({
         type="button"
         onClick={onClose}
         aria-label="Bağla"
-        className="absolute right-6 top-6 text-3xl leading-none text-paper/50 hover:text-paper"
+        className="absolute right-6 top-6 text-3xl leading-none text-paper/92 hover:text-paper"
       >
         ×
       </button>
@@ -72,7 +72,7 @@ function Lightbox({
       >
         <CameraIcon className="h-16 w-16 text-white/70" />
       </div>
-      <div className="mt-4 flex items-center gap-6 text-sm text-paper/60">
+      <div className="mt-4 flex items-center gap-6 text-sm text-paper/84">
         <button
           type="button"
           onClick={(e) => {
@@ -95,7 +95,7 @@ function Lightbox({
           Növbəti →
         </button>
       </div>
-      <p className="mt-1 text-xs text-paper/35">
+      <p className="mt-1 text-xs text-paper/74">
         {index + 1} / {items.length}
       </p>
     </div>
@@ -140,7 +140,7 @@ export function FotoStudioClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Foto Studio
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             Anları əbədiləşdiririk. Yaradıcı baxış, peşəkar nəticə.
           </p>
         </section>
@@ -155,7 +155,7 @@ export function FotoStudioClient() {
                   type="button"
                   onClick={() => setFilter(c.id)}
                   className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${
-                    filter === c.id ? "bg-violet-500 text-white" : "text-paper/50 hover:text-paper"
+                    filter === c.id ? "bg-violet-500 text-white" : "text-paper/92 hover:text-paper"
                   }`}
                 >
                   {c.name}
@@ -196,14 +196,14 @@ export function FotoStudioClient() {
                 <CheckIcon className="h-6 w-6" />
               </span>
               <h3 className="mt-4 font-serif text-xl text-paper">Sorğunuz qəbul edildi!</h3>
-              <p className="mx-auto mt-1 max-w-sm text-sm text-paper/50">
+              <p className="mx-auto mt-1 max-w-sm text-sm text-paper/92">
                 {pkg?.name} — {date} tarixi üçün ilkin qeyd olundu. Detalları dəqiqləşdirmək üçün
                 tezliklə sizinlə əlaqə saxlanılacaq.
               </p>
               <button
                 type="button"
                 onClick={newBooking}
-                className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 hover:text-paper"
+                className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/88 hover:text-paper"
               >
                 Yeni sorğu göndər
               </button>
@@ -238,7 +238,7 @@ export function FotoStudioClient() {
                         </span>
                         <div>
                           <p className="font-medium text-paper">{p.name}</p>
-                          <p className="text-sm text-paper/40">{p.detail}</p>
+                          <p className="text-sm text-paper/76">{p.detail}</p>
                         </div>
                       </div>
                       <span className="shrink-0 font-semibold text-violet-400">{p.price} ₼</span>
@@ -248,13 +248,13 @@ export function FotoStudioClient() {
               </div>
 
               <div className="mt-6">
-                <p className="mb-2 text-sm font-medium text-paper/50">Tarix seçin</p>
+                <p className="mb-2 text-sm font-medium text-paper/92">Tarix seçin</p>
                 <div
                   className={`flex items-center gap-2 rounded-md border bg-ink-soft px-4 py-3 ${
                     isPastDate ? "border-red-500" : "border-ink-line"
                   }`}
                 >
-                  <CalendarIcon className="h-4 w-4 text-paper/40" />
+                  <CalendarIcon className="h-4 w-4 text-paper/76" />
                   <input
                     type="date"
                     min={today}
@@ -272,13 +272,13 @@ export function FotoStudioClient() {
               </div>
 
               <div className="mt-4">
-                <p className="mb-2 text-sm font-medium text-paper/50">Çəkiliş haqqında (istəyə bağlı)</p>
+                <p className="mb-2 text-sm font-medium text-paper/92">Çəkiliş haqqında (istəyə bağlı)</p>
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={3}
                   placeholder="Məkan, mövzu, xüsusi istəkləriniz..."
-                  className="w-full rounded-md border border-ink-line bg-ink-soft px-4 py-3 text-sm text-paper outline-none placeholder:text-paper/25 focus:border-violet-500"
+                  className="w-full rounded-md border border-ink-line bg-ink-soft px-4 py-3 text-sm text-paper outline-none placeholder:text-paper/72 focus:border-violet-500"
                 />
               </div>
 
@@ -288,14 +288,14 @@ export function FotoStudioClient() {
                 onClick={() => setBooked(true)}
                 className={`mt-6 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                   canSubmit
-                    ? "bg-clay text-ink hover:bg-clay-soft"
-                    : "cursor-not-allowed bg-ink-line text-paper/35"
+                    ? "bg-gold text-ink hover:bg-gold-soft"
+                    : "cursor-not-allowed bg-ink-line text-paper/74"
                 }`}
               >
                 Sorğu Göndər
               </button>
               {!canSubmit && !isPastDate && (
-                <p className="mt-2 text-center text-xs text-paper/35">
+                <p className="mt-2 text-center text-xs text-paper/74">
                   Davam etmək üçün paket və tarix seçin.
                 </p>
               )}

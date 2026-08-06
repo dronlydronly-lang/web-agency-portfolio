@@ -31,7 +31,7 @@ function LanguageSwitcher() {
       type="button"
       onClick={() => setLang(value)}
       className={`rounded px-2 py-0.5 text-xs font-semibold transition-colors ${
-        lang === value ? "text-clay" : "text-paper/40 hover:text-paper"
+        lang === value ? "text-gold" : "text-paper/76 hover:text-paper"
       }`}
     >
       {label}
@@ -41,7 +41,7 @@ function LanguageSwitcher() {
   return (
     <div className="flex items-center gap-0.5 border-l border-ink-line pl-3">
       {option("az", "AZ")}
-      <span className="text-paper/20">/</span>
+      <span className="text-paper/72">/</span>
       {option("en", "EN")}
     </div>
   );
@@ -61,7 +61,7 @@ export function TopBar() {
           {AGENCY_NAME}
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-paper/60 md:flex">
+        <nav className="hidden items-center gap-8 text-sm font-medium text-paper/84 md:flex">
           <Link href="/numuneler" className="transition-colors hover:text-paper">
             {t.nav.work}
           </Link>
@@ -76,7 +76,7 @@ export function TopBar() {
             href={HEADER_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-md bg-clay px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-clay-soft sm:flex"
+            className="hidden items-center gap-2 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-gold-soft sm:flex"
           >
             <WhatsAppIcon className="h-4 w-4" />
             {t.header.whatsapp}
@@ -86,7 +86,7 @@ export function TopBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.header.whatsapp}
-            className="flex h-9 w-9 items-center justify-center rounded-md bg-clay text-ink sm:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-md bg-gold text-ink sm:hidden"
           >
             <WhatsAppIcon className="h-4 w-4" />
           </a>
@@ -103,7 +103,7 @@ function Hero() {
   return (
     <section className="grain relative overflow-hidden border-b border-ink-line bg-ink px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
       <div
-        className="drift-slow pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-clay/10 blur-[130px]"
+        className="drift-slow pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-gold/10 blur-[130px]"
         aria-hidden
       />
       <div
@@ -113,10 +113,10 @@ function Hero() {
 
       <div className="relative mx-auto max-w-4xl">
         <p
-          className="reveal-up flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-clay"
+          className="reveal-up flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold"
           style={{ animationDelay: "0s" }}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-clay" aria-hidden />
+          <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
           {t.hero.kicker}
         </p>
 
@@ -153,7 +153,7 @@ function Hero() {
         </h1>
 
         <p
-          className="reveal-up mt-7 max-w-md text-lg text-paper/55"
+          className="reveal-up mt-7 max-w-md text-lg text-paper/82"
           style={{ animationDelay: "0.16s" }}
         >
           {t.hero.subtitle}
@@ -167,7 +167,7 @@ function Hero() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-md bg-clay px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-clay-soft"
+            className="group inline-flex items-center gap-2.5 rounded-md bg-gold px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-gold-soft"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {t.hero.cta}
@@ -175,7 +175,7 @@ function Hero() {
           </a>
           <Link
             href="/numuneler"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-paper/70 transition-colors hover:text-paper"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-paper/88 transition-colors hover:text-paper"
           >
             {t.hero.secondaryCta}
             <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -183,7 +183,7 @@ function Hero() {
         </div>
 
         <p
-          className="reveal-up mt-8 text-sm italic text-paper/35"
+          className="reveal-up mt-8 text-sm italic text-paper/74"
           style={{ animationDelay: "0.3s" }}
         >
           {t.hero.signature}
@@ -204,10 +204,10 @@ function Marquee() {
         {items.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-8 text-sm font-medium text-paper/35"
+            className="flex items-center gap-8 text-sm font-medium text-paper/74"
           >
             {item}
-            <span className="text-clay/50" aria-hidden>
+            <span className="text-gold/50" aria-hidden>
               ✦
             </span>
           </span>

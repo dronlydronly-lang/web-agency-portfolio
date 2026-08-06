@@ -53,7 +53,7 @@ function StatusTracker({ table }: { table: string }) {
         <CheckIcon className="h-6 w-6" />
       </span>
       <h3 className="mt-4 font-serif text-lg text-paper">Sifariş {table ? `(Masa ${table})` : ""} qəbul edildi</h3>
-      <p className="mt-1 text-sm text-paper/50">
+      <p className="mt-1 text-sm text-paper/92">
         Sifariş <OrderNumber /> mətbəxə göndərildi.
       </p>
 
@@ -71,7 +71,7 @@ function StatusTracker({ table }: { table: string }) {
               >
                 <CheckIcon className="h-3.5 w-3.5" />
               </span>
-              <span className={`text-sm ${reached ? "text-paper" : "text-paper/35"}`}>
+              <span className={`text-sm ${reached ? "text-paper" : "text-paper/74"}`}>
                 {step}
               </span>
               {i === stepIndex && i < STATUS_STEPS.length - 1 && (
@@ -128,10 +128,10 @@ export function AromaCafeClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Aroma Cafe
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             İstiliklə dolu hər fincan. Şəhərin mərkəzində sakit bir kofe künc.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/40">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/76">
             <span className="flex items-center gap-1.5">
               <MapPinIcon className="h-4 w-4" /> Nizami küç. 28, Bakı
             </span>
@@ -143,7 +143,7 @@ export function AromaCafeClient() {
 
         <section className="mx-auto max-w-6xl px-6 py-20">
           <div className="mx-auto max-w-sm">
-            <label className="block text-sm font-medium text-paper/60">
+            <label className="block text-sm font-medium text-paper/84">
               Masa nömrəniz
               <input
                 type="text"
@@ -151,7 +151,7 @@ export function AromaCafeClient() {
                 value={table}
                 onChange={(e) => setTable(e.target.value)}
                 placeholder="Məs: 4"
-                className="mt-2 w-full rounded-md border border-ink-line bg-transparent px-4 py-2.5 text-paper outline-none placeholder:text-paper/25 focus:border-clay"
+                className="mt-2 w-full rounded-md border border-ink-line bg-transparent px-4 py-2.5 text-paper outline-none placeholder:text-paper/72 focus:border-gold"
               />
             </label>
           </div>
@@ -165,7 +165,7 @@ export function AromaCafeClient() {
                 type="button"
                 onClick={() => setActiveCategory(c.id)}
                 className={`rounded px-4 py-1.5 text-sm font-medium transition-colors ${
-                  activeCategory === c.id ? "bg-clay text-ink" : "text-paper/50 hover:text-paper"
+                  activeCategory === c.id ? "bg-gold text-ink" : "text-paper/92 hover:text-paper"
                 }`}
               >
                 {c.name}
@@ -188,18 +188,18 @@ export function AromaCafeClient() {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-medium text-paper">{item.name}</h3>
-                        <span className="shrink-0 text-sm font-semibold text-clay">
+                        <span className="shrink-0 text-sm font-semibold text-gold">
                           {item.price.toFixed(2)} ₼
                         </span>
                       </div>
-                      <p className="mt-0.5 truncate text-sm text-paper/45">{item.desc}</p>
+                      <p className="mt-0.5 truncate text-sm text-paper/78">{item.desc}</p>
                     </div>
 
                     {qty === 0 ? (
                       <button
                         type="button"
                         onClick={() => setQty(item.id, 1)}
-                        className="shrink-0 rounded-md border border-clay/40 px-3 py-1.5 text-xs font-semibold text-clay transition-colors hover:bg-clay/10"
+                        className="shrink-0 rounded-md border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
                       >
                         Əlavə et
                       </button>
@@ -209,7 +209,7 @@ export function AromaCafeClient() {
                           type="button"
                           aria-label="Azalt"
                           onClick={() => setQty(item.id, qty - 1)}
-                          className="flex h-7 w-7 items-center justify-center rounded text-paper/70 hover:bg-ink-soft"
+                          className="flex h-7 w-7 items-center justify-center rounded text-paper/88 hover:bg-ink-soft"
                         >
                           <MinusIcon className="h-3.5 w-3.5" />
                         </button>
@@ -218,7 +218,7 @@ export function AromaCafeClient() {
                           type="button"
                           aria-label="Artır"
                           onClick={() => setQty(item.id, qty + 1)}
-                          className="flex h-7 w-7 items-center justify-center rounded text-paper/70 hover:bg-ink-soft"
+                          className="flex h-7 w-7 items-center justify-center rounded text-paper/88 hover:bg-ink-soft"
                         >
                           <PlusIcon className="h-3.5 w-3.5" />
                         </button>
@@ -236,7 +236,7 @@ export function AromaCafeClient() {
                   <button
                     type="button"
                     onClick={newOrder}
-                    className="mt-2 w-full rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 transition-colors hover:text-paper"
+                    className="mt-2 w-full rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/88 transition-colors hover:text-paper"
                   >
                     Yeni sifariş ver
                   </button>
@@ -246,24 +246,24 @@ export function AromaCafeClient() {
                   <h3 className="font-serif text-lg text-paper">Sifarişiniz</h3>
 
                   {lines.length === 0 ? (
-                    <p className="mt-4 text-sm text-paper/40">Səbətiniz boşdur.</p>
+                    <p className="mt-4 text-sm text-paper/76">Səbətiniz boşdur.</p>
                   ) : (
                     <div className="mt-4 flex flex-col gap-3">
                       {lines.map((l) => (
                         <div key={l.id} className="flex items-center justify-between text-sm">
-                          <span className="text-paper/70">
-                            {l.name} <span className="text-paper/35">x{l.qty}</span>
+                          <span className="text-paper/88">
+                            {l.name} <span className="text-paper/74">x{l.qty}</span>
                           </span>
-                          <span className="text-paper/70">{(l.price * l.qty).toFixed(2)} ₼</span>
+                          <span className="text-paper/88">{(l.price * l.qty).toFixed(2)} ₼</span>
                         </div>
                       ))}
 
                       <div className="mt-2 flex flex-col gap-1.5 border-t border-ink-line pt-3 text-sm">
-                        <div className="flex items-center justify-between text-paper/45">
+                        <div className="flex items-center justify-between text-paper/78">
                           <span>Ara cəm</span>
                           <span>{subtotal.toFixed(2)} ₼</span>
                         </div>
-                        <div className="flex items-center justify-between text-paper/45">
+                        <div className="flex items-center justify-between text-paper/78">
                           <span>Xidmət haqqı</span>
                           <span>{SERVICE_FEE.toFixed(2)} ₼</span>
                         </div>
@@ -279,14 +279,14 @@ export function AromaCafeClient() {
                         onClick={() => setSubmitted(true)}
                         className={`mt-2 flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                           table
-                            ? "bg-clay text-ink hover:bg-clay-soft"
-                            : "cursor-not-allowed bg-ink-line text-paper/35"
+                            ? "bg-gold text-ink hover:bg-gold-soft"
+                            : "cursor-not-allowed bg-ink-line text-paper/74"
                         }`}
                       >
                         Sifarişi Göndər
                       </button>
                       {!table && (
-                        <p className="text-center text-xs text-paper/35">
+                        <p className="text-center text-xs text-paper/74">
                           Davam etmək üçün masa nömrənizi daxil edin.
                         </p>
                       )}

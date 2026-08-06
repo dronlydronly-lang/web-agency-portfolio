@@ -61,13 +61,13 @@ function QuickView({
             type="button"
             onClick={onClose}
             aria-label="Bağla"
-            className="text-2xl leading-none text-paper/40 hover:text-paper"
+            className="text-2xl leading-none text-paper/76 hover:text-paper"
           >
             ×
           </button>
         </div>
 
-        <p className="mt-3 text-sm font-medium text-paper/50">Ölçü seçin</p>
+        <p className="mt-3 text-sm font-medium text-paper/92">Ölçü seçin</p>
         <div className="mt-2 flex gap-2">
           {SIZES.map((s) => (
             <button
@@ -77,7 +77,7 @@ function QuickView({
               className={`h-10 w-10 rounded-md border text-sm font-semibold transition-colors ${
                 size === s
                   ? "border-rose-400 bg-rose-400 text-ink"
-                  : "border-ink-line text-paper/60 hover:border-paper/30"
+                  : "border-ink-line text-paper/84 hover:border-paper/30"
               }`}
             >
               {s}
@@ -162,7 +162,7 @@ export function TrendButikClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Trend Butik
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             Yeni Kolleksiya — üslubunuzu tamamlayan seçimlər indi onlayn mağazada.
           </p>
           <p className="mt-3 text-xs font-medium text-rose-400">
@@ -178,7 +178,7 @@ export function TrendButikClient() {
                 type="button"
                 onClick={() => setActiveCategory(c.id)}
                 className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${
-                  activeCategory === c.id ? "bg-rose-500 text-white" : "text-paper/50 hover:text-paper"
+                  activeCategory === c.id ? "bg-rose-500 text-white" : "text-paper/92 hover:text-paper"
                 }`}
               >
                 {c.name}
@@ -188,7 +188,7 @@ export function TrendButikClient() {
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="relative flex items-center gap-2 rounded-md border border-ink-line px-3 py-1.5 text-sm font-medium text-paper/80 hover:text-paper"
+            className="relative flex items-center gap-2 rounded-md border border-ink-line px-3 py-1.5 text-sm font-medium text-paper/92 hover:text-paper"
           >
             <BagIcon className="h-4 w-4" />
             Səbət
@@ -249,7 +249,7 @@ export function TrendButikClient() {
                 type="button"
                 onClick={() => setDrawerOpen(false)}
                 aria-label="Bağla"
-                className="text-2xl leading-none text-paper/40 hover:text-paper"
+                className="text-2xl leading-none text-paper/76 hover:text-paper"
               >
                 ×
               </button>
@@ -261,13 +261,13 @@ export function TrendButikClient() {
                   <CheckIcon className="h-6 w-6" />
                 </span>
                 <h4 className="mt-4 font-serif text-lg text-paper">Sifarişiniz qəbul edildi!</h4>
-                <p className="mt-1 text-sm text-paper/50">
+                <p className="mt-1 text-sm text-paper/92">
                   Sifariş <OrderNumber /> 2-3 iş günü ərzində {form.address} ünvanına çatdırılacaq.
                 </p>
                 <button
                   type="button"
                   onClick={newOrder}
-                  className="mt-6 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 hover:text-paper"
+                  className="mt-6 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/88 hover:text-paper"
                 >
                   Yeni sifariş ver
                 </button>
@@ -276,21 +276,21 @@ export function TrendButikClient() {
               <>
                 <div className="flex-1 overflow-y-auto px-5 py-4">
                   {lines.length === 0 ? (
-                    <p className="text-sm text-paper/40">Səbətiniz boşdur.</p>
+                    <p className="text-sm text-paper/76">Səbətiniz boşdur.</p>
                   ) : checkoutStep === "cart" ? (
                     <div className="flex flex-col gap-4">
                       {lines.map((l) => (
                         <div key={l.key} className="flex items-center justify-between gap-3 text-sm">
                           <div>
                             <p className="text-paper">{l.name}</p>
-                            <p className="text-paper/40">Ölçü: {l.size}</p>
+                            <p className="text-paper/76">Ölçü: {l.size}</p>
                           </div>
                           <div className="flex items-center gap-2">
                             <div className="flex items-center gap-1 rounded-md border border-ink-line p-0.5">
                               <button
                                 type="button"
                                 onClick={() => setQty(l.key, l.qty - 1)}
-                                className="flex h-6 w-6 items-center justify-center rounded text-paper/70 hover:bg-ink"
+                                className="flex h-6 w-6 items-center justify-center rounded text-paper/88 hover:bg-ink"
                               >
                                 <MinusIcon className="h-3 w-3" />
                               </button>
@@ -298,12 +298,12 @@ export function TrendButikClient() {
                               <button
                                 type="button"
                                 onClick={() => setQty(l.key, l.qty + 1)}
-                                className="flex h-6 w-6 items-center justify-center rounded text-paper/70 hover:bg-ink"
+                                className="flex h-6 w-6 items-center justify-center rounded text-paper/88 hover:bg-ink"
                               >
                                 <PlusIcon className="h-3 w-3" />
                               </button>
                             </div>
-                            <span className="w-14 shrink-0 text-right text-paper/70">
+                            <span className="w-14 shrink-0 text-right text-paper/88">
                               {l.price * l.qty} ₼
                             </span>
                           </div>
@@ -312,7 +312,7 @@ export function TrendButikClient() {
                     </div>
                   ) : (
                     <div className="flex flex-col gap-3">
-                      <label className="block text-sm text-paper/60">
+                      <label className="block text-sm text-paper/84">
                         Ad Soyad
                         <input
                           value={form.name}
@@ -320,16 +320,16 @@ export function TrendButikClient() {
                           className="mt-1.5 w-full rounded-md border border-ink-line bg-transparent px-3 py-2 text-paper outline-none focus:border-rose-400"
                         />
                       </label>
-                      <label className="block text-sm text-paper/60">
+                      <label className="block text-sm text-paper/84">
                         Telefon
                         <input
                           value={form.phone}
                           onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
                           placeholder="+994 ..."
-                          className="mt-1.5 w-full rounded-md border border-ink-line bg-transparent px-3 py-2 text-paper outline-none placeholder:text-paper/25 focus:border-rose-400"
+                          className="mt-1.5 w-full rounded-md border border-ink-line bg-transparent px-3 py-2 text-paper outline-none placeholder:text-paper/72 focus:border-rose-400"
                         />
                       </label>
-                      <label className="block text-sm text-paper/60">
+                      <label className="block text-sm text-paper/84">
                         Çatdırılma ünvanı
                         <input
                           value={form.address}
@@ -344,11 +344,11 @@ export function TrendButikClient() {
                 {lines.length > 0 && (
                   <div className="border-t border-ink-line p-5">
                     <div className="flex flex-col gap-1.5 text-sm">
-                      <div className="flex items-center justify-between text-paper/45">
+                      <div className="flex items-center justify-between text-paper/78">
                         <span>Məhsullar</span>
                         <span>{subtotal} ₼</span>
                       </div>
-                      <div className="flex items-center justify-between text-paper/45">
+                      <div className="flex items-center justify-between text-paper/78">
                         <span>Çatdırılma</span>
                         <span>{delivery === 0 ? "Pulsuz" : `${delivery} ₼`}</span>
                       </div>
@@ -371,7 +371,7 @@ export function TrendButikClient() {
                         <button
                           type="button"
                           onClick={() => setCheckoutStep("cart")}
-                          className="rounded-md border border-ink-line px-4 py-3 text-sm font-semibold text-paper/70 hover:text-paper"
+                          className="rounded-md border border-ink-line px-4 py-3 text-sm font-semibold text-paper/88 hover:text-paper"
                         >
                           Geri
                         </button>
@@ -382,7 +382,7 @@ export function TrendButikClient() {
                           className={`flex-1 rounded-md px-5 py-3 font-semibold transition-colors ${
                             canSubmitForm
                               ? "bg-rose-500 text-white hover:bg-rose-400"
-                              : "cursor-not-allowed bg-ink-line text-paper/35"
+                              : "cursor-not-allowed bg-ink-line text-paper/74"
                           }`}
                         >
                           Sifarişi Təsdiqlə

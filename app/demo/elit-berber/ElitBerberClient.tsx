@@ -85,10 +85,10 @@ export function ElitBerberClient() {
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Elit Berber Studio
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/50">
+          <p className="mx-auto mt-4 max-w-md text-paper/92">
             Klassik üslub, peşəkar toxunuş. Növbənizi aşağıdan onlayn təyin edin.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/40">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/76">
             <span className="flex items-center gap-1.5">
               <MapPinIcon className="h-4 w-4" /> 28 May küç. 12, Bakı
             </span>
@@ -102,7 +102,7 @@ export function ElitBerberClient() {
           <h2 className="text-center font-serif text-3xl text-paper">Növbə Götür</h2>
 
           <div className="mt-10">
-            <p className="text-sm font-medium text-paper/50">1. Xidmət(ləri) seçin</p>
+            <p className="text-sm font-medium text-paper/92">1. Xidmət(ləri) seçin</p>
             <div className="mt-3 grid grid-cols-1 gap-3">
               {services.map((s) => {
                 const active = selected.has(s.id);
@@ -127,10 +127,10 @@ export function ElitBerberClient() {
                       </span>
                       <div>
                         <p className="font-medium text-paper">{s.name}</p>
-                        <p className="text-sm text-paper/40">{s.duration} dəq</p>
+                        <p className="text-sm text-paper/76">{s.duration} dəq</p>
                       </div>
                     </div>
-                    <span className="font-semibold text-clay">{s.price} ₼</span>
+                    <span className="font-semibold text-gold">{s.price} ₼</span>
                   </button>
                 );
               })}
@@ -138,7 +138,7 @@ export function ElitBerberClient() {
           </div>
 
           <div className="mt-10">
-            <p className="text-sm font-medium text-paper/50">2. Ustanı seçin</p>
+            <p className="text-sm font-medium text-paper/92">2. Ustanı seçin</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {stylists.map((s) => (
                 <button
@@ -151,7 +151,7 @@ export function ElitBerberClient() {
                   className={`rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
                     stylist === s.id
                       ? "border-amber-400 bg-amber-400 text-ink"
-                      : "border-ink-line text-paper/60 hover:border-paper/20"
+                      : "border-ink-line text-paper/84 hover:border-paper/20"
                   }`}
                 >
                   {s.name}
@@ -161,7 +161,7 @@ export function ElitBerberClient() {
           </div>
 
           <div className="mt-10">
-            <p className="text-sm font-medium text-paper/50">3. Tarix seçin</p>
+            <p className="text-sm font-medium text-paper/92">3. Tarix seçin</p>
             <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
               {days.map((d) => {
                 const isSelected = date?.toDateString() === d.toDateString();
@@ -176,7 +176,7 @@ export function ElitBerberClient() {
                     className={`flex shrink-0 flex-col items-center rounded-md border px-4 py-3 transition-colors ${
                       isSelected
                         ? "border-amber-400 bg-amber-400 text-ink"
-                        : "border-ink-line bg-ink-soft text-paper/70 hover:border-paper/20"
+                        : "border-ink-line bg-ink-soft text-paper/88 hover:border-paper/20"
                     }`}
                   >
                     <span className="text-xs uppercase">{dayNames[d.getDay()]}</span>
@@ -188,7 +188,7 @@ export function ElitBerberClient() {
           </div>
 
           <div className="mt-10">
-            <p className="text-sm font-medium text-paper/50">4. Saat seçin</p>
+            <p className="text-sm font-medium text-paper/92">4. Saat seçin</p>
             <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5">
               {timeSlots.map((t) => {
                 const isBooked = date !== null && bookedSlots.includes(t);
@@ -200,10 +200,10 @@ export function ElitBerberClient() {
                     onClick={() => setTime(t)}
                     className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors ${
                       isBooked
-                        ? "cursor-not-allowed border-ink-line text-paper/20 line-through"
+                        ? "cursor-not-allowed border-ink-line text-paper/72 line-through"
                         : time === t
                           ? "border-amber-400 bg-amber-400 text-ink"
-                          : "border-ink-line text-paper/70 hover:border-paper/20"
+                          : "border-ink-line text-paper/88 hover:border-paper/20"
                     }`}
                   >
                     {t}
@@ -212,7 +212,7 @@ export function ElitBerberClient() {
               })}
             </div>
             {date === null && (
-              <p className="mt-2 text-xs text-paper/35">Əvvəlcə tarix seçin.</p>
+              <p className="mt-2 text-xs text-paper/74">Əvvəlcə tarix seçin.</p>
             )}
           </div>
 
@@ -223,21 +223,21 @@ export function ElitBerberClient() {
                   <CheckIcon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-4 font-serif text-lg text-paper">Növbəniz təsdiqləndi!</h3>
-                <p className="mt-1 text-sm text-paper/50">
+                <p className="mt-1 text-sm text-paper/92">
                   {stylists.find((s) => s.id === stylist)?.name} ·{" "}
                   {date?.toLocaleDateString("az-AZ", { day: "numeric", month: "long" })}, saat {time}.
                 </p>
                 <button
                   type="button"
                   onClick={newBooking}
-                  className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/70 hover:text-paper"
+                  className="mt-5 rounded-md border border-ink-line px-5 py-2 text-sm font-semibold text-paper/88 hover:text-paper"
                 >
                   Yeni növbə götür
                 </button>
               </div>
             ) : (
               <>
-                <div className="flex items-center justify-between text-sm text-paper/45">
+                <div className="flex items-center justify-between text-sm text-paper/78">
                   <span>Ümumi müddət</span>
                   <span>{totalDuration} dəq</span>
                 </div>
@@ -252,14 +252,14 @@ export function ElitBerberClient() {
                   onClick={() => setBooked(true)}
                   className={`mt-5 flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-colors ${
                     canBook
-                      ? "bg-clay text-ink hover:bg-clay-soft"
-                      : "cursor-not-allowed bg-ink-line text-paper/35"
+                      ? "bg-gold text-ink hover:bg-gold-soft"
+                      : "cursor-not-allowed bg-ink-line text-paper/74"
                   }`}
                 >
                   Növbəni Təsdiqlə
                 </button>
                 {!canBook && (
-                  <p className="mt-2 text-center text-xs text-paper/35">
+                  <p className="mt-2 text-center text-xs text-paper/74">
                     Davam etmək üçün xidmət, tarix və saat seçin.
                   </p>
                 )}
