@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
-import { CheckIcon, DocIcon } from "@/app/_lib/icons";
+import { CheckIcon } from "@/app/_lib/icons";
+import { DocMark } from "@/app/_lib/illustrations";
 
 const posts = [
   {
