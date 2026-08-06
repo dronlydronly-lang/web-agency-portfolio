@@ -215,8 +215,8 @@ function ShowcasePanel() {
       </h2>
 
       <div className="flex flex-col gap-3">
-        {showcase.map((ex) => (
-          <ShowcaseCard key={ex.slug} example={ex} />
+        {showcase.map((ex, i) => (
+          <ShowcaseCard key={ex.slug} example={ex} index={i} />
         ))}
       </div>
 
