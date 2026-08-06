@@ -1,13 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import {
-  CakeSliceIcon,
   CheckIcon,
   ClockIcon,
-  CroissantIcon,
-  CupIcon,
   MapPinIcon,
   MinusIcon,
   PlusIcon,
