@@ -70,6 +70,24 @@ body {
   }
 }
 
+@keyframes shimmer {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #d4af37 0%, #e6c594 25%, #fff3d6 50%, #e6c594 75%, #d4af37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
 .reveal-up {
   animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
