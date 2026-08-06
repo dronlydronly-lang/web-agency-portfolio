@@ -221,8 +221,14 @@ export function TrendButikClient() {
                 onClick={() => setQuickView(p)}
                 className="group overflow-hidden rounded-lg border border-ink-line bg-ink-soft text-left transition-colors hover:border-rose-400/40"
               >
-                <div className="relative flex aspect-square items-center justify-center bg-gradient-to-br from-rose-800/40 to-pink-500/20">
-                  <BagIcon className="h-10 w-10 text-rose-300/70 transition-transform duration-300 group-hover:scale-110" />
+                <div className="relative aspect-square overflow-hidden bg-ink">
+                  <Image
+                    src={`https://images.unsplash.com/photo-${p.photo}?w=500&h=500&fit=crop&q=70`}
+                    alt={p.name}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <span className="absolute inset-x-3 bottom-3 rounded-md bg-ink/80 py-2 text-center text-xs font-semibold text-white opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
                     Sürətli baxış
                   </span>
