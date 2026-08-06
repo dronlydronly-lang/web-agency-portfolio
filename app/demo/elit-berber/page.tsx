@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { DemoShell } from "@/app/_lib/DemoShell";
 import { CheckIcon, ClockIcon, MapPinIcon, ScissorsIcon } from "@/app/_lib/icons";
+import { BarberMark } from "@/app/_lib/illustrations";
 
 const services = [
   { id: "hair", name: "Saç Kəsimi", duration: 30, price: 15 },
