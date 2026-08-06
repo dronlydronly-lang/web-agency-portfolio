@@ -18,12 +18,12 @@ const categories = [
 ] as const;
 
 const products = [
-  { id: "coat", category: "ust", name: "Klassik Palto", price: 89 },
-  { id: "sweater", category: "ust", name: "Yun Sviter", price: 45 },
-  { id: "shirt", category: "ust", name: "Yay Köynəyi", price: 29 },
-  { id: "jeans", category: "alt", name: "Cins Şalvar", price: 39 },
-  { id: "bag", category: "aksesuar", name: "Dəri Çanta", price: 65 },
-  { id: "shoes", category: "aksesuar", name: "İdman Ayaqqabı", price: 75 },
+  { id: "coat", category: "ust", name: "Klassik Palto", price: 89, photo: "1682031215004-161c99d5b225" },
+  { id: "sweater", category: "ust", name: "Yun Sviter", price: 45, photo: "1523742348304-8e67f3cafc08" },
+  { id: "shirt", category: "ust", name: "Yay Köynəyi", price: 29, photo: "1671288239289-f01976a87c43" },
+  { id: "jeans", category: "alt", name: "Cins Şalvar", price: 39, photo: "1560343090-f0409e92791a" },
+  { id: "bag", category: "aksesuar", name: "Dəri Çanta", price: 65, photo: "1658647362351-e4bc75c66cfd" },
+  { id: "shoes", category: "aksesuar", name: "İdman Ayaqqabı", price: 75, photo: "1542452255191-c85a98f2c5d1" },
 ];
 
 type CartLine = { key: string; id: string; name: string; price: number; size: string; qty: number };
