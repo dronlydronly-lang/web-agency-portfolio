@@ -48,6 +48,28 @@ export const translations = {
         },
       ],
     },
+    process: {
+      kicker: "Necə İşləyirik",
+      title: "Sadə və şəffaf proses",
+      steps: [
+        {
+          title: "Sorğu",
+          desc: "WhatsApp üzərindən yazırsınız, biznesiniz və ehtiyaclarınızı birlikdə dəqiqləşdiririk.",
+        },
+        {
+          title: "Dizayn",
+          desc: "Sənayenizə uyğun, unikal struktur və dizayn təklifi hazırlanır.",
+        },
+        {
+          title: "Hazırlıq",
+          desc: "Sayt qurulur, bütün cihazlarda test edilir, sürət və SEO yoxlanılır.",
+        },
+        {
+          title: "Təhvil",
+          desc: "Sayt canlıya keçir, idarəetmə üçün sizə tam təlimat verilir.",
+        },
+      ],
+    },
     featured: {
       kicker: "Seçilmiş İşlər",
       title: "Nümunə saytlar",
