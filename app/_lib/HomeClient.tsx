@@ -127,26 +127,79 @@ function HeroPanel() {
   const t = translations[lang];
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 p-8 sm:p-12 lg:p-14">
-      <h1 className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-        {t.hero.titleStart}{" "}
-        <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
-          {t.hero.titleHighlight}
+    <div className="grain relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900 p-8 sm:p-12 lg:p-14">
+      <div
+        className="drift-slow pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-amber-500/10 blur-[110px]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-28 -left-16 h-56 w-56 rounded-full bg-rose-500/5 blur-[100px]"
+        aria-hidden
+      />
+
+      <p
+        className="reveal-up relative flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-400/80"
+        style={{ animationDelay: "0s" }}
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-amber-400" aria-hidden />
+        {AGENCY_NAME}
+      </p>
+
+      <h1
+        className="reveal-up relative mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
+        style={{ animationDelay: "0.08s" }}
+      >
+        <span className="block">{t.hero.titleStart}</span>
+        <span className="relative inline-block">
+          <span className="text-amber-400">{t.hero.titleHighlight}</span>
+          <svg
+            className="pointer-events-none absolute -bottom-1 left-0 h-3 w-full sm:-bottom-2"
+            viewBox="0 0 200 12"
+            preserveAspectRatio="none"
+            aria-hidden
+          >
+            <defs>
+              <linearGradient id="hero-underline" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#fb7185" />
+              </linearGradient>
+            </defs>
+            <path
+              className="underline-draw"
+              d="M2 9c40-6 158-6 196 0"
+              fill="none"
+              stroke="url(#hero-underline)"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+          </svg>
         </span>
         {t.hero.titleEnd}
       </h1>
 
-      <p className="mt-6 max-w-md text-base text-zinc-400 sm:text-lg">{t.hero.subtitle}</p>
-
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-8 py-4 font-semibold text-zinc-950 transition-transform hover:scale-105"
+      <p
+        className="reveal-up relative mt-6 max-w-md text-base text-zinc-400 sm:text-lg"
+        style={{ animationDelay: "0.16s" }}
       >
-        <WhatsAppIcon className="h-5 w-5" />
-        {t.hero.cta}
-      </a>
+        {t.hero.subtitle}
+      </p>
+
+      <div
+        className="reveal-up relative mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
+        style={{ animationDelay: "0.24s" }}
+      >
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2.5 rounded-xl bg-amber-400 px-7 py-3.5 font-semibold text-zinc-950 transition-colors hover:bg-amber-300"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+          {t.hero.cta}
+          <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+        <span className="text-sm italic text-zinc-500">{t.hero.signature}</span>
+      </div>
     </div>
   );
 }
