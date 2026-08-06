@@ -16,6 +16,7 @@ export function PortfolioClient() {
     <div className="flex min-h-screen w-full flex-col bg-ink text-paper">
       <TopBar />
 
+      <main>
       <header className="grain relative overflow-hidden border-b border-ink-line px-5 py-20 sm:px-8 sm:py-28">
         <div
           className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-clay/10 blur-[130px]"
