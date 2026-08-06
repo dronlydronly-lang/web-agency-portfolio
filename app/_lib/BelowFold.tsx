@@ -196,7 +196,7 @@ function Contact() {
   );
 }
 
-function Footer() {
+export function Footer() {
   const { lang } = useLanguage();
   const t = translations[lang];
 
