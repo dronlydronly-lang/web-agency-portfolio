@@ -102,7 +102,7 @@ function Lightbox({
   );
 }
 
-export default function FotoStudio() {
+export function FotoStudioClient() {
   const [filter, setFilter] = useState<(typeof categories)[number]["id"]>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [packageId, setPackageId] = useState<string | null>(null);
