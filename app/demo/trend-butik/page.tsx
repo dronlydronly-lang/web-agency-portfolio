@@ -156,8 +156,8 @@ export default function TrendButik() {
             className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(236,72,153,0.14),transparent_60%)]"
             aria-hidden
           />
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-rose-700 to-pink-500 text-white">
-            <BagIcon className="h-8 w-8" />
+          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-950 to-rose-800 text-white shadow-lg">
+            <BoutiqueMark className="h-16 w-16" />
           </div>
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Trend Butik
