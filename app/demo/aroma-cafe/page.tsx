@@ -12,6 +12,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from "@/app/_lib/icons";
+import { CoffeeMark } from "@/app/_lib/illustrations";
 
 const SERVICE_FEE = 2;
 const STATUS_STEPS = ["Qəbul edildi", "Hazırlanır", "Hazırdır"] as const;
