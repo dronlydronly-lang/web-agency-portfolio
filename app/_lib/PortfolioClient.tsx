@@ -17,30 +17,30 @@ export function PortfolioClient() {
       <TopBar />
 
       <main>
-      <header className="grain relative overflow-hidden border-b border-ink-line px-5 py-20 sm:px-8 sm:py-28">
-        <div
-          className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-clay/10 blur-[130px]"
-          aria-hidden
-        />
-        <div className="relative mx-auto max-w-4xl">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-paper/50 transition-colors hover:text-paper"
-          >
-            <ArrowLeftIcon className="h-3.5 w-3.5" />
-            {t.portfolio.back}
-          </Link>
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-clay">
-            {t.portfolio.kicker}
-          </p>
-          <h1 className="mt-4 font-serif text-5xl font-medium leading-[1.05] text-paper sm:text-6xl">
-            {t.portfolio.title}
-          </h1>
-          <p className="mt-5 max-w-lg text-lg text-paper/55">{t.portfolio.subtitle}</p>
-        </div>
-      </header>
+        <header className="grain relative overflow-hidden border-b border-ink-line px-5 py-20 sm:px-8 sm:py-28">
+          <div
+            className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-clay/10 blur-[130px]"
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-4xl">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-paper/50 transition-colors hover:text-paper"
+            >
+              <ArrowLeftIcon className="h-3.5 w-3.5" />
+              {t.portfolio.back}
+            </Link>
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.25em] text-clay">
+              {t.portfolio.kicker}
+            </p>
+            <h1 className="mt-4 font-serif text-5xl font-medium leading-[1.05] text-paper sm:text-6xl">
+              {t.portfolio.title}
+            </h1>
+            <p className="mt-5 max-w-lg text-lg text-paper/55">{t.portfolio.subtitle}</p>
+          </div>
+        </header>
 
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
+        <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         {examples.map((ex, i) => (
           <Link
             key={ex.slug}
