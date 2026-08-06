@@ -40,7 +40,7 @@ function nextDays(count: number) {
 
 const dayNames = ["Baz", "B.e", "Ç.a", "Çər", "C.a", "Cüm", "Şən"];
 
-export default function ElitBerber() {
+export function ElitBerberClient() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [stylist, setStylist] = useState("any");
   const [date, setDate] = useState<Date | null>(null);
