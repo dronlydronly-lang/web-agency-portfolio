@@ -180,8 +180,14 @@ export function AromaCafeClient() {
                     key={item.id}
                     className="flex items-center gap-4 border-b border-ink-line py-4"
                   >
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-amber-800 to-orange-600 text-white">
-                      <item.icon className="h-5 w-5" />
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-ink-soft">
+                      <Image
+                        src={`https://images.unsplash.com/photo-${item.photo}?w=112&h=112&fit=crop&q=70`}
+                        alt={item.name}
+                        fill
+                        sizes="56px"
+                        className="object-cover"
+                      />
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
