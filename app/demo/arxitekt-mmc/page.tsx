@@ -63,8 +63,8 @@ export default function ArxitektMMC() {
             className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(14,165,233,0.14),transparent_60%)]"
             aria-hidden
           />
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-sky-700 to-blue-500 text-white">
-            <BuildingIcon className="h-8 w-8" />
+          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-slate-800 to-blue-900 text-white shadow-lg">
+            <ArchitectureMark className="h-16 w-16" />
           </div>
           <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
             Arxitekt MMC
