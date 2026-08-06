@@ -50,9 +50,19 @@ function QuickView({
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-t-lg border border-ink-line bg-ink-soft p-6 sm:rounded-lg"
+        className="w-full max-w-md overflow-hidden rounded-t-lg border border-ink-line bg-ink-soft sm:rounded-lg"
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="relative aspect-[4/3] w-full bg-ink">
+          <Image
+            src={`https://images.unsplash.com/photo-${product.photo}?w=800&h=600&fit=crop&q=75`}
+            alt={product.name}
+            fill
+            sizes="448px"
+            className="object-cover"
+          />
+        </div>
+        <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="font-serif text-2xl text-paper">{product.name}</h3>
