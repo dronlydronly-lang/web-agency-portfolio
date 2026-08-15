@@ -46,7 +46,7 @@ function QuickView({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center bg-ink/80 backdrop-blur-sm sm:items-center"
+      className="fixed inset-0 z-[60] flex items-end justify-center bg-paper/80 backdrop-blur-sm sm:items-center"
       onClick={onClose}
     >
       <div
