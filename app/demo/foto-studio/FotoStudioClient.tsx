@@ -103,7 +103,7 @@ function Lightbox({
           Növbəti →
         </button>
       </div>
-      <p className="mt-1 text-xs text-paper/74">
+      <p className="mt-1 text-xs text-ink/65">
         {index + 1} / {items.length}
       </p>
     </div>
