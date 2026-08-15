@@ -260,7 +260,7 @@ export function TrendButikClient() {
             drawerOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
-          <div className="absolute inset-0 bg-ink/70" onClick={() => setDrawerOpen(false)} />
+          <div className="absolute inset-0 bg-paper/60" onClick={() => setDrawerOpen(false)} />
           <aside
             className={`absolute right-0 top-0 flex h-full w-full max-w-sm flex-col border-l border-ink-line bg-ink-soft transition-transform duration-300 ${
               drawerOpen ? "translate-x-0" : "translate-x-full"
