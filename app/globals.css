@@ -79,36 +79,18 @@ body {
   }
 }
 
-@keyframes shimmer {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 200% 50%;
-  }
-}
-
-.text-shimmer {
-  background: linear-gradient(90deg, #d4af37 0%, #e6c594 25%, #fff3d6 50%, #e6c594 75%, #d4af37 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 5s linear infinite;
-}
-
-.reveal-up {
-  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+.cinematic-in {
+  animation: cinematic-in 900ms var(--ease-out) both;
 }
 
 .underline-draw {
   stroke-dasharray: 220;
   stroke-dashoffset: 220;
-  animation: draw-line 1.1s 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: draw-line 1.1s 0.5s var(--ease-in-out) forwards;
 }
 
 .drift-slow {
-  animation: drift 16s ease-in-out infinite;
+  animation: drift 16s var(--ease-in-out) infinite;
 }
 
 .marquee-track {
