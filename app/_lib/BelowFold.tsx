@@ -178,15 +178,15 @@ function WhyUs() {
   const t = translations[lang];
 
   return (
-    <section className="border-t border-paper-line bg-paper px-5 py-16 sm:px-8">
+    <section className="border-t border-ink-line bg-ink px-5 py-16 sm:px-8">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
         {t.whyUs.map((w, i) => (
           <div
             key={w.title}
-            className={`${i > 0 ? "border-ink/10 sm:border-l sm:pl-6" : ""}`}
+            className={`${i > 0 ? "border-ink-line sm:border-l sm:pl-6" : ""}`}
           >
-            <h3 className="font-serif text-lg text-ink">{w.title}</h3>
-            <p className="mt-1.5 text-sm text-ink/80">{w.desc}</p>
+            <h3 className="font-serif text-lg text-paper">{w.title}</h3>
+            <p className="mt-1.5 text-sm text-paper/80">{w.desc}</p>
           </div>
         ))}
       </div>
