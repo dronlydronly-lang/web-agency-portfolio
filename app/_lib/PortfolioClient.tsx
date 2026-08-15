@@ -18,10 +18,6 @@ export function PortfolioClient() {
 
       <main>
         <header className="grain relative overflow-hidden border-b border-ink-line px-5 py-20 sm:px-8 sm:py-28">
-          <div
-            className="drift-slow pointer-events-none absolute -right-24 -top-10 h-80 w-80 rounded-full bg-gold/10 blur-[130px]"
-            aria-hidden
-          />
           <div className="relative mx-auto max-w-4xl">
             <Link
               href="/"
