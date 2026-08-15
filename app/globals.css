@@ -114,11 +114,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-up,
+  .cinematic-in,
   .underline-draw,
   .drift-slow,
-  .marquee-track,
-  .text-shimmer {
+  .marquee-track {
     animation: none;
   }
 }
