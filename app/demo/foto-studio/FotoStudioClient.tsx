@@ -192,7 +192,7 @@ export function FotoStudioClient() {
                   sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/20" />
+                <div className="absolute inset-0 bg-paper/0 transition-colors group-hover:bg-paper/20" />
               </button>
             ))}
           </div>
