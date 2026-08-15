@@ -100,21 +100,22 @@ export function TopBar() {
 function Hero() {
   const { lang } = useLanguage();
   const t = translations[lang];
+  const magneticRef = useMagnetic<HTMLAnchorElement>();
 
   return (
     <section className="grain relative overflow-hidden border-b border-ink-line bg-ink px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
       <div
-        className="drift-slow pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-gold/10 blur-[130px]"
+        className="drift-slow pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-gold/[0.08] blur-[130px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-gold-soft/10 blur-[110px]"
+        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-gold-soft/[0.06] blur-[110px]"
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-4xl">
         <p
-          className="reveal-up flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold"
+          className="cinematic-in flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold"
           style={{ animationDelay: "0s" }}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
@@ -122,12 +123,12 @@ function Hero() {
         </p>
 
         <h1
-          className="reveal-up mt-6 font-serif text-5xl font-medium leading-[1.05] tracking-tight text-paper sm:text-6xl lg:text-7xl"
+          className="cinematic-in mt-6 font-serif text-5xl font-medium leading-[1.05] tracking-tight text-paper sm:text-6xl lg:text-7xl"
           style={{ animationDelay: "0.08s" }}
         >
           <span className="block">{t.hero.titleStart}</span>
           <span className="relative inline-block italic">
-            <span className="text-shimmer">{t.hero.titleHighlight}</span>
+            <span>{t.hero.titleHighlight}</span>
             <svg
               className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full sm:-bottom-3"
               viewBox="0 0 200 12"
@@ -136,8 +137,8 @@ function Hero() {
             >
               <defs>
                 <linearGradient id="hero-underline" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#d4af37" />
-                  <stop offset="100%" stopColor="#e6c594" />
+                  <stop offset="0%" stopColor="#c5b39c" />
+                  <stop offset="100%" stopColor="#d6c4ac" />
                 </linearGradient>
               </defs>
               <path
@@ -154,37 +155,38 @@ function Hero() {
         </h1>
 
         <p
-          className="reveal-up mt-5 font-serif text-2xl italic text-gold-soft sm:text-3xl"
+          className="cinematic-in mt-5 font-serif text-2xl italic text-gold-soft sm:text-3xl"
           style={{ animationDelay: "0.16s" }}
         >
           {t.hero.tagline}
         </p>
 
         <div
-          className="reveal-up mt-10 flex flex-wrap items-center gap-x-7 gap-y-4"
+          className="cinematic-in mt-10 flex flex-wrap items-center gap-x-7 gap-y-4"
           style={{ animationDelay: "0.24s" }}
         >
           <a
+            ref={magneticRef}
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-md bg-gold px-7 py-3.5 font-semibold text-ink transition-colors hover:bg-gold-soft"
+            className="group inline-flex items-center gap-2.5 rounded-md bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-ink transition-[background-color,transform] duration-200 ease-out will-change-transform hover:bg-gold-soft active:scale-[0.97]"
           >
             <WhatsAppIcon className="h-5 w-5" />
             {t.hero.cta}
-            <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out group-hover:translate-x-1" />
           </a>
           <Link
             href="/numuneler"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-paper/88 transition-colors hover:text-paper"
+            className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-paper/88 transition-colors duration-200 ease hover:text-paper"
           >
             {t.hero.secondaryCta}
-            <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-1" />
           </Link>
         </div>
 
         <p
-          className="reveal-up mt-8 text-sm italic text-paper/74"
+          className="cinematic-in mt-8 text-sm italic text-paper/74"
           style={{ animationDelay: "0.3s" }}
         >
           {t.hero.signature}
