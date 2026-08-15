@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #12100e;
-  --foreground: #e3d5c6;
+  --background: #efece6;
+  --foreground: #2b2118;
 }
 
 @theme inline {
@@ -13,17 +13,20 @@
 }
 
 @theme {
-  /* Warm latte & espresso — a quiet, minimal luxury palette. Two deep
-     espresso browns for the base, cream and sand as the only accents,
-     nothing shiny or saturated. */
-  --color-ink: #12100e;
-  --color-ink-soft: #191512;
-  --color-ink-line: rgba(227, 213, 198, 0.14);
-  --color-paper: #e3d5c6;
-  --color-paper-dim: #d9c7b0;
-  --color-paper-line: rgba(18, 16, 14, 0.14);
-  --color-gold: #c5b39c;
-  --color-gold-soft: #d6c4ac;
+  /* Full light latte, top to bottom — one warm background across every
+     section and page, dark espresso for text, caramel-bronze as the only
+     accent. `ink` names the site's one background; `paper` names the
+     dark espresso text/scrim color (kept for the functional dark
+     scrims — modal backdrops, lightbox, image-hover dimming — that
+     still need to read as "dimmed", not as a second brand background). */
+  --color-ink: #efece6;
+  --color-ink-soft: #e4dfd2;
+  --color-ink-line: rgba(43, 33, 24, 0.12);
+  --color-paper: #2b2118;
+  --color-paper-dim: #4a3a28;
+  --color-paper-line: rgba(239, 236, 230, 0.14);
+  --color-gold: #7c5430;
+  --color-gold-soft: #96693d;
 
   /* Strong easing curves — the built-in CSS ones are too weak to read as
      intentional. See emil-design-eng skill. */
