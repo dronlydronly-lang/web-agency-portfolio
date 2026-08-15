@@ -21,11 +21,15 @@ const categories = [
   { id: "sirniyyat", name: "Şirniyyat" },
 ] as const;
 
+// Every photo below was downloaded and visually checked against its label —
+// the previous cappuccino/latte/flat white slots didn't actually show those
+// drinks (one was three unrelated drinks, one was an iced coffee, one was a
+// bare espresso shot in a branded cup).
 const menu = [
   { id: "espresso", category: "qehve", name: "Espresso", desc: "Qatı, güclü aromalı klassik espresso.", price: 3.5, photo: "1512663827140-3ef55c96cd49" },
-  { id: "cappuccino", category: "qehve", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, photo: "1495474472287-4d71bcdd2085" },
-  { id: "latte", category: "qehve", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, photo: "1701204084990-e9bb3df21d90" },
-  { id: "flatwhite", category: "qehve", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, photo: "1504753793650-d4a2b783c15e" },
+  { id: "cappuccino", category: "qehve", name: "Cappuccino", desc: "Südlü köpüklə zənginləşdirilmiş kofe.", price: 5, photo: "1503240778100-fd245e17a273" },
+  { id: "latte", category: "qehve", name: "Latte", desc: "Yumşaq süd dadı ilə balanslaşdırılmış.", price: 5.5, photo: "1587982704600-e5f79d652fe5" },
+  { id: "flatwhite", category: "qehve", name: "Flat White", desc: "Kremli toxuma, incə espresso notları.", price: 5.5, photo: "1724776756211-279ec9e8308a" },
   { id: "cheesecake", category: "sirniyyat", name: "Cheesecake", desc: "Ev şəraitində hazırlanan klassik dilim.", price: 7, photo: "1524351199678-941a58a3df50" },
   { id: "kruassan", category: "sirniyyat", name: "Kruassan", desc: "Təzə bişmiş, xırtıldayan kruassan.", price: 4, photo: "1623334044303-241021148842" },
 ];
