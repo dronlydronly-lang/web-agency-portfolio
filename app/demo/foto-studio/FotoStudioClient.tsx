@@ -62,7 +62,7 @@ function Lightbox({
         type="button"
         onClick={onClose}
         aria-label="Bağla"
-        className="absolute right-6 top-6 text-3xl leading-none text-paper/92 hover:text-paper"
+        className="absolute right-6 top-6 text-3xl leading-none text-ink/80 hover:text-ink"
       >
         ×
       </button>
@@ -80,25 +80,25 @@ function Lightbox({
           priority
         />
       </div>
-      <div className="mt-4 flex items-center gap-6 text-sm text-paper/84">
+      <div className="mt-4 flex items-center gap-6 text-sm text-ink/75">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onNavigate((index - 1 + items.length) % items.length);
           }}
-          className="hover:text-paper"
+          className="hover:text-ink"
         >
           ← Əvvəlki
         </button>
-        <span className="text-paper">{item.label}</span>
+        <span className="text-ink">{item.label}</span>
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onNavigate((index + 1) % items.length);
           }}
-          className="hover:text-paper"
+          className="hover:text-ink"
         >
           Növbəti →
         </button>
