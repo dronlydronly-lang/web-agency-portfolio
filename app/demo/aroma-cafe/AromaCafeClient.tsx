@@ -117,16 +117,21 @@ export function AromaCafeClient() {
       <div className="bg-ink text-paper">
         <section className="grain relative overflow-hidden border-b border-ink-line px-6 py-24 text-center">
           <div
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(217,119,6,0.14),transparent_60%)]"
-            aria-hidden
-          />
-          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-900 to-orange-800 text-white shadow-lg">
+            className="cinematic-in mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-900 to-orange-800 text-white shadow-lg"
+            style={{ animationDelay: "0s" }}
+          >
             <CoffeeMark className="h-16 w-16" />
           </div>
-          <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
+          <h1
+            className="cinematic-in mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl"
+            style={{ animationDelay: "0.08s" }}
+          >
             Aroma Cafe
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/92">
+          <p
+            className="cinematic-in mx-auto mt-4 max-w-md text-paper/92"
+            style={{ animationDelay: "0.16s" }}
+          >
             İstiliklə dolu hər fincan. Şəhərin mərkəzində sakit bir kofe künc.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-paper/76">
