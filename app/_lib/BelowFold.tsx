@@ -163,7 +163,7 @@ function FeaturedWork() {
 
         <Link
           href="/numuneler"
-          className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink/88 transition-colors hover:text-ink sm:hidden"
+          className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-paper/88 transition-colors hover:text-paper sm:hidden"
         >
           {t.featured.cta}
           <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
