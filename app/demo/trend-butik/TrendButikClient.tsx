@@ -17,13 +17,16 @@ const categories = [
   { id: "aksesuar", name: "Aksesuar" },
 ] as const;
 
+// Every photo below was downloaded and visually checked against its label
+// before being committed here — the previous set had the picture for a
+// completely different product in nearly every slot.
 const products = [
-  { id: "coat", category: "ust", name: "Klassik Palto", price: 89, photo: "1682031215004-161c99d5b225" },
-  { id: "sweater", category: "ust", name: "Yun Sviter", price: 45, photo: "1523742348304-8e67f3cafc08" },
-  { id: "shirt", category: "ust", name: "Yay Köynəyi", price: 29, photo: "1671288239289-f01976a87c43" },
-  { id: "jeans", category: "alt", name: "Cins Şalvar", price: 39, photo: "1560343090-f0409e92791a" },
-  { id: "bag", category: "aksesuar", name: "Dəri Çanta", price: 65, photo: "1658647362351-e4bc75c66cfd" },
-  { id: "shoes", category: "aksesuar", name: "İdman Ayaqqabı", price: 75, photo: "1542452255191-c85a98f2c5d1" },
+  { id: "coat", category: "ust", name: "Klassik Palto", price: 89, photo: "1603798125914-7b5d27789248" },
+  { id: "sweater", category: "ust", name: "Yun Sviter", price: 45, photo: "1631541909061-71e349d1f203" },
+  { id: "shirt", category: "ust", name: "Yay Köynəyi", price: 29, photo: "1581655353564-df123a1eb820" },
+  { id: "jeans", category: "alt", name: "Cins Şalvar", price: 39, photo: "1662219708541-3a74d96330eb" },
+  { id: "bag", category: "aksesuar", name: "Dəri Çanta", price: 65, photo: "1624687943971-e86af76d57de" },
+  { id: "shoes", category: "aksesuar", name: "İdman Ayaqqabı", price: 75, photo: "1544441892-83af2e53ea48" },
 ];
 
 type CartLine = { key: string; id: string; name: string; price: number; size: string; qty: number };
