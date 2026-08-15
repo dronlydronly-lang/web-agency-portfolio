@@ -103,21 +103,21 @@ function FeaturedWork() {
     .filter((e): e is NonNullable<typeof e> => Boolean(e));
 
   return (
-    <section className="bg-paper px-5 py-24 sm:px-8">
+    <section className="bg-ink px-5 py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-ink/76">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-paper/76">
               {t.featured.kicker}
             </p>
-            <h2 className="mt-4 font-serif text-3xl font-medium text-ink sm:text-4xl">
+            <h2 className="mt-4 font-serif text-3xl font-medium text-paper sm:text-4xl">
               {t.featured.title}
             </h2>
-            <p className="mt-3 max-w-md text-ink/82">{t.featured.subtitle}</p>
+            <p className="mt-3 max-w-md text-paper/82">{t.featured.subtitle}</p>
           </div>
           <Link
             href="/numuneler"
-            className="group hidden shrink-0 items-center gap-2 text-sm font-semibold text-ink/88 transition-colors hover:text-ink sm:inline-flex"
+            className="group hidden shrink-0 items-center gap-2 text-sm font-semibold text-paper/88 transition-colors hover:text-paper sm:inline-flex"
           >
             {t.featured.cta}
             <ArrowRightIcon className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
