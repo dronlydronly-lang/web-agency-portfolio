@@ -139,16 +139,21 @@ export function FotoStudioClient() {
       <div className="bg-ink text-paper">
         <section className="grain relative overflow-hidden border-b border-ink-line px-6 py-24 text-center">
           <div
-            className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_rgba(168,85,247,0.14),transparent_60%)]"
-            aria-hidden
-          />
-          <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-950 to-fuchsia-900 text-white shadow-lg">
+            className="cinematic-in mx-auto flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-950 to-fuchsia-900 text-white shadow-lg"
+            style={{ animationDelay: "0s" }}
+          >
             <CameraMark className="h-16 w-16" />
           </div>
-          <h1 className="mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl">
+          <h1
+            className="cinematic-in mt-6 font-serif text-4xl font-medium tracking-tight text-paper sm:text-5xl"
+            style={{ animationDelay: "0.08s" }}
+          >
             Foto Studio
           </h1>
-          <p className="mx-auto mt-4 max-w-md text-paper/92">
+          <p
+            className="cinematic-in mx-auto mt-4 max-w-md text-paper/92"
+            style={{ animationDelay: "0.16s" }}
+          >
             Anları əbədiləşdiririk. Yaradıcı baxış, peşəkar nəticə.
           </p>
         </section>
