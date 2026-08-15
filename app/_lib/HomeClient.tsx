@@ -62,11 +62,11 @@ export function TopBar() {
           {AGENCY_NAME}
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-paper/84 md:flex">
-          <Link href="/numuneler" className="transition-colors hover:text-paper">
+        <nav className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-wider text-paper/84 md:flex">
+          <Link href="/numuneler" className="transition-colors duration-200 ease hover:text-paper">
             {t.nav.work}
           </Link>
-          <Link href="/#elaqe" className="transition-colors hover:text-paper">
+          <Link href="/#elaqe" className="transition-colors duration-200 ease hover:text-paper">
             {t.nav.contact}
           </Link>
         </nav>
@@ -77,7 +77,7 @@ export function TopBar() {
             href={HEADER_WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-md bg-gold px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-gold-soft sm:flex"
+            className="hidden items-center gap-2 rounded-md bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink transition-[background-color,transform] duration-200 ease-out hover:bg-gold-soft active:scale-[0.97] sm:flex"
           >
             <WhatsAppIcon className="h-4 w-4" />
             {t.header.whatsapp}
