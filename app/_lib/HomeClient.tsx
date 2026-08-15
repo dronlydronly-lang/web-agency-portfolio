@@ -128,8 +128,8 @@ function Hero() {
             >
               <defs>
                 <linearGradient id="hero-underline" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#c5b39c" />
-                  <stop offset="100%" stopColor="#d6c4ac" />
+                  <stop offset="0%" stopColor="#7c5430" />
+                  <stop offset="100%" stopColor="#96693d" />
                 </linearGradient>
               </defs>
               <path
