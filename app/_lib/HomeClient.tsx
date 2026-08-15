@@ -5,6 +5,7 @@ import { AGENCY_NAME, WHATSAPP_URL, whatsappUrl } from "./constants";
 import { useLanguage, type Lang } from "./i18n";
 import { ArrowRightIcon, WhatsAppIcon } from "./icons";
 import { translations } from "./translations";
+import { useMagnetic } from "./useMagnetic";
 
 const HEADER_WHATSAPP_URL = whatsappUrl(
   "Salam, veb-sayt hazırlanması haqqında məlumat almaq istərdim"
