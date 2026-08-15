@@ -104,15 +104,6 @@ function Hero() {
 
   return (
     <section className="grain relative overflow-hidden border-b border-ink-line bg-ink px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
-      <div
-        className="drift-slow pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-gold/[0.08] blur-[130px]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-gold-soft/[0.06] blur-[110px]"
-        aria-hidden
-      />
-
       <div className="relative mx-auto max-w-4xl">
         <p
           className="cinematic-in flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold"
