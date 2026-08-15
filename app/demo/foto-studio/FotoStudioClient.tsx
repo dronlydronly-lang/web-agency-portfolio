@@ -55,7 +55,7 @@ function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-ink/95 px-6 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-paper/95 px-6 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
